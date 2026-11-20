@@ -847,3 +847,86 @@ a.cp:hover .cp-ph img{transform:scale(1.05)}
 .pd-one{margin-bottom:4px}
 .pd-mods{margin-top:18px}
 .pd-custom{margin-top:18px}
+
+/* ===== 차별화된 서비스: 가로로 펼쳐지는 패널 (마우스 올리면 열림) ===== */
+.sv-acc{display:flex;gap:12px;height:clamp(440px,38vw,560px)}
+.sva{position:relative;flex:1 1 0;min-width:0;border-radius:var(--radius-xl);overflow:hidden;color:#fff;background:#1B2241;isolation:isolate;
+  transition:flex-grow .7s var(--ease),box-shadow .5s var(--ease)}
+.sva.on{flex-grow:3.4;box-shadow:0 26px 60px rgba(27,34,65,.25)}
+.sva-bg{position:absolute;inset:0;z-index:-1}
+.sva-bg img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 1.4s var(--ease),filter .7s}
+.sva:not(.on) .sva-bg img{filter:saturate(.6) brightness(.75);transform:scale(1.08)}
+.sva-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,33,.25) 0%,rgba(14,17,33,.55) 45%,rgba(14,17,33,.94) 100%);transition:background .7s}
+.sva:not(.on) .sva-bg::after{background:linear-gradient(180deg,rgba(20,26,56,.72),rgba(14,17,33,.9))}
+.sva-closed{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:26px 0 30px;transition:opacity .4s}
+.sva-closed b{writing-mode:vertical-rl;font-family:var(--font-head);font-size:clamp(18px,1.4vw,22px);font-weight:800;letter-spacing:.02em}
+.sva.on .sva-closed{opacity:0;pointer-events:none}
+.sva-open{position:absolute;left:0;right:0;bottom:0;display:block;padding:clamp(26px,2.6vw,44px);max-width:640px;opacity:0;transform:translateY(16px);transition:opacity .45s,transform .6s var(--ease)}
+.sva.on .sva-open{opacity:1;transform:none;transition-delay:.25s}
+.sva .ds-ic{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.sva-closed .ds-ic{margin:0}
+.sva.on .ds-ic{background:var(--cta);border-color:var(--cta)}
+.sva h3{margin:0;font-family:var(--font-head);font-size:clamp(24px,2vw,32px);font-weight:800;letter-spacing:-.03em;line-height:1.25;color:#fff}
+.sva p{margin:12px 0 0;font-size:var(--fs-body);line-height:1.65;color:rgba(255,255,255,.8)}
+.sva .ds-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.sva .ds-chips i{font-style:normal;display:inline-flex;align-items:center;gap:6px;padding:7px 12px 7px 9px;border-radius:999px;font-size:13.5px;font-weight:700;line-height:1;
+  background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.sva .ds-chips i::before{content:"";width:15px;height:15px;border-radius:50%;flex:none;background:#fff center/9px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3.4' fill='none' stroke='%233A6BFF' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.sva .ds-go{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-size:15px;font-weight:700;color:#fff}
+.sva .ds-go .ar{transition:transform .3s var(--ease)}
+.sva.on:hover .ds-go .ar{transform:translateX(5px)}
+@media (max-width:900px){
+  .sv-acc{flex-direction:column;height:auto}
+  .sva,.sva.on{flex:none;min-height:400px}
+  .sva-closed{display:none}
+  .sva .sva-open{opacity:1;transform:none}
+  .sva:not(.on) .sva-bg img{filter:none;transform:none}
+  .sva:not(.on) .sva-bg::after{background:linear-gradient(180deg,rgba(14,17,33,.2),rgba(14,17,33,.94))}
+  .sva .ds-ic{background:var(--cta);border-color:var(--cta)}
+}
+
+/* ===== 고민: 스크롤하면 하나씩 채워지는 체크리스트 ===== */
+.wl-in{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,100px);align-items:start}
+.wl-head{position:sticky;top:calc(var(--hdr-h) + 56px)}
+.wl-head .h2{text-align:left}
+.wl-head .lead{margin-top:18px;max-width:440px}
+.wl-meter{display:flex;align-items:center;gap:14px;margin-top:30px;max-width:420px}
+.wl-bar{flex:1;height:6px;border-radius:99px;background:#E6EAF5;overflow:hidden}
+.wl-bar i{display:block;height:100%;width:var(--wl,0%);background:linear-gradient(90deg,#3A6BFF,#7C9BFF);border-radius:inherit;transition:width .5s var(--ease)}
+.wl-meter em{font-style:normal;font-size:14px;font-weight:700;color:var(--muted);white-space:nowrap}
+.wl-meter b{color:var(--cta);font-variant-numeric:tabular-nums}
+.wl-go{display:inline-flex;align-items:center;gap:8px;margin-top:26px;padding:12px 18px;border-radius:999px;background:var(--navy);color:#fff;font-size:15px;font-weight:700;
+  opacity:.35;pointer-events:none;transition:opacity .5s,background .3s}
+.wl.done .wl-go{opacity:1;pointer-events:auto}
+.wl-go:hover{background:var(--cta)}
+.wl-go .ar{transition:transform .3s var(--ease)}
+.wl-go:hover .ar{transform:translateY(3px)}
+.wl-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.wl-list li{display:grid;grid-template-columns:28px 48px 1fr;gap:16px;align-items:center;padding:24px 26px;border-radius:var(--radius-lg);background:#fff;border:1px solid var(--line);
+  opacity:.45;transform:translateX(14px);transition:opacity .5s var(--ease),transform .6s var(--ease),border-color .4s,box-shadow .4s}
+.wl-list li.on{opacity:1;transform:none;border-color:#C9D6FF;box-shadow:0 14px 34px rgba(58,107,255,.1)}
+.wl-box{width:26px;height:26px;border-radius:8px;border:2px solid #CDD3E3;background:#fff;transition:background .35s,border-color .35s}
+.wl-list li.on .wl-box{border-color:var(--cta);background:var(--cta) center/15px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3.4' fill='none' stroke='white' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.wl-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:#EEF2FF;color:var(--cta)}
+.wl-list b{display:block;font-family:var(--font-head);font-size:clamp(18px,1.25vw,21px);font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.wl-list p{margin:4px 0 0;font-size:var(--fs-body);line-height:1.6;color:var(--muted)}
+html.reduce .wl-list li{opacity:1;transform:none}
+@media (max-width:900px){
+  .wl-in{grid-template-columns:1fr}
+  .wl-head{position:static}
+  .wl-list li{grid-template-columns:24px 1fr;padding:18px}
+  .wl-ic{display:none}
+}
+
+/* LABS 3D 아이콘(유리 질감) 타일 */
+.ic3{display:grid;place-items:center;overflow:hidden;background:#fff!important;border:0!important;box-shadow:0 8px 22px rgba(14,17,33,.22),inset 0 0 0 1px rgba(255,255,255,.6)}
+.ic3 img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--ease)}
+.ds-ic.ic3{width:60px;height:60px;border-radius:18px;margin-bottom:18px;backdrop-filter:none}
+.sva-closed .ds-ic.ic3{width:54px;height:54px;border-radius:16px}
+.sva.on .ds-ic.ic3 img,.sva:hover .ds-ic.ic3 img{transform:scale(1.08)}
+.lx-ic.ic3{width:44px;height:44px;border-radius:13px;flex:none}
+.lx-list li:not(.on) .lx-ic.ic3{opacity:.7;filter:saturate(.6)}
+.lx-list li.on .lx-ic.ic3{opacity:1;filter:none;background:#fff!important;box-shadow:0 0 0 2px rgba(120,150,255,.7),0 10px 26px rgba(58,107,255,.35)}
+
+.sva .ds-go{border:0;padding:0;height:auto;border-radius:0;background:none}
+@media (max-width:900px){.sva .sva-bg::after,.sva:not(.on) .sva-bg::after{background:linear-gradient(180deg,rgba(14,17,33,.35) 0%,rgba(14,17,33,.85) 40%,rgba(14,17,33,.96) 100%)}}

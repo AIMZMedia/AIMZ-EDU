@@ -456,10 +456,39 @@
     }
   }
 
+
+  /* 차별화된 서비스: 가로 펼침 패널 */
+  function initAcc(scope) {
+    scope.querySelectorAll('[data-acc]').forEach(acc => {
+      if (acc.dataset.accOn) return; acc.dataset.accOn = '1';
+      const ps = [...acc.querySelectorAll('.sva')];
+      const open = p => ps.forEach(x => x.classList.toggle('on', x === p));
+      ps.forEach(p => {
+        p.addEventListener('mouseenter', () => open(p));
+        p.addEventListener('focus', () => open(p));
+        p.addEventListener('click', e => { if (!p.classList.contains('on') && matchMedia('(min-width:901px)').matches) { e.preventDefault(); open(p); } });
+      });
+    });
+  }
+  /* 고민 체크리스트: 화면 아래쪽 선을 지나면 체크 */
+  function initWorry(scope) {
+    const list = scope.querySelector('[data-wl]'); if (!list || list.dataset.wlOn) return; list.dataset.wlOn = '1';
+    const sec = list.closest('.wl'), lis = [...list.children], n = sec.querySelector('.wl-n');
+    const upd = () => {
+      if (!document.body.contains(list)) { removeEventListener('scroll', upd); return; }
+      const line = innerHeight * 0.62; let c = 0;
+      lis.forEach(li => { const on = li.getBoundingClientRect().top < line; li.classList.toggle('on', on); if (on) c++; });
+      if (n) n.textContent = c;
+      sec.style.setProperty('--wl', (c / lis.length * 100) + '%');
+      sec.classList.toggle('done', c === lis.length);
+    };
+    addEventListener('scroll', upd, { passive: true }); upd();
+  }
+
   function initPage() {
     const scope = $('main');
     if (hasGsap) ctx = gsap.context(() => initMotion(scope), scope);
-    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope); initLabs(scope);
+    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope); initLabs(scope); initAcc(scope); initWorry(scope);
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {
