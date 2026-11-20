@@ -624,3 +624,25 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 /* LABS 한 화면 맞춤: 머리말 높이만큼 비우고 화면 안에 딱 */
 .labs-x{padding-top:calc(var(--hdr-h) + 16px);padding-bottom:16px}
 .lx-card{min-height:calc(100vh - var(--hdr-h) - 32px);min-height:calc(100svh - var(--hdr-h) - 32px)}
+
+/* AIMZ LABS — 화면 전체를 검정으로 꽉 채운다 (카드 테두리 없이 끝에서 끝까지) */
+.labs-x{min-height:100vh;min-height:100svh;padding:0;background:#07080F!important}
+.labs-x>.wrap{max-width:none;padding:0}
+.labs-x .lx-card{min-height:100vh;min-height:100svh;border-radius:0;background:#07080F;
+  padding:calc(var(--hdr-h) + clamp(32px,5vh,64px)) max(var(--gutter),calc((100vw - 1480px)/2)) clamp(40px,6vh,72px);
+  grid-template-columns:minmax(0,1fr) minmax(0,1.2fr)}
+.labs-x .lx-card::before{border-radius:0;padding:0;-webkit-mask:none;mask:none;background:none;animation:none}
+.labs-x .lx-aura{inset:-10%;opacity:1;background:
+  radial-gradient(40% 50% at 78% 35%,rgba(58,107,255,.55),transparent 70%),
+  radial-gradient(35% 45% at 12% 85%,rgba(58,107,255,.3),transparent 70%),
+  radial-gradient(30% 35% at 50% 0%,rgba(140,165,255,.22),transparent 70%)}
+.labs-x .lx-stars{background-size:100% 100%;opacity:1}
+.labs-x .lx-stars::after{content:"";position:absolute;inset:0;
+  background-image:radial-gradient(1.4px 1.4px at 22% 40%,#fff 50%,transparent 51%),radial-gradient(1.8px 1.8px at 38% 92%,#C9D3FF 50%,transparent 51%),
+  radial-gradient(1.3px 1.3px at 70% 30%,#fff 50%,transparent 51%),radial-gradient(2px 2px at 86% 82%,#fff 50%,transparent 51%),
+  radial-gradient(1.2px 1.2px at 58% 6%,#C9D3FF 50%,transparent 51%),radial-gradient(1.6px 1.6px at 4% 46%,#fff 50%,transparent 51%);
+  animation:twinkle 2.4s ease-in-out infinite alternate-reverse}
+.labs-x .lx-logo{height:clamp(36px,3.2vw,52px)}
+.labs-x .lx-title{font-size:clamp(34px,3.6vw,60px)}
+.labs-x .lx-shot{box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 120px rgba(58,107,255,.45)}
+@media (max-width:1000px){.labs-x .lx-card{grid-template-columns:1fr;min-height:0}}
