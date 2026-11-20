@@ -8,7 +8,7 @@
 /* 영상 자체에는 움직임을 넣지 않고(떨림 방지), 화면에서 아주 천천히 다가가게만 한다 */
 @keyframes vhDrift{from{transform:scale(1)}to{transform:scale(1.06)}}
 @media (prefers-reduced-motion:reduce){.vh-video{animation:none}}
-.vh-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,37,.45) 0%,rgba(24,24,37,.55) 50%,rgba(24,24,37,.72) 100%)}
+.vh-shade{position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 50% 54%,rgba(24,24,37,.55),rgba(24,24,37,.38) 75%),linear-gradient(180deg,rgba(24,24,37,.35),rgba(24,24,37,.2) 40%,rgba(24,24,37,.55))}
 .vh-copy{position:relative;z-index:1;display:grid;justify-items:center;gap:0}
 .vh-copy .eyebrow{color:rgba(255,255,255,.78)}
 .vh-copy .h1{text-wrap:balance;margin-top:0;color:#fff;font-size:clamp(40px,5.4vw,80px);text-shadow:0 2px 40px rgba(0,0,0,.35)}
@@ -149,8 +149,8 @@
 .ts-core span{margin-top:6px;padding:3px 10px;border-radius:999px;background:var(--cta);font-size:12.5px;font-weight:700}
 @media (prefers-reduced-motion:reduce){.ts-ring{animation:none}}
 
-.ab-bridge{margin-top:clamp(88px,10vw,140px);text-align:center}
-.ab-say{margin:0;font-family:var(--font-head);font-size:clamp(34px,4.6vw,76px);line-height:1.18;letter-spacing:-.045em;font-weight:800;padding-block:clamp(24px,4vw,56px)}
+.ab-bridge{margin-top:clamp(56px,6vw,88px);text-align:center}
+.ab-say{margin:0;font-family:var(--font-head);font-size:clamp(34px,4.6vw,76px);line-height:1.18;letter-spacing:-.045em;font-weight:800;padding-block:clamp(8px,1.5vw,20px)}
 .ab-say .fw{display:inline-block;will-change:transform,opacity,filter}
 .ab-bridge .lead{margin:18px auto 0;max-width:640px}
 .flow{position:relative;list-style:none;margin:clamp(44px,5vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);text-align:left}

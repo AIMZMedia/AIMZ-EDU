@@ -240,10 +240,12 @@
 
     /* data-vhero : 첫 화면 영상 — 내리면 영상은 다가오며 어두워지고 글은 위로 빠진다 */
     $$('[data-vhero]', scope).forEach(h => {
-      gsap.timeline({ scrollTrigger: { trigger: h, start: 'top top', end: 'bottom top', scrub: true } })
-        .to($('.vh-media', h), { scale: 1.12, filter: 'brightness(.4)', ease: 'none' }, 0)
-        .to($('.vh-copy', h), { yPercent: -18, opacity: 0, ease: 'none' }, 0)
-        .to($('.vh-foot', h), { opacity: 0, ease: 'none', duration: .4 }, 0);
+      /* 처음엔 어둡게(글과 Contact 가 또렷), 내리면 글은 위로 빠지고 막이 걷히며 사진이 드러난다 */
+      gsap.timeline({ scrollTrigger: { trigger: h, start: 'top top', end: 'bottom top', scrub: .5 } })
+        .to($('.vh-copy', h), { yPercent: -30, opacity: 0, ease: 'power1.in', duration: .45 }, 0)
+        .to($('.vh-foot', h), { opacity: 0, duration: .2 }, 0)
+        .to($('.vh-shade', h), { opacity: .15, ease: 'none', duration: .55 }, 0)
+        .fromTo($('.vh-media', h), { scale: 1.06 }, { scale: 1, ease: 'none', duration: 1 }, 0);
     });
     /* 첫 화면 제목: 불러오자마자 */
     $$('[data-split="load"]', scope).forEach(el => {
@@ -293,8 +295,8 @@
       if (el.hasAttribute('data-fill-pin') && matchMedia('(min-width: 901px)').matches) {
         /* 화면 가운데에 멈춘 채, 내리는 만큼 낱말이 차례로 또렷해지고 살짝 떠오른다 */
         const box = el.closest('.ab-bridge') || el.parentElement;
-        gsap.timeline({ scrollTrigger: { trigger: el, start: 'center 52%', end: '+=85%', pin: box.querySelector('.ab-say-pin') || el, scrub: .6, anticipatePin: 1 } })
-          .fromTo(words, { opacity: .12, y: 18, filter: 'blur(6px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', ease: 'power2.out', stagger: .14, duration: .6 })
+        gsap.timeline({ scrollTrigger: { trigger: el.closest('.ab-say-pin') || el, start: 'center 50%', end: '+=30%', pin: el.closest('.ab-say-pin') || el, scrub: .5, anticipatePin: 1 } })
+          .fromTo(words, { opacity: .12, y: 14, filter: 'blur(5px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', ease: 'power2.out', stagger: .1, duration: .5 })
           .to({}, { duration: .3, onStart: () => $$('.hl', el).forEach(h => h.classList.add('on')), onReverseComplete: () => $$('.hl', el).forEach(h => h.classList.remove('on')) });
       } else {
         gsap.fromTo(words, { opacity: .12 }, { opacity: 1, ease: 'none', stagger: .12,
