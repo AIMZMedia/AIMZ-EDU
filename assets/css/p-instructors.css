@@ -94,3 +94,23 @@ html.js:not(.reduce) .in-photo img{animation:inZoom 2s var(--ease-out) .15s both
   .lc-list li{grid-template-columns:minmax(0,1fr) auto}
   .lc-list p{grid-column:1/-1;grid-row:2}
 }
+
+/* ===== 강사진 4명 (2026-11 개편: 얼굴은 작게, 글은 또렷하게) ===== */
+.tm-hero{padding-bottom:clamp(64px,8vw,104px)}
+.tm-hero .sec-head .lead{max-width:760px}
+.tm-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.tm{display:flex;flex-direction:column;padding:24px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);transition:border-color .3s,box-shadow .3s}
+.tm:hover{border-color:var(--ink);box-shadow:var(--shadow)}
+.tm-head{display:flex;align-items:center;gap:14px}
+.tm-head img,.tm-ph{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 16%;flex:none;background:#fff;border:1px solid var(--line)}
+.tm-ph{background:var(--surface-3) center/24px no-repeat url("/assets/logo/favicon.png");opacity:.6}
+.tm-role{margin:0;font-size:12.5px;font-weight:600;color:var(--faint)}
+.tm-name{margin:2px 0 0;font-family:var(--font-head);font-size:22px;font-weight:800;letter-spacing:-.03em}
+.tm-aff{margin:16px 0 0;font-size:14px;color:var(--muted);line-height:1.6}
+.tm-list{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--line)}
+.tm-list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.tm-facts{margin:auto 0 0;padding-top:16px;font-size:12.5px;color:var(--faint);line-height:1.6}
+.tm.tbd{border-style:dashed;background:transparent}
+.tm.tbd .tm-name,.tm.tbd .tm-aff,.tm.tbd .tm-list li,.tm.tbd .tm-role{color:var(--faint)}
+@media (max-width:1080px){.tm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.tm-grid{grid-template-columns:1fr}}
