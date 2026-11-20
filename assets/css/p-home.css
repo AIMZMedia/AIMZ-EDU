@@ -4,7 +4,10 @@
 .vhero{position:sticky;top:var(--hdr-h);z-index:0;height:calc(100vh - var(--hdr-h));height:calc(100svh - var(--hdr-h));min-height:560px;margin-top:var(--hdr-h);
   overflow:hidden;display:grid;place-items:center;text-align:center;background:var(--black);color:#fff}
 .vh-media{position:absolute;inset:0;transform-origin:50% 45%}
-.vh-video{width:100%;height:100%;object-fit:cover}
+.vh-video{width:100%;height:100%;object-fit:cover;transform-origin:50% 50%;will-change:transform;animation:vhDrift 16s ease-in-out infinite alternate}
+/* 영상 자체에는 움직임을 넣지 않고(떨림 방지), 화면에서 아주 천천히 다가가게만 한다 */
+@keyframes vhDrift{from{transform:scale(1)}to{transform:scale(1.06)}}
+@media (prefers-reduced-motion:reduce){.vh-video{animation:none}}
 .vh-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,37,.34) 0%,rgba(24,24,37,.46) 50%,rgba(24,24,37,.66) 100%)}
 .vh-copy{position:relative;z-index:1;display:grid;justify-items:center;gap:0}
 .vh-copy .eyebrow{color:rgba(255,255,255,.78)}
@@ -50,6 +53,8 @@
 .svc-img img{width:100%;height:100%;object-fit:cover}
 .step{display:flex;gap:10px;align-items:center;margin:0;font-size:13px;font-weight:700;color:var(--faint)}
 .step b{font-family:var(--font-head);letter-spacing:.12em;color:var(--ink);padding:4px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.step b{display:inline-flex;align-items:center;gap:7px}
+.step b::before{content:"";width:10px;height:9px;background:var(--ink);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 21'%3E%3Cpath d='M12 0 24 21H0Z M12 21 6 10.5h12Z' fill='black' fill-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 21'%3E%3Cpath d='M12 0 24 21H0Z M12 21 6 10.5h12Z' fill='black' fill-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat}
 .svc-txt .h3{margin-top:16px;font-size:clamp(26px,2.6vw,36px)}
 .svc-one{margin:12px 0 0;font-size:clamp(16px,1.3vw,18px);color:var(--muted)}
 .svc-dl{margin:26px 0 0;border-top:1px solid var(--line)}
@@ -79,20 +84,51 @@
   background:rgba(255,255,255,.14);backdrop-filter:blur(8px);font-size:18px;transition:background .3s,transform .4s var(--ease)}
 .aud-card:hover::before{background:#fff;color:var(--navy);transform:rotate(-45deg)}
 
-/* 7. LABS */
-.labs-in{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
-.labs-in img{height:24px;width:auto}
-.labs-in .h3{margin-top:18px}
-.labs-in p{margin:10px 0 0;color:var(--d-muted);max-width:620px}
+/* 7. LABS — 파란 빛이 도는 입구 카드 */
+.labs-sec{padding-top:0}
+.lb-card{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;
+  padding:clamp(32px,4.5vw,64px);border-radius:var(--radius-xl);overflow:hidden;color:#fff;background:#0E1124;border:1px solid rgba(58,107,255,.28);
+  --mx:70%;--my:40%;transition:border-color .4s,box-shadow .5s var(--ease)}
+.lb-card:hover{border-color:rgba(58,107,255,.6);box-shadow:0 30px 80px rgba(58,107,255,.22)}
+/* 천천히 흐르는 파란 빛 + 마우스 자리 빛 */
+.lb-aura{position:absolute;inset:-30%;z-index:-1;pointer-events:none;
+  background:radial-gradient(40% 50% at 78% 30%,rgba(58,107,255,.55),transparent 70%),radial-gradient(35% 45% at 20% 90%,rgba(27,34,65,.9),transparent 70%),radial-gradient(30% 40% at 60% 80%,rgba(120,150,255,.25),transparent 70%);
+  filter:blur(10px);animation:aura 14s ease-in-out infinite alternate}
+@keyframes aura{to{transform:translate3d(-6%,4%,0) rotate(8deg)}}
+.lb-card[data-glow]::after{background:radial-gradient(380px circle at var(--mx) var(--my),rgba(90,130,255,.28),transparent 60%)}
+.lb-txt{position:relative}
+.lb-txt img{height:26px;width:auto}
+.lb-txt .h2{margin-top:22px;color:#fff}
+.lb-txt .hl{background-image:linear-gradient(transparent 64%,rgba(58,107,255,.55) 64%,rgba(58,107,255,.55) 92%,transparent 92%)}
+.lb-txt>p{margin:16px 0 0;color:rgba(255,255,255,.72);font-size:16px}
+.lb-points{list-style:none;margin:24px 0 30px;padding:0;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.12);max-width:440px}
+.lb-points li{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px;color:rgba(255,255,255,.7)}
+.lb-points b{color:#fff;font-weight:700}
+.lb-card .labs-glow{pointer-events:none}
+.lb-card:hover .labs-glow{color:var(--labs-blue)!important;box-shadow:0 0 0 1px rgba(58,107,255,.35),0 0 28px var(--labs-glow),0 0 70px rgba(58,107,255,.22)}
+/* LABS 실제 화면 — 비스듬히 떠 있다가 마우스를 올리면 바로 선다 */
+.lb-shot{perspective:1400px}
+.lb-frame{position:relative;border-radius:14px;overflow:hidden;background:#fff;padding-top:26px;
+  transform:rotateY(-14deg) rotateX(6deg) translateX(4%);transform-origin:0 50%;
+  box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08),0 0 60px rgba(58,107,255,.35);transition:transform .9s var(--ease)}
+.lb-card:hover .lb-frame{transform:rotateY(-4deg) rotateX(2deg) translateX(0)}
+.lb-frame i{position:absolute;top:9px;width:9px;height:9px;border-radius:50%;background:#E4E3E6}
+.lb-frame i:nth-child(1){left:12px} .lb-frame i:nth-child(2){left:27px} .lb-frame i:nth-child(3){left:42px}
+.lb-frame img{width:100%;height:auto;display:block}
+@media (prefers-reduced-motion:reduce){.lb-aura{animation:none}}
 
 @media (max-width:900px){
   .svc-row{grid-template-columns:1fr}
   .svc-row.rev .svc-img{order:0}
   .aud{grid-template-columns:1fr}
+  .lb-card{grid-template-columns:1fr}
+  .lb-frame{transform:none}
+  .lb-txt>p br{display:none}
   .aud-card{min-height:380px}
 }
 @media (max-width:640px){
   .vh-copy .btns .btn{width:100%}
   .svc-dl>div{grid-template-columns:60px 1fr}
+  .lb-points li{grid-template-columns:1fr;gap:2px}
 }
 @media (prefers-reduced-motion:reduce){.vh-hint i::after{animation:none}}

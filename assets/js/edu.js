@@ -13,7 +13,7 @@
   const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const hasGsap = !!(window.gsap && window.ScrollTrigger) && !reduce;
   if (reduce) root.classList.add('reduce');
-  if (!hasGsap) root.classList.add('reduce'); /* 라이브러리를 못 받으면 숨김 상태를 풀어 둔다 */
+  if (!hasGsap) root.classList.add('reduce'); /* 라이브러리를 못 받으면 숨김 상태를 풀어 둔다 (밑줄도 바로 보인다) */
   if (hasGsap) gsap.registerPlugin(ScrollTrigger);
 
   /* ---------------- 부드러운 스크롤 ---------------- */
@@ -265,6 +265,8 @@
     });
     /* 숫자 */
     $$('[data-count]', scope).forEach(countUp);
+    /* 포인트 밑줄 */
+    $$('.hl', scope).forEach(el => ScrollTrigger.create({ trigger: el, start: 'top 82%', once: true, onEnter: () => el.classList.add('on') }));
     /* data-parallax="0.2" : 스크롤보다 느리게/빠르게 */
     $$('[data-parallax]', scope).forEach(el => {
       const s = parseFloat(el.dataset.parallax) || .15;

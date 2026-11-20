@@ -125,8 +125,21 @@ button{font:inherit;color:inherit;cursor:pointer}
 .nav a{position:relative;padding:8px 12px;font-size:14.5px;font-weight:600;border-radius:9px;opacity:.78;transition:opacity .2s,background .2s}
 .nav a:hover,.nav a[aria-current="page"]{opacity:1}
 .nav a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;border-radius:2px;background:var(--accent)}
-.nav a.nav-ext{color:var(--faint)}
-.nav a.nav-ext:hover{color:var(--ink)}
+/* AIMZ LABS 링크 — 올리거나 누르면 LABS 쪽 파란 빛이 돈다 */
+:root{--labs-blue:#3A6BFF;--labs-glow:rgba(58,107,255,.45)}
+.nav a.nav-ext{color:var(--faint);transition:color .35s var(--ease),text-shadow .35s var(--ease),background-color .35s}
+.nav a.nav-ext:hover,.nav a.nav-ext:focus-visible{color:var(--labs-blue);text-shadow:0 0 14px var(--labs-glow);background:rgba(58,107,255,.07)}
+.nav a.nav-ext:active{text-shadow:0 0 22px var(--labs-glow),0 0 2px var(--labs-blue)}
+.labs-glow{transition:color .35s var(--ease),box-shadow .45s var(--ease),border-color .35s,transform .35s var(--ease)}
+.labs-glow:hover,.labs-glow:focus-visible{color:var(--labs-blue)!important;border-color:rgba(58,107,255,.55)!important;
+  box-shadow:0 0 0 1px rgba(58,107,255,.35),0 0 28px var(--labs-glow),0 0 70px rgba(58,107,255,.22)}
+.labs-glow:active{transform:scale(.98);box-shadow:0 0 0 1px rgba(58,107,255,.6),0 0 40px rgba(58,107,255,.6)}
+
+/* 포인트 밑줄 — 제목의 핵심어 아래로 옅은 파란 띠가 스크롤에 맞춰 그어진다 */
+.hl{background:linear-gradient(transparent 64%,rgba(58,107,255,.2) 64%,rgba(58,107,255,.2) 92%,transparent 92%) no-repeat 0 0/0% 100%;
+  transition:background-size 1.1s var(--ease-out) .25s;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hl.on,html.reduce .hl{background-size:100% 100%}
+.dark .hl{background-image:linear-gradient(transparent 64%,rgba(58,107,255,.38) 64%,rgba(58,107,255,.38) 92%,transparent 92%)}
 .hdr-act{display:flex;gap:8px;align-items:center}
 .burger{display:none;width:42px;height:42px;border:0;border-radius:10px;background:transparent;position:relative}
 .burger span{position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:currentColor;transition:transform .35s var(--ease),top .35s var(--ease)}
