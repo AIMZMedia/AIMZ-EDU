@@ -709,3 +709,14 @@ main .products h3{line-height:1.3;font-size:clamp(22px,1.5vw,26px)}
   .ab-top{grid-template-columns:1fr!important}
   .ab-top .reel,.ab-top [data-reel]{width:100%}
 }
+
+/* ===== 검토 2차: 자잘한 정리 ===== */
+/* 줄 끝에 한 단어만 남는 것 방지 */
+main .lead,main .h2,main .ab-say,.lx-title,.lx-lead{text-wrap:balance}
+main p{text-wrap:pretty}
+/* LABS 내용 좌우 끝을 다른 구획과 같은 선에 */
+.labs-x .lx-card{padding-inline:calc(max(0px,(100vw - var(--wrap)) / 2) + var(--gutter))}
+/* 움직임 줄이기 설정에서도 첫 화면 글자가 잘 읽히게 */
+html.reduce .vhero.vh-black .vh-shade{opacity:.9}
+/* 강사진 위 사진: 무대 특강 사진은 가운데 기준 */
+.crew-photo img{object-position:center 45%}
