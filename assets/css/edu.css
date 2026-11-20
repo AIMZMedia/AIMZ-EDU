@@ -546,3 +546,6 @@ html.reduce .fw{opacity:1!important}
 .dark .sec-mark{display:none}
 
 .sec-mark{display:none!important}
+
+/* 삼각형 장식 모두 빼기 (사용자) */
+.eyebrow::before,.tips-stamp i,.sec-mark{display:none!important}

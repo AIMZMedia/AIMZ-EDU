@@ -5,3 +5,5 @@ desktop.ini
 
 # 사용자가 넣어 두는 원본 자료 (사이트에 쓸 것만 assets로 옮긴다)
 _자료/
+
+.vercel
