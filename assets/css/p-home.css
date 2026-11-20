@@ -802,3 +802,39 @@ html.reduce .vhero.vh-black .vh-shade{opacity:.9}
 .ds-grid.ds-bento{grid-auto-rows:minmax(460px,auto)}
 .ds-wide .ds-img::after{background:linear-gradient(180deg,rgba(14,17,33,.05) 0%,rgba(14,17,33,.55) 45%,rgba(14,17,33,.94) 100%)}
 .ds-ui .ds-img{min-height:120px}
+
+/* ===== 사내 전문 인력: 세로(3:4) 인물 카드 + 현장 사진 3장 ===== */
+.crew-x{max-width:1200px;margin:clamp(40px,4.5vw,64px) auto 0;text-align:left}
+.crew-people{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.cp{display:flex;flex-direction:column;border-radius:var(--radius-xl);background:#fff;border:1px solid var(--line);overflow:hidden;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s}
+a.cp:hover{transform:translateY(-6px);border-color:var(--cta);box-shadow:0 24px 50px rgba(58,107,255,.16)}
+.cp-ph{position:relative;margin:0;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(180deg,#EEF2FB 0%,#DCE4F7 100%)}
+.cp-ph img{width:100%;height:100%;object-fit:cover;object-position:center top;mix-blend-mode:multiply;transition:transform 1s var(--ease)}
+a.cp:hover .cp-ph img{transform:scale(1.05)}
+.cp-ph::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(180deg,transparent,rgba(27,34,65,.08))}
+.cp-b{display:flex;flex-direction:column;flex:1;padding:20px 20px 22px}
+.cp-r{margin:0;font-size:13px;font-weight:700;color:var(--cta)}
+.cp h4{margin:4px 0 0;font-family:var(--font-head);font-size:clamp(20px,1.5vw,24px);font-weight:800;letter-spacing:-.03em;line-height:1.3}
+.cp-one{margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--muted)}
+.cp-tags{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 0;padding-top:16px}
+.cp-tags span{height:26px;display:inline-flex;align-items:center;padding:0 11px;border-radius:999px;background:#EEF2FF;color:#2F5DF0;font-size:12.5px;font-weight:700}
+.cp.tbd{background:transparent;border-style:dashed}
+.cp-empty{display:grid;place-items:center;background:repeating-linear-gradient(135deg,#F3F4F8 0 12px,#EEF0F5 12px 24px)}
+.cp-empty svg{width:46%;fill:#DADFEA;margin-top:12%}
+.cp-empty span{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);white-space:nowrap;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-size:12px;font-weight:700;color:var(--faint)}
+.cp.tbd .cp-r,.cp.tbd h4,.cp.tbd .cp-one{color:var(--faint)}
+.cp.tbd .cp-tags span{background:var(--surface-3);color:var(--faint)}
+/* 현장 사진 3장: 큰 1 + 작은 2 */
+.crew-field{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px;height:clamp(320px,34vw,480px)}
+.cf{position:relative;margin:0;border-radius:var(--radius-xl);overflow:hidden;background:var(--surface-3)}
+.cf-big{grid-row:span 2}
+.cf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
+.cf:hover img{transform:scale(1.05)}
+.cf figcaption{position:absolute;left:14px;bottom:14px;padding:7px 13px;border-radius:999px;background:rgba(24,24,37,.62);color:#fff;font-size:13px;font-weight:600;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+@media (max-width:1000px){.crew-people{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){
+  .crew-people{gap:10px}.cp-b{padding:14px}.cp-one{display:none}.cp h4{font-size:18px}
+  .crew-field{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;height:auto}
+  .cf{aspect-ratio:4/3}.cf-big{grid-column:1/-1;grid-row:auto;aspect-ratio:16/10}
+}
