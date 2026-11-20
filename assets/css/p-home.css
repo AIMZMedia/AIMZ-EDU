@@ -934,3 +934,23 @@ html.reduce .wl-list li{opacity:1;transform:none}
 /* 새로 만든 서비스 아이콘: 자체가 둥근 유리 타일 → 흰 바탕 없이 */
 .ic3.ic3-own{background:none!important;box-shadow:0 12px 28px rgba(58,107,255,.35);border-radius:22%!important}
 .ic3.ic3-own img{object-fit:contain}
+
+/* ===== 차별화된 서비스: 아이콘 + 키워드 카드 (간결) ===== */
+.kw4-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.kw4{position:relative;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(26px,2.4vw,36px);border-radius:var(--radius-xl);background:#fff;border:1px solid var(--line);
+  transition:transform .5s var(--ease),border-color .3s,box-shadow .5s var(--ease)}
+.kw4:hover{transform:translateY(-6px);border-color:var(--cta);box-shadow:0 24px 50px rgba(58,107,255,.14)}
+.kw4-ic{display:block;width:84px;height:84px;border-radius:22%;overflow:hidden;box-shadow:0 14px 30px rgba(58,107,255,.28);transition:transform .6s var(--ease)}
+.kw4-ic img{width:100%;height:100%;display:block}
+.kw4:hover .kw4-ic{transform:translateY(-4px) rotate(-6deg) scale(1.04)}
+.kw4 h3{margin:26px 0 0;font-family:var(--font-head);font-size:clamp(21px,1.5vw,25px);font-weight:800;letter-spacing:-.03em;line-height:1.3;color:var(--navy)}
+.kw4-one{margin:6px 0 0;font-size:15.5px;color:var(--muted)}
+.kw4-k{list-style:none;margin:22px 0 0;padding:20px 0 0;border-top:1px solid var(--line);display:grid;gap:11px;width:100%}
+.kw4-k li{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;color:var(--navy)}
+.kw4-k li::before{content:"";width:18px;height:18px;border-radius:50%;flex:none;background:#EEF2FF center/10px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3.4' fill='none' stroke='%233A6BFF' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.kw4-go{margin-top:auto;padding-top:26px;font-size:14.5px;font-weight:700;color:var(--muted);transition:color .3s}
+.kw4-go .ar{display:inline-block;transition:transform .3s var(--ease)}
+.kw4:hover .kw4-go{color:var(--cta)}
+.kw4:hover .kw4-go .ar{transform:translateX(4px)}
+@media (max-width:1080px){.kw4-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.kw4-grid{grid-template-columns:1fr}.kw4-ic{width:72px;height:72px}}
