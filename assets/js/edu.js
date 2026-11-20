@@ -244,7 +244,7 @@
       gsap.timeline({ scrollTrigger: { trigger: h, start: 'top top', end: 'bottom top', scrub: .5 } })
         .to($('.vh-copy', h), { yPercent: -30, opacity: 0, ease: 'power1.in', duration: .45 }, 0)
         .to($('.vh-foot', h), { opacity: 0, duration: .2 }, 0)
-        .fromTo($('.vh-shade', h), { opacity: 1 }, { opacity: .12, ease: 'power1.out', duration: .5 }, 0)
+        .fromTo($('.vh-shade', h), { opacity: 1 }, { opacity: .05, ease: 'power1.out', duration: .5 }, 0)
         .fromTo($('.vh-media', h), { scale: 1.06 }, { scale: 1, ease: 'none', duration: 1 }, 0);
     });
     /* 첫 화면 제목: 불러오자마자 */
