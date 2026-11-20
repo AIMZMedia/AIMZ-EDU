@@ -720,3 +720,69 @@ main p{text-wrap:pretty}
 html.reduce .vhero.vh-black .vh-shade{opacity:.9}
 /* 강사진 위 사진: 무대 특강 사진은 가운데 기준 */
 .crew-photo img{object-position:center 45%}
+
+/* ===== 차별화된 서비스: 벤토(큰 사진 카드 + 화면 카드 엇갈림) ===== */
+.ds-grid.ds-bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));grid-auto-rows:minmax(380px,auto);gap:18px;max-width:none}
+.ds-bento .ds{display:flex;flex-direction:column;position:relative;grid-template-columns:none;grid-template-rows:none;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--line);background:#fff;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s}
+.ds-bento .ds:hover{transform:translateY(-4px);border-color:var(--cta);box-shadow:0 22px 48px rgba(58,107,255,.14)}
+.ds-bento .ds:nth-child(1),.ds-bento .ds:nth-child(4){grid-column:span 7}
+.ds-bento .ds:nth-child(2),.ds-bento .ds:nth-child(3){grid-column:span 5}
+.ds-bento h3{margin:0;font-size:clamp(22px,1.6vw,28px);line-height:1.3}
+.ds-bento p{margin:12px 0 0;max-width:460px;font-size:var(--fs-body);line-height:1.65}
+.ds-bento .ds-b p{margin-bottom:0}
+.ds-bento .ds-go{display:inline-flex;align-items:center;gap:8px;height:auto;margin-top:22px;padding:0;border:0;border-radius:0;font-size:15px;font-weight:700;justify-content:flex-start}
+.ds-bento .ds-go .ar{transition:transform .3s var(--ease)}
+.ds-bento .ds:hover .ds-go .ar{transform:translateX(5px)}
+/* 큰 사진 카드: 사진 위에 글자 */
+.ds-wide{border:0!important;background:#1B2241!important;color:#fff}
+.ds-wide .ds-img{position:absolute;inset:0;aspect-ratio:auto}
+.ds-wide .ds-img img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 1.2s var(--ease)}
+.ds-wide:hover .ds-img img{transform:scale(1.05)}
+.ds-wide .ds-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,17,33,0) 25%,rgba(14,17,33,.55) 55%,rgba(14,17,33,.92) 100%)}
+.ds-wide .ds-b{position:relative;margin-top:auto;padding:clamp(26px,2.4vw,40px);min-height:0}
+.ds-wide h3{color:#fff}
+.ds-wide p{color:rgba(255,255,255,.78)}
+.ds-wide .ds-go{color:#fff}
+.ds-wide:hover .ds-go{color:#9DB4FF}
+/* 화면 카드: 글자 위, 실제 화면이 아래에서 올라옴 */
+.ds-ui{background:linear-gradient(180deg,#fff 0%,#F3F6FF 100%)!important}
+.ds-ui .ds-b{padding:clamp(26px,2.4vw,40px) clamp(26px,2.4vw,40px) 0;min-height:0}
+.ds-ui .ds-go{color:var(--navy)}
+.ds-ui:hover .ds-go{color:var(--cta)}
+.ds-ui .ds-img{margin:26px 0 0 clamp(26px,2.4vw,40px);aspect-ratio:auto;flex:1;min-height:150px;border-radius:14px 0 0 0;border:1px solid var(--line);border-right:0;border-bottom:0;box-shadow:0 -10px 30px rgba(27,34,65,.08);background:#fff}
+.ds-ui .ds-img img{width:100%;height:100%;object-fit:cover;object-position:left top;transition:transform .9s var(--ease)}
+.ds-ui:hover .ds-img img{transform:translateY(-6px)}
+@media (max-width:1000px){
+  .ds-grid.ds-bento{grid-template-columns:1fr;grid-auto-rows:auto}
+  .ds-bento .ds:nth-child(n){grid-column:auto}
+  .ds-wide{min-height:420px}
+  .ds-ui .ds-img{height:220px;flex:none}
+}
+
+.ds-grid.ds-bento{grid-auto-rows:420px}
+.ds-ui .ds-img{flex:1 1 0;min-height:0}
+@media (max-width:1000px){.ds-grid.ds-bento{grid-auto-rows:auto}}
+
+/* ===== AIMZ LABS: 목록을 누르면(또는 저절로) 오른쪽 실제 화면이 바뀜 ===== */
+.lx-list li{position:relative;overflow:hidden;cursor:pointer;transition:border-color .4s,background .4s,box-shadow .4s}
+.lx-list li b,.lx-list li p,.lx-list li .lx-ic{transition:color .4s,opacity .4s}
+.lx-list li:not(.on) b{color:rgba(255,255,255,.62)}
+.lx-list li:not(.on) p{color:rgba(255,255,255,.4)}
+.lx-list li:not(.on) .lx-ic{opacity:.55}
+.lx-list li:hover b{color:#fff}
+.lx-list li.on{border-color:rgba(120,150,255,.55)!important;background:linear-gradient(90deg,rgba(58,107,255,.2),rgba(58,107,255,.06))!important;box-shadow:0 12px 40px rgba(58,107,255,.22)}
+.lx-list li.on .lx-ic{background:var(--cta);color:#fff}
+.lx-list li:focus-visible{outline:2px solid #9DB4FF;outline-offset:2px}
+.lx-prog{position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,#3A6BFF,#A8BCFF);transform-origin:left;transform:scaleX(0)}
+.lx-list li.on .lx-prog{animation:lxProg var(--lx-dur,4.8s) linear forwards}
+.labs-x.lx-paused .lx-prog{animation-play-state:paused}
+@keyframes lxProg{to{transform:scaleX(1)}}
+.lx-screens{position:relative;aspect-ratio:16/10;background:#F6F6F4;overflow:hidden}
+.lx-screens img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0;transform:scale(1.04) translateY(10px);transition:opacity .7s var(--ease),transform 1.1s var(--ease)}
+.lx-screens img.on{opacity:1;transform:none}
+.labs-x .lx-shot{transition:transform .5s var(--ease);transform-style:preserve-3d;will-change:transform}
+.lx-shot::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .4s;
+  background:radial-gradient(500px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.18),transparent 45%)}
+.lx-shot:hover::after{opacity:1}
+@media (max-width:1000px){.ds-ui .ds-img{flex:none;height:230px}}

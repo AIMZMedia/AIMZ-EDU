@@ -418,10 +418,48 @@
 
   /* ---------------- 페이지 시작 · 정리 ---------------- */
   let pendingSearch = '';
+
+  /* AIMZ LABS: 목록 = 탭, 오른쪽 화면 전환 + 자동 넘김 + 화면 기울기 */
+  function initLabs(scope) {
+    const root = scope.querySelector('.labs-x');
+    if (!root || root.dataset.lxOn) return;
+    root.dataset.lxOn = '1';
+    const items = [...root.querySelectorAll('.lx-list li[data-i]')];
+    const imgs = [...root.querySelectorAll('.lx-screens img')];
+    if (!items.length || !imgs.length) return;
+    const DUR = 4800; let cur = 0, timer = null, hover = false, inView = false;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    root.style.setProperty('--lx-dur', DUR / 1000 + 's');
+    const set = (n) => {
+      cur = n;
+      items.forEach((li, k) => { li.classList.toggle('on', k === n); li.setAttribute('aria-pressed', k === n); });
+      imgs.forEach((im, k) => im.classList.toggle('on', k === n));
+      const p = items[n].querySelector('.lx-prog');
+      if (p) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = ''; }
+    };
+    const tick = () => { clearTimeout(timer); if (reduce) return; timer = setTimeout(() => { if (!hover && inView) set((cur + 1) % items.length); tick(); }, DUR); };
+    items.forEach((li, k) => {
+      li.addEventListener('mouseenter', () => { hover = true; root.classList.add('lx-paused'); if (k !== cur) set(k); });
+      li.addEventListener('click', () => { set(k); tick(); });
+      li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); set(k); tick(); } });
+    });
+    root.querySelector('.lx-list').addEventListener('mouseleave', () => { hover = false; root.classList.remove('lx-paused'); set(cur); tick(); });
+    new IntersectionObserver((es) => { inView = es[0].isIntersecting; if (inView) { set(cur); tick(); } }, { threshold: 0.35 }).observe(root);
+    const shot = root.querySelector('[data-lx-shot]');
+    if (shot && !reduce && matchMedia('(hover:hover)').matches) {
+      shot.addEventListener('mousemove', (e) => {
+        const r = shot.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        shot.style.transform = `perspective(1400px) rotateY(${(x - .5) * 7}deg) rotateX(${(.5 - y) * 5}deg)`;
+        shot.style.setProperty('--gx', x * 100 + '%'); shot.style.setProperty('--gy', y * 100 + '%');
+      });
+      shot.addEventListener('mouseleave', () => { shot.style.transform = ''; });
+    }
+  }
+
   function initPage() {
     const scope = $('main');
     if (hasGsap) ctx = gsap.context(() => initMotion(scope), scope);
-    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope);
+    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope); initLabs(scope);
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {
