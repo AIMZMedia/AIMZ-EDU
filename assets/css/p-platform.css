@@ -28,7 +28,7 @@
   transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease)}
 .pf-card:hover{border-color:var(--cta);transform:translateY(-3px);box-shadow:0 16px 36px rgba(58,107,255,.12)}
 .pf-who{margin:0;font-size:13.5px;font-weight:700;color:var(--cta)}
-.pf-card h3{margin:12px 0 0;font-family:var(--font-head);font-size:clamp(19px,1.5vw,22px);font-weight:800;letter-spacing:-.03em;line-height:1.35}
+.pf-card h3{margin:12px 0 0;text-wrap:balance;font-family:var(--font-head);font-size:clamp(19px,1.5vw,22px);font-weight:800;letter-spacing:-.03em;line-height:1.35}
 .pf-card>p:not(.pf-who):not(.pf-fig){margin:8px 0 0;font-size:15px;line-height:1.7;color:var(--muted)}
 
 /* 2. 핵심 네 가지 */
@@ -69,7 +69,7 @@
 /* 4. 계약과 정산 — 두 칸 비교 (큰 숫자 없이 문장으로) */
 .pf-vs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;max-width:1120px;margin:0 auto}
 .pf-vs-col{display:flex;flex-direction:column;padding:clamp(26px,3vw,40px);border-radius:var(--radius-lg);border:1px solid var(--line);background:var(--surface)}
-.pf-vs-col h3{margin:0;font-family:var(--font-head);font-size:clamp(20px,1.7vw,25px);font-weight:800;letter-spacing:-.03em;line-height:1.35}
+.pf-vs-col h3{margin:0;text-wrap:balance;font-family:var(--font-head);font-size:clamp(20px,1.7vw,25px);font-weight:800;letter-spacing:-.03em;line-height:1.35}
 .pf-vs-col>p{margin:10px 0 0;font-size:15px;line-height:1.7;color:var(--muted)}
 .pf-bills,.pf-tobe-logo{margin-top:auto;padding-top:28px}
 .pf-bills{list-style:none;margin-bottom:0;padding-left:0;display:flex;flex-wrap:wrap;gap:8px}
@@ -135,7 +135,7 @@
   .pf-cards{grid-template-columns:1fr}
   .pf-tabs .tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;width:100%;scrollbar-width:none}
   .pf-tabs .tabs::-webkit-scrollbar{display:none}
-  .pf-tabs .tab{flex:none}
+  .pf-tabs .tab{flex:1 0 auto;padding:0 10px;font-size:14px}
   .pf-guard{grid-template-columns:1fr}
   .pf-guard>li{min-height:0}
   .pf-guard .h4{margin-top:12px}
@@ -153,4 +153,6 @@
   .pf-panel-txt p{font-size:18px}
   .pf-who,.pf-bills li,.pf-screen figcaption,.pf-brand-imgs figcaption{font-size:15px}
   .pf-card h3{font-size:23px}
+  .pf-cmp table.t thead th{font-size:14px}
+  .pf-guard-go .link-ar{font-size:15.5px}
 }

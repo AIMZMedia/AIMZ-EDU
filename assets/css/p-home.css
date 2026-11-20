@@ -515,3 +515,18 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .pd:hover .pd-more .ar{transform:translateX(4px)}
 .pd-ask{flex:none;height:46px;display:inline-flex;align-items:center;padding:0 16px;border-radius:12px;background:var(--cta);color:#fff;font-size:14.5px;font-weight:700}
 .pd-ask:hover{background:var(--cta-hover)}
+
+/* 모든 과정에 포함 */
+.pd-incl{display:flex;align-items:center;gap:14px 22px;flex-wrap:wrap;margin-top:18px;padding:18px 26px;border-radius:var(--radius-lg);background:#EEF2FF}
+.pd-incl b{font-size:15px;color:var(--navy)}
+.pd-incl ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px}
+.pd-incl li{display:flex;align-items:center;gap:8px;font-size:14.5px;color:#3D4466}
+.pd-incl li::before{content:"";width:16px;height:16px;border-radius:50%;background:var(--cta) center/10px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3.4' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+/* 03 정렬 지적 반영 */
+.ab-top{align-items:center}
+.worry-in{grid-template-columns:1fr;gap:clamp(32px,4vw,52px)}
+.worry-head{position:static;text-align:center;max-width:720px;margin-inline:auto}
+.worry-head .lead{margin-inline:auto}
+.wq-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.wq-grid{grid-template-columns:1fr}}

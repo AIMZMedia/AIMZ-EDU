@@ -144,3 +144,15 @@
   .mods b,.c-facts dd{font-size:18px}
   .svc-dl>div,.cp-meta div{grid-template-columns:100px minmax(0,1fr)}
 }
+
+/* 하루 시간표 */
+.c-day .tabs{margin:0 auto 28px}
+.c-day .tabs{display:flex;width:max-content}
+.tt{list-style:none;margin:0 auto;padding:0;max-width:920px;border-top:1px solid var(--line)}
+.tt li{display:grid;grid-template-columns:80px 92px 1fr;gap:16px;align-items:baseline;padding:18px 8px;border-bottom:1px solid var(--line)}
+.tt-t{font-family:var(--font-head);font-size:17px;font-weight:800;color:var(--cta);font-variant-numeric:tabular-nums}
+.tt b{font-size:15px}
+.tt p{margin:0;font-size:15.5px;color:var(--muted)}
+.tt li:has(p:empty){opacity:.55}
+.tt-note{margin:20px auto 0;max-width:920px;font-size:14px;color:var(--faint);text-align:center}
+@media (max-width:640px){.tt li{grid-template-columns:62px 1fr;gap:4px 12px}.tt p{grid-column:2}}

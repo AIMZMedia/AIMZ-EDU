@@ -423,7 +423,7 @@ html.reduce .ex-l,html.reduce .ex-r{display:none}
 
 /* ---------------- 공통: 다음 행동 띠 · 꼬리말 ---------------- */
 .cta{padding-block:clamp(96px,12vw,160px);text-align:center;overflow:hidden}
-.cta .display{font-size:clamp(44px,7.4vw,116px)}
+.cta .display{font-size:clamp(32px,3.6vw,52px);letter-spacing:-.04em;line-height:1.2}
 .cta .lead{margin:22px auto 0}
 .cta .btns{justify-content:center;margin-top:36px}
 
