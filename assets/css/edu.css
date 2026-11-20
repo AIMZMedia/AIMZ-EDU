@@ -14,7 +14,7 @@
   --d-bg:var(--black); --d-surface:#20202F; --d-surface-2:#272738;
   --d-ink:#F4F4F6; --d-muted:#AEB2C0; --d-faint:var(--gray); --d-line:rgba(244,244,246,.1); --d-line-2:rgba(244,244,246,.2);
   /* 포인트 — 빨강을 쓸지 정해지면 이 한 줄만 바꾼다 (예: 남색으로 바꾸려면 var(--navy)) */
-  --accent:#2743BE; --accent-ink:#2743BE; /* 빨강(#FF494D) 대신 메인 남색에서 올린 파랑 — 사용자 결정 */
+  --accent:#3A6BFF; --accent-ink:#2F5DF0; /* 빨강(#FF494D) 대신 메인 남색에서 올린 파랑 — 사용자 결정 */
   /* 주 버튼 */
   --primary:var(--navy); --primary-hover:#11172E;
 
@@ -101,7 +101,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .dark .btn-line:hover{border-color:var(--d-ink)}
 
 /* 교육 문의 — 사이트에서 가장 눈에 띄는 버튼. 메인 남색(#1B2241)을 같은 색 계열에서 밝고 선명하게 올린 단색. 광택·빛 번짐 없이 깔끔하게 */
-:root{--cta:#2743BE;--cta-hover:#3150D2;--cta-active:#1F379F}
+:root{--cta:#3A6BFF;--cta-hover:#2F5DF0;--cta-active:#264FD6} /* LABS 파랑 — 사용자 선택 */
 .btn-cta{background:var(--cta);color:#fff;border-color:var(--cta);font-weight:700;letter-spacing:-.015em}
 .btn-cta:hover{background:var(--cta-hover);border-color:var(--cta-hover);color:#fff}
 .btn-cta:active{background:var(--cta-active);border-color:var(--cta-active)}
@@ -517,3 +517,17 @@ html.reduce .fw{opacity:1!important}
   .fl p{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   .fl-x{display:none}
 }
+
+/* 첫 화면 Contact — 크게, 테두리를 따라 빛이 천천히 돈다 */
+.btn-cta.cta-hero{position:relative;isolation:isolate;overflow:hidden;height:62px;padding:0 32px 0 7px;gap:14px;font-size:17px;background:transparent;border:0}
+.btn-cta.cta-hero::before{content:"";position:absolute;z-index:-2;left:50%;top:50%;width:300%;aspect-ratio:1;translate:-50% -50%;
+  background:conic-gradient(from 0deg,transparent 0 70%,rgba(169,184,255,.0) 72%,#C9D3FF 84%,#fff 88%,rgba(169,184,255,0) 94%,transparent 100%);
+  animation:ctaSpin 4.5s linear infinite}
+.btn-cta.cta-hero::after{content:"";position:absolute;z-index:-1;inset:2px;border-radius:inherit;background:var(--cta);transition:background .3s}
+.btn-cta.cta-hero:hover::after{background:var(--cta-hover)}
+.btn-cta.cta-hero{box-shadow:0 12px 34px rgba(24,24,37,.35)}
+.btn-cta.cta-hero .ic-send{width:20px;height:20px;padding:11px}
+.btn-cta.cta-hero:hover .ic-send{transform:translate(3px,-3px) rotate(-8deg)}
+@keyframes ctaSpin{to{rotate:360deg}}
+@media (prefers-reduced-motion:reduce){.btn-cta.cta-hero::before{animation:none;background:rgba(201,211,255,.5)}}
+.cta-note{margin:14px 0 0;font-size:13.5px;color:rgba(255,255,255,.78);letter-spacing:-.005em}
