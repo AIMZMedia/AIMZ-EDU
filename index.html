@@ -42,8 +42,8 @@
 <main id="main">
 
 <!-- ============ 1. 첫 화면 — 현장 사진이 바뀌는 배경(영상) + 가운데 정렬 ============ -->
-<!-- 영상 교체: assets/media/home-hero.mp4 (가로 1920×1080·소리 없음·10~20초 반복) / 첫 장면 사진: assets/media/home-hero.jpg -->
-<section class="vhero" data-vhero>
+<!-- 처음엔 검정, 내리면 막이 걷히며 영상이 드러난다. 영상 교체: assets/media/home-hero.mp4 (가로 1920×1080·소리 없음·10~20초 반복) / 첫 장면 사진: assets/media/home-hero.jpg -->
+<section class="vhero vh-black" data-vhero>
   <div class="vh-media">
     <video class="vh-video" autoplay muted loop playsinline preload="auto" poster="/assets/media/home-hero.jpg" aria-hidden="true">
       <source src="/assets/media/home-hero.mp4" type="video/mp4">
@@ -57,7 +57,6 @@
   </div>
   <div class="vh-foot" data-load>
     <span class="vh-hint" aria-hidden="true"><i></i>SCROLL</span>
-    <button class="vh-toggle" type="button" aria-pressed="false" aria-label="배경 영상 일시정지">❚❚</button>
   </div>
 </section>
 
@@ -118,26 +117,34 @@
       <h3 class="ab-say" data-fill data-fill-pin>그 기술과 노하우를,<br><span class="hl">사내 전문 인력이</span> 직접 가르칩니다</h3>
       <p class="lead" data-reveal>콘텐츠엔지니어링센터가 현장에서 실제로 쓰는 도구와 제작 순서를 그대로 수업으로 가져옵니다.</p>
       </div>
-      <!-- 강사 3·4: 새 강사가 정해지면 사진·이름·역할·소개를 채우고 class 의 tbd 를 지운다 -->
-      <div class="crew" data-stagger>
-        <a class="cw" href="/instructors" data-reveal>
-          <div class="cw-ph"><img src="/assets/img/instructor-lee_v3.jpg" alt="이진형 콘텐츠엔지니어링센터장" loading="lazy"></div>
-          <div class="cw-b"><p class="cw-r">콘텐츠엔지니어링센터장</p><h4>이진형</h4><p>경희대·목원대 외래교수<br>APEC 2025, 국가유산청×유네스코 AI 콘텐츠 총괄</p></div>
+      <div class="crew2" data-stagger>
+        <a class="cm" href="/instructors" data-reveal>
+          <div class="cm-ph"><img src="/assets/img/instructor-lee_v3.jpg" alt="이진형 콘텐츠엔지니어링센터장" loading="lazy"></div>
+          <div class="cm-b">
+            <p class="cm-r">콘텐츠엔지니어링센터장</p>
+            <h4>이진형</h4>
+            <p class="cm-one">경희대·목원대 외래교수 · 홍익대 AI·실감미디어콘텐츠학 석사과정</p>
+            <ul class="cm-list"><li>APEC 2025, 국가유산청×유네스코 AI 콘텐츠 총괄</li><li>AIMZ 실습 플랫폼·제작 파이프라인 설계</li><li>방송사·대학·공공기관 생성형 AI 교육</li></ul>
+            <p class="cm-tags"><span>ComfyUI</span><span>바이브코딩</span><span>3D × AI</span><span>AI VFX</span></p>
+          </div>
         </a>
-        <a class="cw" href="/instructors" data-reveal>
-          <div class="cw-ph"><img src="/assets/img/instructor-min_v3.jpg" alt="민세훈 콘텐츠엔지니어링 연구원" loading="lazy"></div>
-          <div class="cw-b"><p class="cw-r">콘텐츠엔지니어링 연구원</p><h4>민세훈</h4><p>지상파·종편 방송사 AI 제작 리드<br>기업·대학 생성형 AI 실무 강의</p></div>
+        <a class="cm" href="/instructors" data-reveal>
+          <div class="cm-ph"><img src="/assets/img/instructor-min_v3.jpg" alt="민세훈 콘텐츠엔지니어링 연구원" loading="lazy"></div>
+          <div class="cm-b">
+            <p class="cm-r">콘텐츠엔지니어링 연구원</p>
+            <h4>민세훈</h4>
+            <p class="cm-one">지상파·종편 방송사 AI 제작 리드</p>
+            <ul class="cm-list"><li>기업·대학 생성형 AI 실무 강의</li><li>AI 콘텐츠 제작 파이프라인 설계</li><li>생성형 AI 콘텐츠 엔지니어링</li></ul>
+            <p class="cm-tags"><span>AI 콘텐츠 제작</span><span>이미지·영상 생성</span><span>제작 파이프라인</span></p>
+          </div>
         </a>
-        <div class="cw tbd" data-reveal>
-          <div class="cw-ph"><span aria-hidden="true"></span></div>
-          <div class="cw-b"><p class="cw-r">역할</p><h4>강사 3</h4><p>소속·경력 한 줄</p></div>
-        </div>
-        <div class="cw tbd" data-reveal>
-          <div class="cw-ph"><span aria-hidden="true"></span></div>
-          <div class="cw-b"><p class="cw-r">역할</p><h4>강사 4</h4><p>소속·경력 한 줄</p></div>
-        </div>
       </div>
-      <a class="link-ar crew-more" href="/instructors" data-reveal>강사진 자세히 보기 <span class="ar">→</span></a>
+      <!-- 강사 3·4: 새 강사가 정해지면 사진·이름·역할을 채우고 class 의 tbd 를 지운다 -->
+      <div class="crew-sub" data-stagger>
+        <div class="cs tbd" data-reveal><span class="cs-ph" aria-hidden="true"></span><div><b>강사 3</b><span>역할 · 강의 분야</span></div></div>
+        <div class="cs tbd" data-reveal><span class="cs-ph" aria-hidden="true"></span><div><b>강사 4</b><span>역할 · 강의 분야</span></div></div>
+        <a class="link-ar crew-more" href="/instructors" data-reveal>강사진 자세히 보기 <span class="ar">→</span></a>
+      </div>
     </div>
   </div>
 </section>
