@@ -838,3 +838,7 @@ a.cp:hover .cp-ph img{transform:scale(1.05)}
   .crew-field{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;height:auto}
   .cf{aspect-ratio:4/3}.cf-big{grid-column:1/-1;grid-row:auto;aspect-ratio:16/10}
 }
+
+/* 순서: 현장 사진 먼저 → 강사 카드 */
+.crew-field{margin-top:0}
+.crew-people{margin-top:18px}
