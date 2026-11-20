@@ -323,7 +323,9 @@
         scrollTrigger: { trigger: el.closest('.shot') || el, start: 'top bottom', end: 'bottom 40%', scrub: true } });
     });
     /* data-draw : 선이 왼쪽에서 그어진다 */
-    $$('[data-draw]', scope).forEach(el => {
+    $$('.bridge-down i', scope).forEach(el => gsap.fromTo(el, { scaleY: 0 }, { scaleY: 1, ease: 'none',
+      scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 55%', scrub: true } }));
+    $$('[data-draw]', scope).filter(el => !el.closest('.bridge-down')).forEach(el => {
       gsap.fromTo(el, { scaleX: 0 }, { scaleX: 1, transformOrigin: '0 50%', ease: 'none',
         scrollTrigger: { trigger: el, start: 'top 85%', end: 'top 45%', scrub: true } });
     });
@@ -376,32 +378,12 @@
     });
   }
 
-  /* 첫 화면 손전등: 마우스를 따라 어두운 막에 빛 구멍이 생긴다 (마우스 기기만) */
-  function initSpot(scope) {
-    if (!fine) return;
-    $$('.vhero.vh-black', scope).forEach(h => {
-      const sh = $('.vh-shade', h); if (!sh) return;
-      const st = { x: innerWidth / 2, y: innerHeight * .55, r: 0 }, to = { x: st.x, y: st.y, r: 0 };
-      let raf = 0;
-      const tick = () => {
-        st.x += (to.x - st.x) * .14; st.y += (to.y - st.y) * .14; st.r += (to.r - st.r) * .1;
-        sh.style.setProperty('--mx', st.x + 'px'); sh.style.setProperty('--my', st.y + 'px'); sh.style.setProperty('--r', st.r + 'px');
-        raf = (Math.abs(to.x - st.x) + Math.abs(to.y - st.y) + Math.abs(to.r - st.r) > .5) ? requestAnimationFrame(tick) : 0;
-      };
-      const go = () => { if (!raf) raf = requestAnimationFrame(tick); };
-      const mv = e => { const r = h.getBoundingClientRect(); to.x = e.clientX - r.left; to.y = e.clientY - r.top; to.r = 140; h.classList.add('lit'); go(); };
-      const lv = () => { to.r = 0; go(); };
-      h.addEventListener('pointermove', mv); h.addEventListener('pointerleave', lv);
-      cleanups.push(() => { h.removeEventListener('pointermove', mv); h.removeEventListener('pointerleave', lv); cancelAnimationFrame(raf); });
-    });
-  }
-
   /* ---------------- 페이지 시작 · 정리 ---------------- */
   let pendingSearch = '';
   function initPage() {
     const scope = $('main');
     if (hasGsap) ctx = gsap.context(() => initMotion(scope), scope);
-    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initSpot(scope);
+    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope);
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {
