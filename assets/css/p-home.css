@@ -786,3 +786,19 @@ html.reduce .vhero.vh-black .vh-shade{opacity:.9}
   background:radial-gradient(500px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.18),transparent 45%)}
 .lx-shot:hover::after{opacity:1}
 @media (max-width:1000px){.ds-ui .ds-img{flex:none;height:230px}}
+
+/* 차별화된 서비스: 아이콘 + 핵심 키워드 칩으로 한눈에 */
+.ds-ic{display:grid;place-items:center;width:52px;height:52px;margin-bottom:18px;border-radius:16px;background:#EEF2FF;color:var(--cta);
+  transition:transform .5s var(--ease),background .3s,color .3s}
+.ds-bento .ds:hover .ds-ic{transform:translateY(-3px) rotate(-6deg);background:var(--cta);color:#fff}
+.ds-wide .ds-ic{background:rgba(255,255,255,.14);color:#fff;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.22)}
+.ds-chips{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.ds-chips li{display:inline-flex;align-items:center;gap:6px;padding:7px 12px 7px 9px;border-radius:999px;font-size:13.5px;font-weight:700;line-height:1;
+  background:#EEF2FF;color:#2F5DF0}
+.ds-chips li::before{content:"";width:15px;height:15px;border-radius:50%;flex:none;background:var(--cta) center/9px no-repeat url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3.4' fill='none' stroke='white' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.ds-wide .ds-chips li{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.ds-wide .ds-chips li::before{background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 6.2 4.8 9 10 3.4' fill='none' stroke='%233A6BFF' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.ds-bento .ds-go{margin-top:18px}
+.ds-grid.ds-bento{grid-auto-rows:minmax(460px,auto)}
+.ds-wide .ds-img::after{background:linear-gradient(180deg,rgba(14,17,33,.05) 0%,rgba(14,17,33,.55) 45%,rgba(14,17,33,.94) 100%)}
+.ds-ui .ds-img{min-height:120px}
