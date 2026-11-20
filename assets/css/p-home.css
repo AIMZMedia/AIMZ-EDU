@@ -150,7 +150,7 @@
 @media (prefers-reduced-motion:reduce){.ts-ring{animation:none}}
 
 .ab-bridge{margin-top:clamp(56px,6vw,88px);text-align:center}
-.ab-say{margin:0;font-family:var(--font-head);font-size:clamp(34px,4.6vw,76px);line-height:1.18;letter-spacing:-.045em;font-weight:800;padding-block:clamp(8px,1.5vw,20px)}
+.ab-say{margin:0;font-family:var(--font-head);font-size:clamp(30px,3.5vw,56px);line-height:1.22;letter-spacing:-.04em;font-weight:800;padding-block:clamp(8px,1.5vw,20px)}
 .ab-say .fw{display:inline-block;will-change:transform,opacity,filter}
 .ab-bridge .lead{margin:18px auto 0;max-width:640px}
 .flow{position:relative;list-style:none;margin:clamp(44px,5vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);text-align:left}
@@ -331,3 +331,16 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .about2{padding-bottom:0}
 .about2+.field{background:var(--bg)!important;padding-top:clamp(20px,2.5vw,36px)}
 @media (max-width:1080px){.crew-stack .crew4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* 비율 다듬기: 제목·사진·카드를 한 폭(1120px)에 맞춘다 */
+.ab-bridge .lead{max-width:560px;margin-top:14px}
+.crew-stack{max-width:1120px;margin-inline:auto}
+.crew-stack .crew-photo{aspect-ratio:16/9;border-radius:var(--radius-lg)}
+.crew-stack .crew4{gap:12px;margin-top:12px}
+.crew-stack .c4{padding:12px 12px 16px}
+.crew-stack .c4-ph{aspect-ratio:1/1}
+.crew-stack .c4-ph img{width:72%}
+.crew-stack .c4 h4{font-size:19px}
+.crew-stack .c4-one{font-size:13px}
+.crew-more{display:inline-flex}
+.ab-bridge .crew-more{margin-top:20px}
