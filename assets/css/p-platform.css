@@ -3,7 +3,7 @@
 /* 1. 첫 머리 — 어두운 바탕에 실제 화면 */
 .pf-hero{position:relative;overflow:hidden;padding-bottom:clamp(80px,10vw,140px)}
 .pf-hero::before{content:"";position:absolute;right:-12vw;top:-18vw;width:min(78vw,1100px);aspect-ratio:1;pointer-events:none;
-  background:radial-gradient(closest-side,rgba(233,64,59,.16),rgba(233,64,59,0))}
+  background:radial-gradient(closest-side,rgba(39,67,190,.16),rgba(39,67,190,0))}
 .pf-hero .wrap{position:relative}
 .pf-hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:32px 56px;align-items:end}
 .pf-hero-side .lead{margin-top:0}
@@ -87,7 +87,7 @@
 .pf-arrow span{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line-2);color:var(--ink)}
 .pf-tobe{position:relative;padding:clamp(24px,3vw,40px);border-radius:var(--radius-xl);background:var(--d-bg);color:var(--d-ink);
   box-shadow:0 30px 80px -30px rgba(12,12,15,.55)}
-.pf-tobe .kicker{color:var(--d-muted)} .pf-tobe .kicker b{color:#ff8a85}
+.pf-tobe .kicker{color:var(--d-muted)} .pf-tobe .kicker b{color:#A9B8FF}
 .pf-one{margin:18px 0 6px;font-size:clamp(64px,7vw,104px);line-height:.9;font-weight:800;letter-spacing:-.06em}
 .pf-num{position:relative;display:inline-block;color:var(--accent)}
 .pf-num>span{display:inline-block}
@@ -120,8 +120,8 @@
 }
 @keyframes pfGhost{from{opacity:0;scale:.96}to{opacity:1;scale:1}}
 @keyframes pfLand{
-  from{scale:.92;opacity:.72;box-shadow:0 0 0 0 rgba(233,64,59,0),0 30px 80px -30px rgba(12,12,15,.2)}
-  to{scale:1;opacity:1;box-shadow:0 0 0 2px rgba(233,64,59,.9),0 40px 90px -30px rgba(12,12,15,.6)}
+  from{scale:.92;opacity:.72;box-shadow:0 0 0 0 rgba(39,67,190,0),0 30px 80px -30px rgba(12,12,15,.2)}
+  to{scale:1;opacity:1;box-shadow:0 0 0 2px rgba(39,67,190,.9),0 40px 90px -30px rgba(12,12,15,.6)}
 }
 @keyframes pfPop{from{translate:0 35%;opacity:0}to{translate:0 0;opacity:1}}
 @keyframes pfOut{from{translate:0 0;opacity:1}to{translate:0 -35%;opacity:0}}
@@ -144,8 +144,8 @@
 .pf-cmp table.t td{font-size:18px;font-weight:800;line-height:1.2}
 .pf-cmp table.t .no{color:var(--line-2)}
 .pf-cmp table.t .yes{color:var(--ink)}
-.pf-cmp table.t .hl{background:rgba(233,64,59,.05)}
-.pf-cmp table.t thead th.hl{color:var(--accent-ink);background:rgba(233,64,59,.08)}
+.pf-cmp table.t .hl{background:rgba(39,67,190,.05)}
+.pf-cmp table.t thead th.hl{color:var(--accent-ink);background:rgba(39,67,190,.08)}
 .pf-cmp table.t td.hl.yes{color:var(--accent)}
 
 /* 6. 안전 */
@@ -156,9 +156,9 @@
 .pf-guard .h4{margin-top:28px;font-size:18px}
 .pf-guard p{margin:8px 0 0;font-size:14.5px;color:var(--d-muted)}
 .pf-guard-go{padding:0!important}
-.pf-guard-go a{display:flex;flex-direction:column;height:100%;padding:26px 24px 30px;background:rgba(233,64,59,.1);transition:background .3s var(--ease)}
-.pf-guard-go a:hover{background:rgba(233,64,59,.2)}
-.pf-guard-go .n{color:#ff8a85}
+.pf-guard-go a{display:flex;flex-direction:column;height:100%;padding:26px 24px 30px;background:rgba(39,67,190,.1);transition:background .3s var(--ease)}
+.pf-guard-go a:hover{background:rgba(39,67,190,.2)}
+.pf-guard-go .n{color:#A9B8FF}
 .pf-guard-go b{display:block;margin-top:28px}
 .pf-guard-go .ar{margin-top:auto;padding-top:14px;font-size:20px}
 

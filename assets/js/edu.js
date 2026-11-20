@@ -269,6 +269,31 @@
     });
     /* 숫자 */
     $$('[data-count]', scope).forEach(countUp);
+    /* data-fill : 읽어 내려가듯 낱말이 하나씩 진해진다 (스크롤에 맞춰) */
+    $$('[data-fill]', scope).forEach(el => {
+      if (!el.dataset.fillDone) {
+        const walk = n => [...n.childNodes].forEach(c => {
+          if (c.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            c.textContent.split(/(\s+)/).forEach(w => {
+              if (!w) return;
+              if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(w)); return; }
+              const sp = document.createElement('span'); sp.className = 'fw'; sp.textContent = w; frag.appendChild(sp);
+            });
+            c.replaceWith(frag);
+          } else if (c.nodeType === 1 && c.tagName !== 'BR') walk(c);
+        });
+        walk(el); el.dataset.fillDone = '1';
+      }
+      gsap.fromTo($$('.fw', el), { opacity: .14 }, { opacity: 1, ease: 'none', stagger: .12,
+        scrollTrigger: { trigger: el, start: 'top 82%', end: 'top 38%', scrub: true } });
+    });
+    /* data-drift="1" : 사진마다 다른 속도로 떠오른다 (겹친 층이 움직이는 느낌) */
+    $$('[data-drift]', scope).forEach(el => {
+      const d = parseFloat(el.dataset.drift) || .5;
+      gsap.fromTo(el, { y: d * 46 }, { y: -d * 46, ease: 'none',
+        scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
     /* 포인트 밑줄 */
     $$('.hl', scope).forEach(el => ScrollTrigger.create({ trigger: el, start: 'top 82%', once: true, onEnter: () => el.classList.add('on') }));
     /* data-parallax="0.2" : 스크롤보다 느리게/빠르게 */

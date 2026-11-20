@@ -14,7 +14,7 @@
   --d-bg:var(--black); --d-surface:#20202F; --d-surface-2:#272738;
   --d-ink:#F4F4F6; --d-muted:#AEB2C0; --d-faint:var(--gray); --d-line:rgba(244,244,246,.1); --d-line-2:rgba(244,244,246,.2);
   /* 포인트 — 빨강을 쓸지 정해지면 이 한 줄만 바꾼다 (예: 남색으로 바꾸려면 var(--navy)) */
-  --accent:#FF494D; --accent-ink:#D9363A;
+  --accent:#2743BE; --accent-ink:#2743BE; /* 빨강(#FF494D) 대신 메인 남색에서 올린 파랑 — 사용자 결정 */
   /* 주 버튼 */
   --primary:var(--navy); --primary-hover:#11172E;
 
@@ -22,7 +22,7 @@
   /* 제목: 영문은 Montserrat, 한글은 SUIT (Montserrat 에 한글이 없어 자연스럽게 SUIT 로 넘어간다) */
   --font-head:Montserrat,"SUIT Variable",SUIT,"Pretendard Variable",Pretendard,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --radius:16px; --radius-lg:22px; --radius-xl:28px;
-  --wrap:1280px; --gutter:clamp(20px,4vw,48px);
+  --wrap:1360px; --gutter:clamp(20px,4vw,48px);
   --ease:cubic-bezier(.2,.7,.3,1); --ease-out:cubic-bezier(.16,1,.3,1);
   --shadow:0 1px 2px rgba(27,34,65,.05),0 10px 30px rgba(27,34,65,.07);
   --hdr-h:72px;
@@ -47,7 +47,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------------- 구획 · 테마 ---------------- */
-.sec{padding-block:clamp(88px,12vw,160px);position:relative}
+.sec{padding-block:clamp(80px,9vw,136px);position:relative}
 .sec-tight{padding-block:clamp(64px,8vw,104px)}
 .dark{background:var(--d-bg);color:var(--d-ink)}
 .soft{background:var(--surface-2)}
@@ -107,9 +107,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .btn-cta:active{background:var(--cta-active);border-color:var(--cta-active)}
 .btn-cta:focus-visible{outline-color:var(--cta-hover)}
 .btn-cta.btn-lg{padding:0 34px}
-.btn-cta .ic-send{flex:none;transition:transform .35s var(--ease)}
-.btn-cta:hover .ic-send{transform:translate(2px,-2px)}
-.btn-cta.btn-lg .ic-send{width:17px;height:17px}
+/* Contact — 알약 모양, 흰 동그라미 안 종이비행기 (Hundred 방식) */
+.btn-cta:has(.ic-send){border-radius:999px;padding:0 20px 0 5px;gap:10px}
+.btn-cta .ic-send{flex:none;box-sizing:content-box;width:14px;height:14px;padding:7px;border-radius:50%;background:#fff;color:var(--cta);transition:transform .4s var(--ease)}
+.btn-cta:hover .ic-send{transform:rotate(-12deg) translate(1px,-1px)}
+.btn-cta.btn-lg:has(.ic-send){padding:0 28px 0 7px;gap:14px;font-size:16.5px}
+.btn-cta.btn-lg .ic-send{width:18px;height:18px;padding:10px}
+.btn-sm.btn-cta:has(.ic-send){height:40px}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 /* 나란히 놓인 두 버튼은 같은 크기 */
 .btns.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:max-content}
@@ -121,8 +125,8 @@ button{font:inherit;color:inherit;cursor:pointer}
 .tag{display:inline-flex;align-items:center;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em;
   background:var(--surface-3);color:var(--muted)}
 .dark .tag{background:rgba(243,242,238,.08);color:var(--d-muted)}
-.tag.red{background:rgba(233,64,59,.12);color:var(--accent-ink)}
-.dark .tag.red{color:#ff8a85}
+.tag.red{background:rgba(39,67,190,.12);color:var(--accent-ink)}
+.dark .tag.red{color:#A9B8FF}
 
 /* ---------------- 머리말 ---------------- */
 .hdr{position:fixed;inset:0 0 auto;z-index:80;height:var(--hdr-h);color:var(--ink);
@@ -181,7 +185,7 @@ a.card:hover{border-color:var(--ink)}
 /* 마우스 자리 빛 — data-glow */
 [data-glow]{--mx:50%;--my:50%}
 [data-glow]::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;border-radius:inherit;
-  background:radial-gradient(420px circle at var(--mx) var(--my),rgba(233,64,59,.10),transparent 60%)}
+  background:radial-gradient(420px circle at var(--mx) var(--my),rgba(39,67,190,.10),transparent 60%)}
 .dark [data-glow]::after{background:radial-gradient(420px circle at var(--mx) var(--my),rgba(243,242,238,.08),transparent 60%)}
 [data-glow]:hover::after{opacity:1}
 
@@ -500,3 +504,18 @@ html.reduce [data-reveal]{opacity:1!important;transform:none!important;clip-path
   .marquee-track{animation:none}
   *{scroll-behavior:auto!important}
 }
+
+/* 넓은 화면 — 1600px 이상에서는 글자와 폭을 함께 키워 허전하지 않게 */
+@media (min-width:1600px){
+  :root{--wrap:1480px}
+  body{font-size:17px}
+  .lead{font-size:20px}
+  .h2.md{font-size:46px}
+  .card p,.small{font-size:16px}
+}
+@media (min-width:1920px){:root{--wrap:1560px} html{font-size:106%}}
+.ic{display:block}
+
+/* data-fill 낱말 */
+.fw{display:inline}
+html.reduce .fw{opacity:1!important}

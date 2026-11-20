@@ -33,7 +33,7 @@
   background-repeat:no-repeat;background-position:right 18px center}
 .ct-field ::placeholder{color:var(--faint);opacity:1}
 .ct-field input:hover,.ct-field select:hover,.ct-field textarea:hover{border-color:var(--faint)}
-.ct-field input:focus,.ct-field select:focus,.ct-field textarea:focus{border-color:var(--ink);background:var(--surface);outline:none;box-shadow:0 0 0 3px rgba(233,64,59,.16)}
+.ct-field input:focus,.ct-field select:focus,.ct-field textarea:focus{border-color:var(--ink);background:var(--surface);outline:none;box-shadow:0 0 0 3px rgba(39,67,190,.16)}
 .ct-submit{display:grid;gap:12px;margin-top:6px}
 .ct-submit .btn{width:100%}
 .ct-submit .small{margin:0}
@@ -59,7 +59,7 @@
 .ct-rt dd>span{display:block;margin-top:14px;font-size:14px;color:var(--d-faint)}
 .ct-rt .hot b,.ct-rt .hot b sup{color:var(--accent)}
 .ct-rt .hot dt::after{content:"최우선";display:inline-flex;align-items:center;height:22px;margin-left:8px;padding:0 8px;border-radius:999px;
-  font-size:11px;letter-spacing:.04em;background:rgba(233,64,59,.16);color:#ff8a85;vertical-align:1px}
+  font-size:11px;letter-spacing:.04em;background:rgba(39,67,190,.16);color:#A9B8FF;vertical-align:1px}
 .ct-channel{display:flex;gap:16px 28px;align-items:baseline;flex-wrap:wrap;margin-top:40px;padding:24px 28px;border:1px solid var(--d-line);border-radius:var(--radius-lg);background:var(--d-surface)}
 .ct-channel .kicker b{letter-spacing:.14em;font-size:12px}
 .ct-channel p:not(.kicker){margin:0;color:var(--d-ink);font-weight:600}
