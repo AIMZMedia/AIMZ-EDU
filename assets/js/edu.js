@@ -390,6 +390,7 @@
         i = (n + ss.length) % ss.length;
         ss.forEach((s, k) => { s.classList.toggle('on', k === i); const v = $('video', s); if (v) { if (k === i && visible) { v.currentTime = 0; const p = v.play(); p && p.catch(() => {}); } else v.pause(); } });
         ts.forEach((t, k) => { t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', k === i); t.setAttribute('aria-selected', k === i); });
+        $$('.rl-dots i', r).forEach((d, k) => d.classList.toggle('on', k === i));
         clearTimeout(timer); if (visible && !reduce) timer = setTimeout(() => show(i + 1), DUR);
       };
       ts.forEach((t, k) => t.addEventListener('click', () => show(k)));

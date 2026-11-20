@@ -405,3 +405,11 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .eb-who span{font-size:14.5px;color:var(--muted)}
 @media (max-width:1080px){.eb-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:560px){.eb-grid,.eb-who{grid-template-columns:1fr}.eb{min-height:0}}
+
+/* 쇼릴: 탭 없이 — 작은 점과 작은 글씨만 */
+.reel{box-shadow:0 24px 60px rgba(24,24,37,.14)}
+.rl-s figcaption{background:transparent;backdrop-filter:none;padding:0;left:22px;bottom:20px;font-size:13px;color:rgba(255,255,255,.75);text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.rl-s figcaption b{font-weight:600;color:#fff}
+.rl-dots{position:absolute;right:22px;bottom:24px;z-index:2;display:flex;gap:6px}
+.rl-dots i{width:6px;height:6px;border-radius:999px;background:rgba(255,255,255,.4);transition:width .4s var(--ease),background .4s}
+.rl-dots i.on{width:22px;background:#fff}
