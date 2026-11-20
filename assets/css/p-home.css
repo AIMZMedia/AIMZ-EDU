@@ -382,3 +382,26 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .kw.tips p:not(.kw-k){font-size:15px;max-width:340px}
 @media (max-width:1080px){.cr-grid{grid-template-columns:1fr 1fr}.kw.tips{grid-row:auto;grid-column:1/-1}}
 @media (max-width:560px){.cr-grid{grid-template-columns:1fr}}
+
+/* AIMZ EDU 사업 소개 */
+.edu-biz{background:var(--surface)!important;border-block:1px solid var(--line)}
+.eb-head{text-align:center;display:grid;justify-items:center;gap:16px;margin-bottom:clamp(36px,4.5vw,56px)}
+.eb-head img{height:30px;width:auto}
+.eb-head .lead{max-width:620px}
+.eb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.eb{display:flex;flex-direction:column;min-height:240px;padding:26px 24px;border-radius:var(--radius-lg);background:var(--bg);border:1px solid var(--line);
+  transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease),background .3s}
+.eb:hover{border-color:var(--cta);background:#fff;transform:translateY(-4px);box-shadow:0 18px 40px rgba(58,107,255,.12)}
+.eb-n{font-family:var(--font-head);font-size:14px;font-weight:800;color:var(--cta)}
+.eb h3{margin:14px 0 0;font-family:var(--font-head);font-size:clamp(20px,1.6vw,24px);font-weight:800;letter-spacing:-.03em}
+.eb p{margin:10px 0 0;font-size:14.5px;line-height:1.7;color:var(--muted)}
+.eb-go{margin-top:auto;padding-top:18px;font-size:14px;font-weight:700;color:var(--ink)}
+.eb-go .ar{display:inline-block;transition:transform .3s var(--ease)}
+.eb:hover .eb-go{color:var(--cta)}
+.eb:hover .eb-go .ar{transform:translateX(4px)}
+.eb-who{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.eb-who div{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 24px;border-radius:var(--radius);background:#EEF2FF}
+.eb-who b{font-size:16px;color:var(--navy)}
+.eb-who span{font-size:14.5px;color:var(--muted)}
+@media (max-width:1080px){.eb-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.eb-grid,.eb-who{grid-template-columns:1fr}.eb{min-height:0}}
