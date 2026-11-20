@@ -582,3 +582,45 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .lx-cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:clamp(32px,4vw,48px)}
 @media (max-width:1000px){.lx-body{grid-template-columns:1fr}.lx-shot{transform:none}}
 @media (prefers-reduced-motion:reduce){.lx-aura{animation:none}}
+
+/* AIMZ LABS — 한 화면에 꽉, 반짝이게 */
+.labs-x{min-height:100vh;display:flex;align-items:center;padding-block:clamp(24px,4vh,48px)}
+.labs-x>.wrap{width:100%}
+.lx-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(28px,4vw,64px);align-items:center;
+  min-height:calc(100vh - var(--hdr-h) - 64px);padding:clamp(28px,4vw,64px);border:0}
+/* 테두리를 따라 빛이 돈다 */
+.lx-card::before{content:"";position:absolute;inset:0;z-index:-2;border-radius:inherit;padding:1.5px;
+  background:conic-gradient(from var(--lx-a,0deg),rgba(58,107,255,.15),rgba(120,160,255,.9),#fff,rgba(120,160,255,.9),rgba(58,107,255,.15) 40%,rgba(58,107,255,.15));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:lxSpin 6s linear infinite}
+@property --lx-a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes lxSpin{to{--lx-a:360deg}}
+/* 반짝이는 별 */
+.lx-stars{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.9;
+  background-image:radial-gradient(1.6px 1.6px at 12% 18%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 28% 72%,#C9D3FF 50%,transparent 51%),
+  radial-gradient(1.8px 1.8px at 46% 12%,#fff 50%,transparent 51%),radial-gradient(1.2px 1.2px at 63% 86%,#fff 50%,transparent 51%),
+  radial-gradient(1.6px 1.6px at 78% 9%,#C9D3FF 50%,transparent 51%),radial-gradient(1.3px 1.3px at 92% 64%,#fff 50%,transparent 51%),
+  radial-gradient(1.2px 1.2px at 6% 88%,#fff 50%,transparent 51%),radial-gradient(1.5px 1.5px at 54% 52%,#C9D3FF 50%,transparent 51%);
+  animation:twinkle 3.2s ease-in-out infinite alternate}
+@keyframes twinkle{0%{opacity:.25}50%{opacity:1}100%{opacity:.45}}
+.lx-left{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.lx-logo{height:34px;width:auto}
+.lx-title{margin:0;font-family:var(--font-head);font-size:clamp(30px,3vw,48px);line-height:1.2;letter-spacing:-.04em;font-weight:800;color:#fff}
+/* AIMZ LABS 글자에 빛이 지나간다 */
+.lx-shine{background:linear-gradient(100deg,#8FA8FF 0%,#fff 40%,#8FA8FF 55%,#5B85FF 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lxText 4s ease-in-out infinite}
+@keyframes lxText{0%{background-position:100% 0}100%{background-position:-50% 0}}
+.lx-lead{margin:0;color:rgba(255,255,255,.75);font-size:clamp(15px,1.15vw,17px);line-height:1.7;max-width:520px}
+.labs-x .lx-list{width:100%;gap:8px;margin-top:4px}
+.labs-x .lx-list li{padding:11px 14px;grid-template-columns:38px 1fr}
+.labs-x .lx-ic{width:38px;height:38px}
+.labs-x .lx-list b{font-size:15px}
+.labs-x .lx-list p{font-size:13.5px}
+.labs-x .lx-cta{justify-content:flex-start;margin-top:8px}
+.labs-x .lx-shot{position:relative;transform:perspective(1400px) rotateY(-8deg) rotateX(2deg);align-self:center}
+.lx-sweep{position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);animation:lxSweep 4.5s ease-in-out infinite 1s}
+@keyframes lxSweep{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+@media (max-width:1000px){.lx-card{grid-template-columns:1fr;min-height:0}.labs-x{min-height:0}}
+@media (prefers-reduced-motion:reduce){.lx-card::before,.lx-stars,.lx-shine,.lx-sweep{animation:none}}
+
+/* LABS 한 화면 맞춤: 머리말 높이만큼 비우고 화면 안에 딱 */
+.labs-x{padding-top:calc(var(--hdr-h) + 16px);padding-bottom:16px}
+.lx-card{min-height:calc(100vh - var(--hdr-h) - 32px);min-height:calc(100svh - var(--hdr-h) - 32px)}
