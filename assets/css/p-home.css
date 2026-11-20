@@ -550,3 +550,35 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .ds:hover .ds-go{border-color:var(--cta)}
 @media (max-width:1180px){.ds-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:600px){.ds-grid{grid-template-columns:1fr}}
+
+/* 자체 플랫폼 AIMZ LABS — 파란 빛이 도는 남색 카드 */
+.worry{padding-bottom:clamp(40px,5vw,64px)}
+.labs-x{background:var(--d-bg)!important;padding-top:0}
+.lx-card{position:relative;isolation:isolate;overflow:hidden;padding:clamp(36px,5vw,72px);border-radius:var(--radius-xl);color:#fff;
+  background:#0E1124;border:1px solid rgba(58,107,255,.3);--mx:70%;--my:30%}
+.lx-aura{position:absolute;inset:-30%;z-index:-1;pointer-events:none;filter:blur(12px);animation:aura 14s ease-in-out infinite alternate;
+  background:radial-gradient(38% 45% at 80% 20%,rgba(58,107,255,.55),transparent 70%),radial-gradient(30% 40% at 15% 85%,rgba(58,107,255,.28),transparent 70%),radial-gradient(28% 36% at 55% 70%,rgba(140,165,255,.18),transparent 70%)}
+@keyframes aura{to{transform:translate3d(-5%,4%,0) rotate(6deg)}}
+.lx-card[data-glow]::after{background:radial-gradient(420px circle at var(--mx) var(--my),rgba(90,130,255,.22),transparent 60%)}
+.lx-head{text-align:center;display:grid;justify-items:center;gap:16px;max-width:760px;margin:0 auto}
+.lx-head img{height:28px;width:auto}
+.lx-head .h2{color:#fff}
+.lx-head .hl{background-image:linear-gradient(transparent 58%,rgba(120,150,255,.5) 58%,rgba(120,150,255,.5) 94%,transparent 94%)}
+.lx-head .lead{color:rgba(255,255,255,.75);max-width:620px}
+.lx-body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,4vw,56px);align-items:center;margin-top:clamp(36px,4.5vw,56px)}
+.lx-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.lx-list li{display:grid;grid-template-columns:42px 1fr;gap:14px;align-items:center;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);transition:background .3s,border-color .3s}
+.lx-list li:hover{background:rgba(58,107,255,.14);border-color:rgba(58,107,255,.4)}
+.lx-ic{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:rgba(58,107,255,.2);color:#C9D3FF}
+.lx-list b{font-size:16px}
+.lx-list p{margin:3px 0 0;font-size:14px;line-height:1.55;color:rgba(255,255,255,.68)}
+.lx-shot{margin:0;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 70px rgba(58,107,255,.35);transform:perspective(1400px) rotateY(-6deg);transition:transform .9s var(--ease)}
+.lx-card:hover .lx-shot{transform:none}
+.lx-bar{display:flex;align-items:center;gap:7px;height:34px;padding:0 14px;background:#F2F2F0;border-bottom:1px solid #E4E3E6}
+.lx-bar i{width:9px;height:9px;border-radius:50%;background:#DCDCE0}
+.lx-bar span{margin-left:10px;padding:3px 12px;border-radius:999px;background:#fff;font-size:11.5px;color:#6B7082}
+.lx-shot img{width:100%;height:auto;display:block}
+.lx-shot figcaption{padding:10px 14px;background:#fff;color:#6B7082;font-size:13px;text-align:center;border-top:1px solid #EEEDEE}
+.lx-cta{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:clamp(32px,4vw,48px)}
+@media (max-width:1000px){.lx-body{grid-template-columns:1fr}.lx-shot{transform:none}}
+@media (prefers-reduced-motion:reduce){.lx-aura{animation:none}}

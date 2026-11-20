@@ -544,3 +544,5 @@ html.reduce .fw{opacity:1!important}
   filter:drop-shadow(0 0 0 6px var(--bg));transition:transform .7s var(--ease);transform:translateY(-4px)}
 .sec-mark.in{transform:none}
 .dark .sec-mark{display:none}
+
+.sec-mark{display:none!important}
