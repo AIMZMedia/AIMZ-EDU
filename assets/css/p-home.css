@@ -431,8 +431,8 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 @media (max-width:1000px){.tips-row{grid-template-columns:1fr}.tips-hero{min-height:0}}
 
 /* 첫 화면 — 어두운 막 대신 연한 하늘색 파스텔 막 (사용자 요청). 글씨는 남색 */
-.vhero.vh-black{background:#EEF2FF}
-.vhero.vh-black .vh-shade{background:radial-gradient(ellipse 70% 62% at 50% 55%,rgba(244,247,255,.94) 0%,rgba(232,238,255,.9) 55%,rgba(214,224,255,.86) 100%)}
+.vhero.vh-black{background:#D6E0FF}
+.vhero.vh-black .vh-shade{background:radial-gradient(ellipse 70% 62% at 50% 55%,rgba(226,234,255,.93) 0%,rgba(204,218,255,.9) 55%,rgba(176,196,252,.88) 100%)}
 .vhero.vh-black .vh-copy .h1{color:var(--navy);text-shadow:none}
 .vhero.vh-black .vh-copy .lead{color:#3D4466}
 .vhero.vh-black .vh-hint{color:rgba(27,34,65,.55)}

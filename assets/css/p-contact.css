@@ -1,12 +1,16 @@
-/* AIMZ EDU — 문의 · 지원 전용 */
+/* AIMZ EDU — 문의 · 지원 전용 · 홈 결: 가운데 제목, 밝은 바탕, 큰 숫자 없음 */
 
 /* 1. 첫 머리 */
-.ct-hero{padding-bottom:clamp(40px,5vw,72px)}
+.ct-hero{padding-bottom:clamp(48px,6vw,80px)}
+.ct-hero-head{margin-bottom:0}
+.ct-hero-head .h1{text-wrap:balance}
+.ct-hero-head .lead{max-width:680px}
 
 /* 2. 연락처 · 문의 양식 */
 .ct-contact{padding-bottom:clamp(88px,12vw,160px)}
 .ct-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(32px,5vw,80px);align-items:start}
-.ct-side>.kicker,.ct-form-box>.kicker{margin-bottom:18px}
+.ct-side>.kicker,.ct-form-box>.kicker{margin-bottom:18px;font-size:14.5px;letter-spacing:0;color:var(--muted)}
+.ct-side>.kicker b,.ct-form-box>.kicker b{font-family:var(--font-head);color:var(--cta)}
 
 .ct-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
 .ct-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;row-gap:4px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
@@ -38,35 +42,34 @@
 .ct-submit .btn{width:100%}
 .ct-submit .small{margin:0}
 
-/* 3. 운영 지원 */
-.ct-ops-wrap{position:relative}
-.ct-ops-line{position:absolute;left:0;right:0;top:0;height:1px;background:var(--d-ink)}
-.ct-ops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
-.ct-ops li{position:relative;padding-top:30px}
-.ct-ops li::before{content:"";position:absolute;left:0;top:-5px;width:11px;height:11px;border-radius:50%;background:var(--d-bg);border:2px solid var(--d-ink);z-index:1}
-.ct-ops li:first-child::before{background:var(--accent);border-color:var(--accent)}
-.ct-ops .h4{margin-top:10px;font-size:clamp(20px,1.8vw,24px)}
-.ct-ops li p:not(.kicker){margin:10px 0 0;color:var(--d-muted);font-size:15px;max-width:340px}
+/* 3. 운영 지원 — 밝은 카드 세 장 */
+.ct-ops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ct-ops li{display:flex;flex-direction:column;padding:26px 24px 28px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);
+  transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease)}
+.ct-ops li:hover{border-color:var(--cta);transform:translateY(-3px);box-shadow:0 16px 36px rgba(58,107,255,.12)}
+.ct-n{font-family:var(--font-head);font-size:14px;font-weight:800;color:var(--cta)}
+.ct-ops h3{margin:14px 0 0;font-family:var(--font-head);font-size:clamp(19px,1.6vw,23px);font-weight:800;letter-spacing:-.03em}
+.ct-ops p{margin:10px 0 0;color:var(--muted);font-size:15px;line-height:1.7}
 
-.ct-rt-head{margin-top:clamp(80px,10vw,128px);margin-bottom:28px}
-.ct-rt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-top:1px solid var(--d-line)}
-.ct-rt>div{padding:28px 24px 8px 0}
-.ct-rt>div+div{padding-left:24px;border-left:1px solid var(--d-line)}
-.ct-rt dt{font-size:14px;font-weight:700;color:var(--d-muted)}
-.ct-rt dd{margin:16px 0 0}
-.ct-rt b{display:block;font-size:clamp(40px,5vw,72px);line-height:1;font-weight:800;letter-spacing:-.05em;font-variant-numeric:tabular-nums;white-space:nowrap}
-.ct-rt b sup{font-size:.36em;color:var(--d-muted);margin-left:3px;vertical-align:top;position:relative;top:.22em;letter-spacing:-.02em}
-.ct-rt dd>span{display:block;margin-top:14px;font-size:14px;color:var(--d-faint)}
-.ct-rt .hot b,.ct-rt .hot b sup{color:var(--accent)}
-.ct-rt .hot dt::after{content:"최우선";display:inline-flex;align-items:center;height:22px;margin-left:8px;padding:0 8px;border-radius:999px;
-  font-size:11px;letter-spacing:.04em;background:rgba(39,67,190,.16);color:#A9B8FF;vertical-align:1px}
-.ct-channel{display:flex;gap:16px 28px;align-items:baseline;flex-wrap:wrap;margin-top:40px;padding:24px 28px;border:1px solid var(--d-line);border-radius:var(--radius-lg);background:var(--d-surface)}
-.ct-channel .kicker b{letter-spacing:.14em;font-size:12px}
-.ct-channel p:not(.kicker){margin:0;color:var(--d-ink);font-weight:600}
+/* 응답 시간 기준 — 밝은 바탕 3칸, 숫자는 본문 굵기 */
+.ct-rt-box{margin-top:clamp(56px,7vw,88px);padding:clamp(24px,3vw,36px);border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line)}
+.ct-rt-h{margin:0 0 18px;font-family:var(--font-head);font-size:clamp(19px,1.6vw,22px);font-weight:800;letter-spacing:-.03em}
+.ct-rt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-top:1px solid var(--line)}
+.ct-rt>div{padding:20px 24px 4px 0}
+.ct-rt>div+div{padding-left:24px;border-left:1px solid var(--line)}
+.ct-rt dt{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:14.5px;font-weight:700;color:var(--faint)}
+.ct-rt dd{margin:8px 0 0}
+.ct-rt b{display:block;font-size:18px;font-weight:700;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
+.ct-rt dd>span{display:block;margin-top:2px;font-size:15px;color:var(--muted)}
+.ct-rt .hot b{color:var(--cta)}
+.ct-chip{display:inline-flex;align-items:center;height:22px;padding:0 9px;border-radius:999px;background:#EEF2FF;color:#2F5DF0;font-size:12px;font-weight:700}
+.ct-channel{display:flex;gap:6px 18px;align-items:baseline;flex-wrap:wrap;margin:24px 0 0;padding:16px 22px;border-radius:var(--radius);background:#EEF2FF}
+.ct-channel b{font-size:16px;color:var(--navy)}
+.ct-channel span{font-size:15px;color:var(--muted)}
 
 /* 4. 교육 후 소통 */
 .ct-after-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
-.ct-after-txt .lead{margin-top:24px}
+.ct-after-txt .lead{margin-top:20px}
 .ct-after-txt .list-lines{margin-top:28px;max-width:520px}
 .ct-after-txt .list-lines li{font-weight:600}
 .ct-after-txt .link-ar{margin-top:28px}
@@ -75,16 +78,20 @@
 
 @media (max-width:900px){
   .ct-grid{grid-template-columns:1fr}
-  .ct-ops{grid-template-columns:1fr;gap:0}
-  .ct-ops-line{display:none}
-  .ct-ops li{padding:24px 0 24px 28px;border-left:1px solid var(--d-line-2)}
-  .ct-ops li::before{left:-6px;top:30px}
+  .ct-ops{grid-template-columns:1fr}
   .ct-after-in{grid-template-columns:1fr}
 }
 @media (max-width:640px){
   .ct-form{grid-template-columns:1fr}
   .ct-rt{grid-template-columns:1fr}
-  .ct-rt>div,.ct-rt>div+div{padding:22px 0;border-left:0}
-  .ct-rt>div+div{border-top:1px solid var(--d-line)}
-  .ct-channel{padding:20px}
+  .ct-rt>div,.ct-rt>div+div{padding:16px 0;border-left:0}
+  .ct-rt>div+div{border-top:1px solid var(--line)}
+  .ct-channel{padding:16px 18px}
+}
+
+/* 넓은 화면 — 본문 글자를 15px 아래로 두지 않는다 */
+@media (min-width:1600px){
+  .ct-list small,.ct-field label,.ct-rt dt,.ct-side>.kicker,.ct-form-box>.kicker{font-size:15px}
+  .ct-ops p,.ct-rt dd>span,.ct-channel span,.ct-after-txt .list-lines li{font-size:16.5px}
+  .ct-rt b,.ct-channel b{font-size:19px}
 }

@@ -1,116 +1,99 @@
-/* AIMZ EDU — 강사진 전용 */
+/* AIMZ EDU — 강사진 전용 (홈 결: 가운데 제목 · 밝은 바탕 · 작은 파란 번호 · 큰 숫자 없음) */
 
-/* 1. 첫 머리 — 이진형 센터장 */
-.in-hero{padding-bottom:clamp(40px,5vw,72px)}
-.in-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,6vw,96px);align-items:end}
-.in-id{margin-top:clamp(36px,5vw,56px);padding-top:28px;border-top:1px solid var(--line);max-width:560px}
-.in-name{margin:12px 0 0;font-size:clamp(40px,4.6vw,64px);line-height:1.05;letter-spacing:-.045em;font-weight:800}
-.in-aff{margin:14px 0 0;font-size:16px;font-weight:600;line-height:1.6}
-.in-desc{margin:12px 0 0;font-size:15.5px;color:var(--muted)}
-/* 흰 배경 증명사진 — 흰 카드 위에 둔다 */
-.in-photo{position:relative;margin:0;aspect-ratio:5/6;border-radius:var(--radius-xl);overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
-.in-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%}
-html.js:not(.reduce) .in-photo img{animation:inZoom 2s var(--ease-out) .15s both}
-@keyframes inZoom{from{transform:scale(1.14)}}
-.in-photo figcaption{position:absolute;left:18px;bottom:18px;display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 14px;border-radius:999px;
-  background:rgba(255,255,255,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);font-size:13px;font-weight:700}
-.in-photo .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
-.in-stats{margin-top:clamp(48px,6vw,80px)}
+/* 1. 첫 머리 + 강사 4명 — 홈 '사내 전문 인력' 카드(p-home.css .c4)와 같은 모양 */
+.tm-hero{padding-bottom:clamp(64px,8vw,104px)}
+.tm-hero .sec-head .lead{max-width:760px}
+.tm-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1240px;margin-inline:auto}
+.tm{display:flex;flex-direction:column;padding:14px 14px 22px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);
+  transition:border-color .3s,box-shadow .4s var(--ease),transform .4s var(--ease)}
+.tm:not(.tbd):hover{border-color:var(--cta);box-shadow:0 18px 40px rgba(58,107,255,.14);transform:translateY(-4px)}
+.tm-ph{aspect-ratio:1/1;border-radius:12px;background:linear-gradient(180deg,#F2F4FB,#E3E8F6);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.tm-ph img{width:72%;height:auto;display:block;mix-blend-mode:multiply;transition:transform .8s var(--ease)}
+.tm:not(.tbd):hover .tm-ph img{transform:scale(1.05)}
+.tm-role{margin:16px 6px 0;font-size:13px;font-weight:700;color:var(--cta)}
+.tm-name{margin:4px 6px 0;font-family:var(--font-head);font-size:22px;font-weight:800;letter-spacing:-.03em;line-height:1.3}
+.tm-aff{margin:8px 6px 0;font-size:14.5px;line-height:1.6;color:var(--muted)}
+.tm-list{list-style:none;margin:14px 6px 0;padding:0;border-top:1px solid var(--line)}
+.tm-list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.5}
+.tm-facts{margin:12px 6px 0;font-size:14px;line-height:1.65;color:var(--muted)}
+.tm-facts b{color:var(--ink);font-weight:700}
+.tm-tags{display:flex;flex-wrap:wrap;gap:5px;margin:auto 6px 0;padding-top:16px}
+.tm-tags span{height:26px;display:inline-flex;align-items:center;padding:0 11px;border-radius:999px;background:#EEF2FF;color:#2F5DF0;font-size:12.5px;font-weight:700}
+.tm.tbd{border-style:dashed;background:transparent}
+.tm.tbd .tm-ph{background:var(--surface-2);align-items:center}
+.tm.tbd .tm-ph span{width:30%;aspect-ratio:1;border-radius:50%;background:var(--surface-3) center/40% no-repeat url("/assets/logo/favicon.png");opacity:.6}
+.tm.tbd .tm-role,.tm.tbd .tm-name,.tm.tbd .tm-aff{color:var(--faint)}
+.tm.tbd .tm-tags span{background:var(--surface-3);color:var(--faint)}
 
-/* 2. 함께 가르치는 사람 */
-.in-team{padding-top:clamp(48px,6vw,80px)}
-.in-team-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:clamp(32px,5vw,72px);align-items:center}
-.in-card{position:relative;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);border:1px solid var(--line);border-radius:var(--radius-xl);background:var(--surface);overflow:hidden;
-  transition:border-color .3s var(--ease)}
-.in-card:hover{border-color:var(--ink)}
-.in-card-photo{background:#fff;overflow:hidden;min-height:320px}
-.in-card-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform 1s var(--ease)}
-.in-card:hover .in-card-photo img{transform:scale(1.04)}
-.in-card-body{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column}
-.in-card-body .h3{margin-top:12px;font-size:clamp(26px,2.6vw,36px)}
-.in-card-body .list-lines{margin-top:18px}
-.in-card-body .link-ar{margin-top:22px;align-self:flex-start;position:relative;z-index:1}
+/* 2. 강의 분야 (이 페이지의 어두운 구획 1곳) */
+#areas .kicker b{color:#8FA2FF}
+.areas-more{margin-top:clamp(24px,4vw,48px)}
 
-/* 4. 주요 프로젝트 — 큰 글자 목록 */
+/* 3. 주요 프로젝트 — 큰 글자 목록, 마우스 올리면 옅은 파랑 */
 .pj{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-2)}
 .pj-row{position:relative;isolation:isolate;display:grid;grid-template-columns:56px minmax(0,1fr) auto;gap:12px 24px;align-items:center;
-  padding:clamp(22px,3vw,38px) clamp(8px,1.6vw,28px);border-bottom:1px solid var(--line-2);overflow:hidden;transition:color .4s var(--ease)}
-.pj-row::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--d-bg);transform:scaleY(0);transform-origin:50% 100%;transition:transform .55s var(--ease-out)}
-.pj-n{font-size:14px;font-weight:700;letter-spacing:.06em;color:var(--faint);font-variant-numeric:tabular-nums;transition:color .4s}
-.pj-t{margin:0;font-size:clamp(26px,3.6vw,52px);line-height:1.12;letter-spacing:-.045em;font-weight:800;transition:transform .55s var(--ease-out)}
-.pj-t span{color:var(--faint);font-weight:700;transition:color .4s}
-.pj-d{margin:8px 0 0;font-size:15.5px;color:var(--muted);max-width:720px;transition:color .4s}
-.pj-row .tag{transition:background .4s,color .4s}
+  padding:clamp(22px,3vw,38px) clamp(8px,1.6vw,28px);border-bottom:1px solid var(--line-2);overflow:hidden}
+.pj-row::before{content:"";position:absolute;inset:0;z-index:-1;background:#F3F5FF;transform:scaleY(0);transform-origin:50% 100%;transition:transform .55s var(--ease-out)}
+.pj-n{font-family:var(--font-head);font-size:14px;font-weight:800;letter-spacing:.02em;color:var(--cta);font-variant-numeric:tabular-nums}
+.pj-t{margin:0;font-size:clamp(24px,2.8vw,40px);line-height:1.18;letter-spacing:-.04em;font-weight:800;transition:transform .55s var(--ease-out)}
+.pj-t span{color:var(--faint);font-weight:700}
+.pj-d{margin:8px 0 0;font-size:15.5px;color:var(--muted);max-width:720px}
 @media (hover:hover){
-  .pj-row:hover{color:var(--d-ink)}
   .pj-row:hover::before{transform:scaleY(1);transform-origin:50% 0}
-  .pj-row:hover .pj-t{transform:translateX(14px)}
-  .pj-row:hover .pj-n{color:var(--accent)}
-  .pj-row:hover .pj-t span{color:var(--d-faint)}
-  .pj-row:hover .pj-d{color:var(--d-muted)}
-  .pj-row:hover .tag{background:rgba(243,242,238,.1);color:var(--d-ink)}
-  .pj-row:hover .tag.red{background:var(--accent);color:#fff}
+  .pj-row:hover .pj-t{transform:translateX(10px)}
 }
 
-/* 5. 강의 이력 — 연도별 얇은 선 */
+/* 4. 강의 이력 — 연도별 얇은 선 (2단: 왼쪽 제목 고정 · 오른쪽 목록) */
 .lc{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,96px);align-items:start}
 .lc-head{position:sticky;top:calc(var(--hdr-h) + 40px)}
 .lc-head .lead{margin-top:20px}
 .lc-year+.lc-year{margin-top:clamp(44px,5vw,68px)}
-.lc-y{display:flex;align-items:center;gap:18px}
-.lc-y span{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.lc-y{display:flex;align-items:center;gap:16px}
+.lc-y span{font-family:var(--font-head);font-size:18px;font-weight:800;letter-spacing:.01em;line-height:1;color:var(--cta);font-variant-numeric:tabular-nums}
 .lc-line{display:block;flex:1;height:1px;background:var(--line-2)}
 .lc-list{list-style:none;margin:8px 0 0;padding:0}
 .lc-list li{display:grid;grid-template-columns:minmax(0,210px) minmax(0,1fr) auto;gap:6px 24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line-2)}
 .lc-list b{font-size:16.5px;font-weight:700;letter-spacing:-.02em}
 .lc-list p{margin:0;font-size:15px;color:var(--muted);transition:color .3s}
 .lc-list li:hover p{color:var(--ink)}
-.lc-list .tag{justify-self:end;height:24px;font-size:11.5px}
+.lc-list .tag{justify-self:end;height:26px;font-size:12.5px}
 
-/* 6. 수상 · 맺음말 */
+/* 5. 수상 — 흰 띠 위 카드 2장 (홈 .eb 카드 결) */
+.in-close{background:var(--surface);border-block:1px solid var(--line)}
+.aw{max-width:1120px;margin-inline:auto}
+.aw .card{background:var(--bg);transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease),background .3s}
+.aw .card:hover{border-color:var(--cta);background:#fff;transform:translateY(-4px);box-shadow:0 18px 40px rgba(58,107,255,.12)}
+.aw .card .kicker b{color:var(--cta)}
 .aw .card .h4{line-height:1.45}
 .aw .card p:not(.kicker){display:flex;flex-wrap:wrap;align-items:center;gap:6px 0;margin-top:14px}
 .aw .card p .tag{margin-right:8px}
-.msg{margin-top:clamp(104px,13vw,180px);text-align:center}
-.msg-faces{display:flex;justify-content:center;margin-bottom:32px}
-.msg-faces img{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:50% 16%;background:#fff;border:3px solid var(--d-bg)}
-.msg-faces img+img{margin-left:-16px}
-.msg-t{font-size:clamp(40px,6.6vw,104px)}
-.msg .lead{margin:24px auto 0}
+.in-close+.cta{border-top:0}
 
 /* 반응형 */
+@media (max-width:1080px){.tm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:900px){
-  .in-top{grid-template-columns:1fr;align-items:start}
-  .in-photo{max-width:480px;width:100%}
-  .in-team-grid{grid-template-columns:1fr}
   .lc{grid-template-columns:1fr}
   .lc-head{position:static}
 }
 @media (max-width:640px){
-  .in-card{grid-template-columns:1fr}
-  .in-card-photo{min-height:0;aspect-ratio:4/3}
   .pj-row{grid-template-columns:36px minmax(0,1fr);padding-inline:0}
   .pj-row .tag{grid-column:2;justify-self:start}
   .lc-list li{grid-template-columns:minmax(0,1fr) auto}
   .lc-list p{grid-column:1/-1;grid-row:2}
 }
+@media (max-width:560px){
+  .tm-grid{grid-template-columns:1fr}
+  .tm-ph{aspect-ratio:16/10}
+  .tm-ph img{width:44%}
+}
 
-/* ===== 강사진 4명 (2026-11 개편: 얼굴은 작게, 글은 또렷하게) ===== */
-.tm-hero{padding-bottom:clamp(64px,8vw,104px)}
-.tm-hero .sec-head .lead{max-width:760px}
-.tm-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.tm{display:flex;flex-direction:column;padding:24px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);transition:border-color .3s,box-shadow .3s}
-.tm:hover{border-color:var(--ink);box-shadow:var(--shadow)}
-.tm-head{display:flex;align-items:center;gap:14px}
-.tm-head img,.tm-ph{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 16%;flex:none;background:#fff;border:1px solid var(--line)}
-.tm-ph{background:var(--surface-3) center/24px no-repeat url("/assets/logo/favicon.png");opacity:.6}
-.tm-role{margin:0;font-size:12.5px;font-weight:600;color:var(--faint)}
-.tm-name{margin:2px 0 0;font-family:var(--font-head);font-size:22px;font-weight:800;letter-spacing:-.03em}
-.tm-aff{margin:16px 0 0;font-size:14px;color:var(--muted);line-height:1.6}
-.tm-list{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--line)}
-.tm-list li{padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
-.tm-facts{margin:auto 0 0;padding-top:16px;font-size:12.5px;color:var(--faint);line-height:1.6}
-.tm.tbd{border-style:dashed;background:transparent}
-.tm.tbd .tm-name,.tm.tbd .tm-aff,.tm.tbd .tm-list li,.tm.tbd .tm-role{color:var(--faint)}
-@media (max-width:1080px){.tm-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.tm-grid{grid-template-columns:1fr}}
+/* 넓은 화면(1600px 이상) — 본문 16px 이상, 작은 글도 15px 이상 */
+@media (min-width:1600px){
+  .tm-aff,.tm-list li,.lc-list p,.pj-d{font-size:16.5px}
+  .tm-facts{font-size:16px}
+  .tm-role,.lc-list .tag,.pj-n{font-size:15px}
+  .tm-tags span{font-size:14px;height:28px}
+  .tm-name{font-size:24px}
+  .lc-list b{font-size:18px}
+  .lc-y span{font-size:20px}
+}
