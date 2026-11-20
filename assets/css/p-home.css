@@ -272,3 +272,21 @@
   .people .link-ar{margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){.vh-hint i::after{animation:none}}
+
+/* 사내 전문 인력 카드 */
+.crew{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(40px,5vw,60px);text-align:left}
+.cw{display:flex;flex-direction:column;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);overflow:hidden;transition:border-color .3s,box-shadow .4s var(--ease),transform .4s var(--ease)}
+a.cw:hover{border-color:var(--cta);box-shadow:0 18px 40px rgba(58,107,255,.14);transform:translateY(-4px)}
+.cw-ph{aspect-ratio:1/1;background:linear-gradient(180deg,#F2F4FB,#E7EBF7);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.cw-ph img{width:78%;height:auto;display:block;mix-blend-mode:multiply;transition:transform .8s var(--ease)}
+a.cw:hover .cw-ph img{transform:scale(1.04)}
+.cw-b{padding:18px 20px 22px}
+.cw-r{margin:0;font-size:13px;font-weight:600;color:var(--cta)}
+.cw-b h4{margin:4px 0 0;font-family:var(--font-head);font-size:22px;font-weight:800;letter-spacing:-.03em}
+.cw-b p:not(.cw-r){margin:8px 0 0;font-size:14px;line-height:1.6;color:var(--muted)}
+.cw.tbd{border-style:dashed;background:transparent}
+.cw.tbd .cw-ph{background:var(--surface-2)}
+.cw.tbd .cw-ph span{width:42%;aspect-ratio:1;margin-bottom:22%;border-radius:50%;background:var(--surface-3) center/40% no-repeat url("/assets/logo/favicon.png");opacity:.6}
+.cw.tbd .cw-r,.cw.tbd h4,.cw.tbd p{color:var(--faint)!important}
+.crew-more{margin-top:28px}
+@media (max-width:1080px){.crew{grid-template-columns:repeat(2,minmax(0,1fr))}}
