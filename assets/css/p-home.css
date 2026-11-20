@@ -1101,3 +1101,5 @@ html.reduce .wl-list li{opacity:1;transform:none}
   .crew-x.cp-pop .crew-people{margin-top:16px;max-width:none}
   .crew-x.cp-pop .cp-ph{aspect-ratio:4/4.4}
 }
+
+.labs-x .lx-cta{grid-template-columns:1fr 1.15fr}
