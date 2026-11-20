@@ -355,8 +355,10 @@
         const cards = $$('.stack-card', box);
         cards.forEach((c, i) => {
           if (i === cards.length - 1) return;
-          gsap.to(c, { scale: .92, filter: 'brightness(.45)', ease: 'none',
-            scrollTrigger: { trigger: cards[i + 1], start: 'top bottom', end: 'top ' + (parseInt(getComputedStyle(c).top) || 120) + 'px', scrub: true } });
+          /* 다음 카드가 실제로 겹치기 시작한 뒤에만(화면 아래쪽 35% 지점부터) 살짝 어두워진다. 최저 밝기 .6 */
+          const topPx = parseInt(getComputedStyle(c).top) || 120;
+          gsap.fromTo(c, { scale: 1, filter: 'brightness(1)' }, { scale: .94, filter: 'brightness(.6)', ease: 'none', immediateRender: false,
+            scrollTrigger: { trigger: cards[i + 1], start: () => 'top ' + Math.round(topPx + c.offsetHeight * .65) + 'px', end: 'top ' + topPx + 'px', scrub: true, invalidateOnRefresh: true } });
         });
       });
     });
