@@ -842,3 +842,8 @@ a.cp:hover .cp-ph img{transform:scale(1.05)}
 /* 순서: 현장 사진 먼저 → 강사 카드 */
 .crew-field{margin-top:0}
 .crew-people{margin-top:18px}
+
+/* 교육과정 카드: 상세 표 빼고 한 줄 소개 + 수업 구성 + 버튼만 */
+.pd-one{margin-bottom:4px}
+.pd-mods{margin-top:18px}
+.pd-custom{margin-top:18px}
