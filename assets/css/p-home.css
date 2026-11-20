@@ -44,6 +44,7 @@
 .tool-chips b{font-family:var(--font-head);font-size:16px;letter-spacing:-.01em}
 .tool-chips small{font-size:12px;color:var(--d-faint)}
 .pb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(40px,5vw,64px)}
+.pb-grid.six{grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;max-width:1080px;margin-inline:auto}
 .pb-card{padding:26px 24px;border-top:1px solid var(--d-line-2)}
 .pb-n{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--d-faint);letter-spacing:.06em}
 .pb-card .h4{margin-top:14px}
@@ -51,7 +52,8 @@
 
 /* 5. AIMZ LABS 해결 */
 .solve-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(36px,5vw,80px);align-items:center}
-.solve-shot{perspective:1400px;border-radius:16px}
+.solve-shot{perspective:1400px;border-radius:16px;margin:0}
+.solve-shot figcaption{margin-top:18px;text-align:center;font-size:13.5px;color:var(--faint)}
 .lb-frame{position:relative;border-radius:14px;overflow:hidden;background:#fff;padding-top:26px;border:1px solid var(--line);
   box-shadow:0 30px 70px rgba(27,34,65,.16);transform:rotateY(8deg) rotateX(3deg);transform-origin:100% 50%;transition:transform .9s var(--ease)}
 .solve-shot:hover .lb-frame{transform:none}
@@ -67,7 +69,7 @@
 .solve-list b{font-size:16.5px;letter-spacing:-.02em}
 .solve-list p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
 .solve-cta{display:flex;align-items:center;gap:14px;margin-top:30px}
-.solve-cta span{font-size:13px;color:var(--faint)}
+.solve-cta{flex-wrap:wrap}
 
 /* 1. 회사 소개 — 숫자 · 직접 가르치는 사람들 */
 .about .lead b{color:var(--ink);font-weight:700}
