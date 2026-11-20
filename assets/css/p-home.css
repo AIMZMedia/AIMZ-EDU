@@ -439,3 +439,15 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .vhero.vh-black .vh-hint i{background:rgba(27,34,65,.2)}
 .vhero.vh-black .vh-hint i::after{background:var(--navy)}
 .vhero.vh-black .btn-cta.cta-hero{box-shadow:0 14px 34px rgba(58,107,255,.3)}
+
+/* 정렬: TIPS 카드와 오른쪽 목록의 위·아래 끝선을 맞춘다 */
+.tips-row{align-items:stretch}
+.tips-hero{min-height:0;height:100%}
+.tips-side{display:flex;flex-direction:column;padding-top:0}
+.tips-side .h2{margin-top:-.12em}
+.tips-list{margin-top:24px;flex:1;display:flex;flex-direction:column}
+.tips-list li{flex:1;align-items:center}
+.tips-list li:last-child{border-bottom:0}
+/* 정렬: 회사 소개 글과 쇼릴 위 끝선 맞춤 */
+.ab-top{align-items:start}
+.ab-txt .h2{margin-top:-.12em}
