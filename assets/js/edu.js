@@ -388,7 +388,7 @@
       let i = 0, timer = 0, visible = false;
       const show = n => {
         i = (n + ss.length) % ss.length;
-        ss.forEach((s, k) => { s.classList.toggle('on', k === i); const v = $('video', s); if (v) { if (k === i && visible) { v.currentTime = 0; const p = v.play(); p && p.catch(() => {}); } else v.pause(); } });
+        ss.forEach((s, k) => { s.classList.toggle('on', k === i); const v = $('video', s); if (v) { v.muted = true; v.playsInline = true; if (k === i && visible) { try { v.currentTime = 0; } catch (e) {} const go = () => { const p = v.play(); p && p.catch(() => {}); }; v.readyState >= 2 ? go() : (v.preload = 'auto', v.addEventListener('canplay', go, { once: true }), v.load()); } else v.pause(); } });
         ts.forEach((t, k) => { t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', k === i); t.setAttribute('aria-selected', k === i); });
         $$('.rl-dots i', r).forEach((d, k) => d.classList.toggle('on', k === i));
         clearTimeout(timer); if (visible && !reduce) timer = setTimeout(() => show(i + 1), DUR);
