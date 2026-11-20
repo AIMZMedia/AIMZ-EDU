@@ -45,10 +45,6 @@
     top.classList.toggle('on', y > innerHeight * 1.2);
     if (!hdr) return;
     hdr.classList.toggle('solid', y > 10);
-    /* 머리말 바로 아래가 어두운 구획이면 글자를 밝게 */
-    const probe = document.elementsFromPoint(innerWidth / 2, (hdr.offsetHeight || 72) / 2 + 1).find(el => !hdr.contains(el));
-    const sec = probe && probe.closest('[data-theme], .dark, .light, section, footer');
-    hdr.classList.toggle('on-dark', !!sec && (sec.dataset.theme === 'dark' || (sec.classList.contains('dark') && sec.dataset.theme !== 'light')));
     /* 아래로 빠르게 내릴 때는 숨기고, 올리면 다시 */
     const nav = $('#nav');
     if (!(nav && nav.classList.contains('open'))) hdr.classList.toggle('hide', y > 640 && y > lastY + 2);
@@ -56,6 +52,16 @@
     lastY = y;
   }
   addEventListener('scroll', onScroll, { passive: true });
+
+  /* 떠 있는 상담 카드 — 첫 화면을 지나면 나타난다. 닫으면 이번 방문 동안 다시 안 뜬다 */
+  const fl = document.createElement('aside');
+  fl.className = 'fl'; fl.setAttribute('aria-label', '교육 상담');
+  fl.innerHTML = '<button class="fl-x" type="button" aria-label="상담 카드 닫기">×</button><a href="/contact"><div class="fl-ph"><img src="/assets/img/instructor-lee_v3.jpg" alt=""></div><p>우리 기관 AI 교육,<br>고민하고 계신가요?</p><span>교육 문의 →</span></a>';
+  let flOff = false; try { flOff = sessionStorage.getItem('edu-fl-off') === '1'; } catch (e) {}
+  if (!flOff) document.body.appendChild(fl);
+  $('.fl-x', fl).addEventListener('click', () => { fl.remove(); flOff = true; try { sessionStorage.setItem('edu-fl-off', '1'); } catch (e) {} });
+  function syncFl() { if (!flOff) fl.classList.toggle('on', scrollY > innerHeight * .7 && current !== '/contact'); }
+  addEventListener('scroll', () => syncFl(), { passive: true });
 
   /* 모바일 메뉴 */
   const burger = $('.burger'), nav = $('#nav');
@@ -171,6 +177,32 @@
     const mm = gsap.matchMedia();
 
     /* 화면을 붙잡는(pin) 구획부터 만든다 — 그래야 그 아래 트리거 위치가 맞는다 */
+    /* data-switch : 화면을 붙잡은 채 목록이 차례로 켜진다 (조코딩AX 방식). data-dark-from="2" 이면 3번째부터 배경이 어두워진다 */
+    mm.add('(min-width: 901px)', () => {
+      $$('[data-switch]', scope).forEach(sec => {
+        const items = $$('.sw-item', sec), media = $$('.sw-media > *', sec), caps = $$('.sw-cap > *', sec), bars = $$('.sw-bar i', sec);
+        const n = items.length, darkFrom = sec.dataset.darkFrom ? +sec.dataset.darkFrom : -1;
+        let cur = -1;
+        const act = i => {
+          if (i === cur) return; cur = i;
+          items.forEach((it, k) => it.classList.toggle('on', k === i));
+          media.forEach((m, k) => m.classList.toggle('on', k === i));
+          caps.forEach((c, k) => c.classList.toggle('on', k === i));
+          sec.classList.toggle('is-dark', darkFrom >= 0 && i >= darkFrom);
+        };
+        act(0);
+        const st = ScrollTrigger.create({ trigger: sec, start: 'top top', end: () => '+=' + Math.round(n * innerHeight * .6), pin: true, anticipatePin: 1, invalidateOnRefresh: true,
+          onUpdate: s => {
+            const p = s.progress * n, i = Math.min(n - 1, Math.floor(p));
+            act(i);
+            bars.forEach((b, k) => { b.style.transform = `scaleX(${k < i ? 1 : k === i ? Math.min(1, p - i) : 0})`; });
+          } });
+        items.forEach((it, i) => it.addEventListener('click', e => {
+          if (e.target.closest('a')) return;
+          scrollToY(st.start + (st.end - st.start) * ((i + .5) / n));
+        }));
+      });
+    });
     /* data-hscroll : 세로로 내리면 가로로 흘러간다 (넓은 화면만) */
     mm.add('(min-width: 901px)', () => {
       $$('[data-hscroll]', scope).forEach(sec => {
@@ -307,10 +339,11 @@
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {
-      if (clean(new URL(a.href, location.origin).pathname) === navPath) a.setAttribute('aria-current', 'page');
+      const u = new URL(a.href, location.origin);
+      if (u.origin === location.origin && clean(u.pathname) === navPath) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     });
-    onScroll();
+    onScroll(); syncFl();
     if (hasGsap) { requestAnimationFrame(() => ScrollTrigger.refresh()); (document.fonts && document.fonts.ready || Promise.resolve()).then(() => ScrollTrigger.refresh()); }
   }
   function teardown() {
