@@ -930,3 +930,7 @@ html.reduce .wl-list li{opacity:1;transform:none}
 
 .sva .ds-go{border:0;padding:0;height:auto;border-radius:0;background:none}
 @media (max-width:900px){.sva .sva-bg::after,.sva:not(.on) .sva-bg::after{background:linear-gradient(180deg,rgba(14,17,33,.35) 0%,rgba(14,17,33,.85) 40%,rgba(14,17,33,.96) 100%)}}
+
+/* 새로 만든 서비스 아이콘: 자체가 둥근 유리 타일 → 흰 바탕 없이 */
+.ic3.ic3-own{background:none!important;box-shadow:0 12px 28px rgba(58,107,255,.35);border-radius:22%!important}
+.ic3.ic3-own img{object-fit:contain}
