@@ -403,12 +403,25 @@
     });
   }
 
+  /* 6-A: 밝은 구획끼리 맞닿는 경계 가운데에 작은 삼각형 */
+  function initMarks(scope) {
+    const secs = $$(':scope > section', scope);
+    secs.forEach((sec, i) => {
+      if (!i || sec.classList.contains('dark') || sec.classList.contains('vhero') || sec.classList.contains('logos') || $('.sec-mark', sec)) return;
+      const prev = secs[i - 1]; if (prev && (prev.classList.contains('dark') || prev.classList.contains('vhero') || prev.classList.contains('logos'))) return;
+      if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+      const m = document.createElement('span'); m.className = 'sec-mark'; m.setAttribute('aria-hidden', 'true'); sec.prepend(m);
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { m.classList.add('in'); io.disconnect(); } }), { threshold: 1 });
+      io.observe(m); cleanups.push(() => io.disconnect());
+    });
+  }
+
   /* ---------------- 페이지 시작 · 정리 ---------------- */
   let pendingSearch = '';
   function initPage() {
     const scope = $('main');
     if (hasGsap) ctx = gsap.context(() => initMotion(scope), scope);
-    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope);
+    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope); initMarks(scope);
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {
