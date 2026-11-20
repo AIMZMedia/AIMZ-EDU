@@ -73,7 +73,13 @@
 
 /* 1. 회사 소개 — 숫자 · 직접 가르치는 사람들 */
 .about .lead b{color:var(--ink);font-weight:700}
-.about .stats{margin-top:clamp(48px,6vw,72px)}
+.about .sec-head .lead{max-width:760px;text-wrap:pretty}
+/* 세 갈래 — 큰 숫자 대신 글로 */
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,3vw,44px);margin-top:clamp(56px,7vw,88px)}
+.pillar{padding-top:22px;border-top:2px solid var(--ink)}
+.pl-k{margin:0;font-size:13.5px;font-weight:700;color:var(--muted)}
+.pillar .h4{margin-top:10px;font-size:clamp(19px,1.6vw,22px)}
+.pillar p:not(.pl-k){margin:10px 0 0;font-size:15px;color:var(--muted);line-height:1.75}
 .people{display:flex;align-items:center;gap:14px 18px;flex-wrap:wrap;margin-top:clamp(28px,3.5vw,40px);padding-top:24px;border-top:1px solid var(--line)}
 .people-h{margin:0 8px 0 0;font-size:14px;font-weight:700;color:var(--faint)}
 .pp{display:flex;align-items:center;gap:14px;padding:10px 18px 10px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line);transition:border-color .3s,box-shadow .3s}
@@ -83,6 +89,9 @@
 .pp span{display:block;font-size:13px;color:var(--muted)}
 .pp small{display:block;font-size:12px;color:var(--faint)}
 .people .link-ar{margin-left:auto}
+.pp.tbd{border-style:dashed;background:transparent;color:var(--faint)}
+.pp.tbd b{color:var(--faint)}
+.pp-ph{width:52px;height:52px;border-radius:50%;flex:none;background:var(--surface-3) center/22px no-repeat url("/assets/logo/favicon.png");opacity:.6}
 /* 3. 고민 머리말 */
 .pre{margin:0;font-size:15px;font-weight:600;color:var(--d-muted)}
 
@@ -155,6 +164,7 @@
   .svc-dl>div{grid-template-columns:60px 1fr}
   .pb-grid{grid-template-columns:1fr}
   .pp{border-radius:18px;width:100%}
+  .pillars{grid-template-columns:1fr;gap:28px}
   .people .link-ar{margin-left:0}
 }
 @media (prefers-reduced-motion:reduce){.vh-hint i::after{animation:none}}

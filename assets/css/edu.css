@@ -100,6 +100,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .dark .btn-line{background:transparent;color:var(--d-ink);border-color:var(--d-line-2)}
 .dark .btn-line:hover{border-color:var(--d-ink)}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
+/* 나란히 놓인 두 버튼은 같은 크기 */
+.btns.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:max-content}
+.btns.pair .btn{min-width:180px}
 
 .link-ar{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:15px;border-bottom:1px solid currentColor;padding-bottom:2px}
 .link-ar .ar{transition:transform .3s var(--ease)}
@@ -141,6 +144,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hl.on,html.reduce .hl{background-size:100% 100%}
 .dark .hl{background-image:linear-gradient(transparent 64%,rgba(58,107,255,.38) 64%,rgba(58,107,255,.38) 92%,transparent 92%)}
 .hdr-act{display:flex;gap:8px;align-items:center}
+.hdr-act .btn-sm{min-width:118px}
 .burger{display:none;width:42px;height:42px;border:0;border-radius:10px;background:transparent;position:relative}
 .burger span{position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:currentColor;transition:transform .35s var(--ease),top .35s var(--ease)}
 .burger span:nth-child(1){top:16px} .burger span:nth-child(2){top:24px}
