@@ -60,7 +60,11 @@
   let flOff = false; try { flOff = sessionStorage.getItem('edu-fl-off') === '1'; } catch (e) {}
   if (!flOff) document.body.appendChild(fl);
   $('.fl-x', fl).addEventListener('click', () => { fl.remove(); flOff = true; try { sessionStorage.setItem('edu-fl-off', '1'); } catch (e) {} });
-  function syncFl() { if (!flOff) fl.classList.toggle('on', scrollY > innerHeight * .7 && current !== '/contact'); }
+  function syncFl() {
+    if (flOff) return;
+    fl.classList.toggle('on', scrollY > innerHeight * .7 && current !== '/contact');
+    const ft = $('.ftr'); fl.classList.toggle('hide-foot', !!ft && ft.getBoundingClientRect().top < innerHeight - 40);
+  }
   addEventListener('scroll', () => syncFl(), { passive: true });
 
   /* 모바일 메뉴 */

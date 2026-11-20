@@ -127,3 +127,7 @@
   .c-jump a{width:100%;justify-content:center;padding:0 10px;gap:6px;font-size:14px}
   .cp-meta div,.cc-dl div{grid-template-columns:76px minmax(0,1fr);gap:12px}
 }
+
+/* 일정·준비와 맨 아래 문의 사이 빈 공간 줄이기 */
+.prep{padding-bottom:clamp(56px,6vw,88px)}
+.prep+.cta{padding-top:clamp(72px,8vw,112px)}

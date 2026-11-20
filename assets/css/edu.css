@@ -191,9 +191,9 @@ a.card:hover{border-color:var(--ink)}
 
 .list-lines{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .list-lines li{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
-.list-lines li::before{content:"—";color:var(--faint);flex:none}
+.list-lines li::before{content:"";width:5px;height:5px;margin-top:.62em;border-radius:50%;background:var(--cta);flex:none}
 .dark .list-lines,.dark .list-lines li{border-color:var(--d-line)}
-.dark .list-lines li::before{color:var(--d-faint)}
+.dark .list-lines li::before{background:#8FA2FF}
 
 /* 사진 틀 */
 .shot{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--surface-3)}
@@ -508,3 +508,12 @@ html.reduce [data-reveal]{opacity:1!important;transform:none!important;clip-path
 /* data-fill 낱말 */
 .fw{display:inline}
 html.reduce .fw{opacity:1!important}
+
+.stats b,.stats b sup{white-space:nowrap}
+
+.fl.hide-foot{opacity:0!important;transform:translateY(12px)!important;pointer-events:none!important}
+@media (max-width:1599px){
+  .fl a{padding-right:0}
+  .fl p{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .fl-x{display:none}
+}
