@@ -549,3 +549,32 @@ html.reduce .fw{opacity:1!important}
 
 /* 삼각형 장식 모두 빼기 (사용자) */
 .eyebrow::before,.tips-stamp i,.sec-mark{display:none!important}
+
+/* 꼬리말 — 어둡게, 마지막 한 마디 + 큰 워드마크 */
+.ftr.ftr-x{position:relative;overflow:hidden;background:#07080F;color:#fff;border-top:0;padding-block:clamp(72px,9vw,120px) 0}
+.ftr-x::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:80%;pointer-events:none;
+  background:radial-gradient(45% 60% at 30% 100%,rgba(58,107,255,.35),transparent 70%),radial-gradient(40% 55% at 80% 100%,rgba(58,107,255,.25),transparent 70%)}
+.ftr-x .wrap{position:relative}
+.fx-top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding-bottom:clamp(48px,6vw,72px);border-bottom:1px solid rgba(255,255,255,.1)}
+.fx-k{margin:0;font-size:14px;font-weight:700;color:#8FA8FF}
+.fx-say h2{margin:12px 0 0;font-family:var(--font-head);font-size:clamp(30px,3.4vw,52px);line-height:1.2;letter-spacing:-.04em;font-weight:800}
+.fx-mail{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-family:var(--font-head);font-size:clamp(22px,2.2vw,32px);font-weight:700;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.25);padding-bottom:4px;transition:color .3s,border-color .3s}
+.fx-mail:hover{color:#fff;border-color:#8FA8FF}
+.fx-mail span{transition:transform .3s var(--ease)}
+.fx-mail:hover span{transform:translate(3px,-3px)}
+.fx-cols{display:grid;grid-template-columns:repeat(3,minmax(0,.7fr)) minmax(0,1.4fr);gap:32px;padding-block:clamp(40px,5vw,56px)}
+.ftr-x h4{margin:0 0 14px;font-size:12.5px;letter-spacing:.06em;color:rgba(255,255,255,.45);font-weight:700}
+.ftr-x ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15px}
+.ftr-x ul a{color:rgba(255,255,255,.75);transition:color .2s}
+.ftr-x ul a:hover{color:#fff}
+.ftr-x .fx-labs{display:inline-block;border-radius:6px;padding:0 4px;margin-left:-4px}
+.fx-biz address{font-style:normal;font-size:13px;line-height:1.9;color:rgba(255,255,255,.45)}
+.fx-mark{margin-top:clamp(8px,2vw,24px);line-height:0;overflow:hidden}
+.fx-mark img{width:100%;height:auto;opacity:.08;transform:translateY(18%)}
+.totop{background:#fff}
+@media (max-width:900px){.fx-cols{grid-template-columns:1fr 1fr}.fx-biz{grid-column:1/-1}}
+
+/* 꼬리말 워드마크 — 작고 은은하게, 아래로 갈수록 사라짐 */
+.fx-mark{max-width:880px;margin:clamp(24px,3vw,40px) 0 0;-webkit-mask-image:linear-gradient(#000 20%,transparent 95%);mask-image:linear-gradient(#000 20%,transparent 95%)}
+.fx-mark img{opacity:.07;transform:translateY(12%)}
+.ftr-x::before{inset:auto -10% 0 -10%;height:60%;background:radial-gradient(40% 70% at 25% 110%,rgba(58,107,255,.32),transparent 70%),radial-gradient(35% 60% at 80% 110%,rgba(58,107,255,.22),transparent 70%)}
