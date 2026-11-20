@@ -972,3 +972,55 @@ html.reduce .wl-list li{opacity:1;transform:none}
   .crew-x.cp-pop .crew-people{position:relative;z-index:2;margin-top:-210px;padding-inline:clamp(16px,3vw,48px)}
   .crew-x.cp-pop .cp{box-shadow:0 30px 60px rgba(14,17,33,.28)}
 }
+
+/* LABS 구획: AIMZ EDU × AIMZ LABS 강조 */
+.lx-lock{display:flex;align-items:center;gap:clamp(14px,1.4vw,22px);margin-bottom:clamp(22px,2.4vw,34px)}
+.lx-lock img{height:clamp(34px,3vw,52px);width:auto;display:block}
+.lx-lock i{font-style:normal;font-size:clamp(20px,1.6vw,28px);font-weight:300;color:rgba(255,255,255,.5)}
+.labs-x .lx-title{font-size:clamp(38px,3.5vw,66px);line-height:1.16;letter-spacing:-.04em}
+.lx-edu{position:relative;color:#fff;white-space:nowrap;background:linear-gradient(transparent 62%,rgba(58,107,255,.55) 62%,rgba(58,107,255,.55) 92%,transparent 92%)}
+.labs-x .lx-shine{font-size:1.12em}
+
+.labs-x .lx-card{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
+.labs-x .lx-title{font-size:clamp(32px,2.9vw,54px);line-height:1.2}
+.labs-x .lx-shine{font-size:1em}
+@media (max-width:1000px){.labs-x .lx-card{grid-template-columns:1fr!important}}
+
+/* ===== LABS v2: 한 화면에 이해되게 (기능 6 + 해결 4 + 실제 화면) ===== */
+.lx-feat{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:22px 0 4px;max-width:620px}
+.lx-feat span{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px 10px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);
+  font-size:12.5px;font-weight:700;color:rgba(255,255,255,.82);transition:transform .3s var(--ease),background .3s}
+.lx-feat span:hover{transform:translateY(-3px);background:rgba(255,255,255,.1)}
+.lx-feat img{width:38px;height:38px}
+.labs-x .lx-list{margin-top:18px;gap:8px}
+.labs-x .lx-list li{padding:12px 16px}
+.lx-screens{background:#0E0F14}
+.labs-x .lx-bar{background:#16171D;border-bottom:1px solid rgba(255,255,255,.06)}
+.labs-x .lx-bar span{background:rgba(255,255,255,.08);color:rgba(255,255,255,.7)}
+.labs-x .lx-shot{border:1px solid rgba(255,255,255,.1)}
+@media (max-width:640px){.lx-feat{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* LABS v2: 한 화면에 들어가게 촘촘히 */
+.labs-x .lx-lock{margin-bottom:18px}
+.labs-x .lx-lock img{height:clamp(30px,2.4vw,42px)}
+.labs-x .lx-title{font-size:clamp(30px,2.5vw,48px)}
+.labs-x .lx-lead{margin-top:12px}
+.labs-x .lx-feat{margin-top:16px}
+.labs-x .lx-feat span{padding:9px 4px 8px}
+.labs-x .lx-feat img{width:32px;height:32px}
+.labs-x .lx-list li{padding:9px 14px!important;min-height:0!important}
+.labs-x .lx-list li p{font-size:13.5px}
+.labs-x .lx-ic.ic3{width:38px;height:38px}
+.labs-x .lx-cta{margin-top:18px}
+.labs-x .lx-card{grid-template-columns:minmax(0,.95fr) minmax(0,1.2fr)!important;gap:clamp(32px,4vw,72px)}
+@media (max-width:1000px){.labs-x .lx-card{grid-template-columns:1fr!important}}
+@media (max-height:980px) and (min-width:1001px){
+  .labs-x .lx-card{padding-top:calc(var(--hdr-h) + 20px)!important;padding-bottom:24px!important}
+  .labs-x .lx-lock{margin-bottom:12px}.labs-x .lx-lock img{height:30px}
+  .labs-x .lx-title{font-size:clamp(28px,2.35vw,40px)}
+  .labs-x .lx-feat{margin-top:12px}.labs-x .lx-feat span{padding:7px 4px 6px;font-size:12px}.labs-x .lx-feat img{width:28px;height:28px}
+  .labs-x .lx-list{margin-top:12px}.labs-x .lx-list li{padding:7px 12px!important}
+  .labs-x .lx-cta{margin-top:14px}
+}
+.labs-x .lx-screens{aspect-ratio:16/9}
+.labs-x .lx-screens img{object-position:center}
