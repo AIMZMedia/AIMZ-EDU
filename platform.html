@@ -1,196 +1,405 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AIMZ EDU · 실습 플랫폼</title>
-<meta name="description" content="실전 제작 경험 기반의 생성형 AI 교육 서비스와, 여러 AI를 계정 하나로 쓰는 통합 실습 플랫폼. AIMZ EDU — 주식회사 에임즈미디어">
-<meta name="theme-color" content="#fafaf7">
+<title>AIMZ EDU · 실습 환경</title>
+<meta name="description" content="학교 계정 하나로 GPT·이미지·영상·ComfyUI를 쓰는 실습 환경. 학생 개인 결제 0원, 검열·로그 등 안전장치 포함.">
+<meta name="theme-color" content="#fafaf8">
 <link rel="icon" href="/assets/logo/mark_navy.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/css/site_20.css">
+<link rel="stylesheet" href="/assets/css/edu.css">
+<link rel="stylesheet" href="/assets/css/p-platform.css" data-page-css>
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body class="sub t-light">
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
 
-<header class="hdr" id="top">
-  <div class="wrap hdr-in">
-    <a class="brand" href="/" aria-label="AIMZ EDU 홈"><img src="/assets/logo/edu_navy.png" alt="AIMZ EDU"></a>
-    <button class="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
-    <nav class="nav" id="nav" aria-label="주요 메뉴">
+<header class="hdr">
+  <div class="hdr-in wrap">
+    <a class="logo" href="/" aria-label="AIMZ EDU 홈"><img class="on-l" src="/assets/logo/edu_navy.png" alt="AIMZ EDU" width="87" height="26"><img class="on-d" src="/assets/logo/edu_white.png" alt="" width="87" height="26"></a>
+    <nav id="nav" class="nav" aria-label="주 메뉴">
       <a href="/courses">교육과정</a>
-      <a class="on" href="/platform" aria-current="page">실습 플랫폼</a>
-      <a href="/safety">안전</a>
+      <a href="/platform">실습 환경</a>
       <a href="/cases">운영 사례</a>
-      <a href="/instructors">강사 소개</a>
-      <a href="/support">지원</a>
-      <a href="/labs">LABS 소개</a>
-      <a class="m-only" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a>
-      <a class="m-only" href="/contact">교육 문의</a>
+      <a href="/instructors">강사진</a>
+      <a href="/contact">문의 · 지원</a>
     </nav>
     <div class="hdr-act">
-      <a class="btn btn-accent btn-sm btn-labs" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a>
-      <a class="btn btn-navy btn-sm" href="/contact">교육 문의</a>
+      <a class="btn btn-sm btn-ghost" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a>
+      <a class="btn btn-sm btn-ink" href="/contact">교육 문의</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<main>
-<div class="crumbbar"><div class="wrap"><a href="/">홈</a><span>/</span><b>실습 플랫폼</b></div></div>
-<!-- ================= PLATFORM (dark band) ================= -->
-<section id="platform" class="band-dark">
+<main id="main">
+
+<!-- ============ 1. 첫 머리 (어두운 · 학생 홈 화면) ============ -->
+<section class="page-hero dark pf-hero">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><span class="eyebrow">자체 실습 플랫폼</span><h2 class="h2">여러 생성형 AI를,<br><span class="a">학교 계정 하나로</span> 통합합니다</h2></div>
-      <p class="lead">교육 서비스를 뒷받침하는 <b>자체 실습 플랫폼</b> — 이미 <b>6개 대학에서 운영 중인</b> 실제 화면입니다.</p>
-    </div>
-    <div class="split rv">
-      <div class="browser"><div class="bar"><i></i><i></i><i></i><span>studio.aimzedu.com</span></div><img src="/assets/img/student-home.jpg" alt="AIMZ EDU 학생 홈 — 통합 도구 대시보드" loading="lazy"></div>
+    <div class="pf-hero-top">
       <div>
-        <span class="pill">STUDENT HOME</span>
-        <h3 class="h2" style="font-size:clamp(24px,2.8vw,34px)">첫 화면에서 크레딧 · 도구 ·<br>결과물을 모두 확인합니다</h3>
-        <ul class="checks">
-          <li>크레딧 잔액 — 로그인 즉시 남은 크레딧을 확인</li>
-          <li>최근 사용 서비스 — 최근 작업한 도구와 프롬프트를 바로 이어서</li>
-          <li>대표 예시 갤러리 — 학교 마스코트 등 결과물을 홈에서 바로 확인</li>
-          <li>학교 채팅 — 우측 하단 버튼으로 바로 문의</li>
+        <nav class="crumb" aria-label="현재 위치" data-load><a href="/">홈</a><span aria-hidden="true">/</span><span>실습 환경</span></nav>
+        <p class="eyebrow" data-load>실습 환경 · AIMZ EDU 스튜디오</p>
+        <h1 class="h1" data-split="load">학교 계정 하나로,<br>여러 AI를 한곳에서</h1>
+      </div>
+      <div class="pf-hero-side">
+        <p class="lead" data-load>GPT · 이미지 · 영상 · ComfyUI를 개인 구독 없이 같은 화면에서 씁니다. 지금 6개 대학에서 운영 중인 실제 화면입니다.</p>
+        <div class="btns" data-load>
+          <a class="btn btn-lg btn-ink" href="/contact">교육 문의 <span class="ar">→</span></a>
+          <a class="btn btn-lg btn-line" href="#safety">안전장치 보기</a>
+        </div>
+      </div>
+    </div>
+
+    <figure class="shot pf-browser" data-reveal="clip">
+      <div class="pf-bar" aria-hidden="true"><i></i><i></i><i></i><span>studio.aimzedu.com</span></div>
+      <div class="pf-browser-img"><img src="/assets/img/student-home.jpg" alt="AIMZ EDU 학생 홈 화면 — 크레딧 잔액, 최근 사용 서비스, 학교 마스코트 대표 예시가 한 화면에 보인다" width="1600" height="760" data-zoom></div>
+    </figure>
+
+    <div class="pf-home-notes">
+      <div data-reveal>
+        <p class="kicker"><b>STUDENT HOME</b>학생 홈</p>
+        <h2 class="h3">첫 화면에서 크레딧 · 도구 ·<br>결과물을 모두 확인합니다</h2>
+      </div>
+      <ol class="pf-notes" data-stagger>
+        <li data-reveal><span class="n">01</span><b>크레딧 잔액</b><span>로그인하면 남은 크레딧을 바로 봅니다.</span></li>
+        <li data-reveal><span class="n">02</span><b>최근 사용 서비스</b><span>최근에 쓴 도구와 프롬프트를 바로 이어 갑니다.</span></li>
+        <li data-reveal><span class="n">03</span><b>대표 예시 갤러리</b><span>학교 마스코트 같은 결과물을 홈에서 봅니다.</span></li>
+        <li data-reveal><span class="n">04</span><b>학교 채팅</b><span>오른쪽 아래 버튼으로 바로 문의합니다.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. 숫자 · 핵심 네 가지 ============ -->
+<section class="sec pf-core">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <p class="eyebrow">학생 · 교수자 관점</p>
+        <h2 class="h2" data-split style="margin-top:18px">학생은 바로 만들고,<br>교수자는 안심하고 맡깁니다</h2>
+      </div>
+      <p class="lead" data-reveal>수업에 필요한 AI 도구, 결제, 자료 관리, 고사양 실습까지 실습 환경 하나로 해결합니다.</p>
+    </div>
+
+    <div class="stats pf-stats" data-stagger>
+      <div data-reveal><b><span data-count="6">6</span><sup>곳</sup></b><span>실습 환경을 운영 중인 대학</span></div>
+      <div data-reveal><b><span data-count="90">90</span><sup>여 종</sup></b><span>계정 하나로 쓰는 AI</span></div>
+      <div data-reveal><b>0<sup>원</sup></b><span>학생 개인 결제</span></div>
+    </div>
+
+    <div class="grid g4 pf-cards" data-stagger>
+      <article class="card" data-reveal data-glow>
+        <p class="kicker"><b>01</b>학생</p>
+        <h3 class="h4">계정 하나로 여러 AI</h3>
+        <p>글 · 이미지 · 영상 AI를 학교 계정 하나로 씁니다. 도구마다 가입하지 않습니다.</p>
+      </article>
+      <article class="card" data-reveal data-glow>
+        <p class="kicker"><b>02</b>학생 · 기관</p>
+        <h3 class="h4">학생 결제 0원</h3>
+        <p>기관 크레딧으로 실습합니다. 학생별 사용량은 크레딧으로 미리 정해 둡니다.</p>
+      </article>
+      <article class="card" data-reveal data-glow>
+        <p class="kicker"><b>03</b>교수자</p>
+        <h3 class="h4">학교별 독립 공간</h3>
+        <p>학교마다 공간이 나뉘어 자료가 섞이지 않습니다. 결과물은 같은 학교 안에서만 함께 보고 점검합니다.</p>
+      </article>
+      <article class="card" data-reveal data-glow>
+        <p class="kicker"><b>04</b>학생</p>
+        <h3 class="h4">원격 ComfyUI</h3>
+        <p>고사양 PC나 설치 없이 브라우저에서 실행합니다. PC 사양과 관계없이 모두 같은 환경에서 실습합니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 도구별 화면 (왼쪽 글 · 오른쪽 화면) + 학교별 화면 ============ -->
+<section class="sec dark pf-tools">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <p class="eyebrow">도구별 화면</p>
+        <h2 class="h2" data-split style="margin-top:18px">수업에서 배운 그대로,<br>현장에서 씁니다</h2>
+      </div>
+      <p class="lead" data-reveal>도구가 바뀌어도 생성 경험은 같습니다. 수업에서 익힌 흐름이 실무까지 그대로 이어집니다.</p>
+    </div>
+
+    <div class="steps" data-steps>
+      <ol class="steps-list">
+        <li data-step>
+          <p class="kicker"><b>TEXT</b>GPT</p>
+          <h3 class="h3">익숙한 GPT 대화를<br>학교 계정으로</h3>
+          <p>개인 구독 없이 학교 계정으로 같은 대화 경험을 그대로 씁니다.</p>
+          <div class="step-img"><img src="/assets/img/ui-gpt.jpg" alt="AIMZ EDU 안의 GPT 대화 화면" loading="lazy"></div>
+        </li>
+        <li data-step>
+          <p class="kicker"><b>IMAGE</b>NanoBanana</p>
+          <h3 class="h3">이미지 도구도<br>같은 흐름으로</h3>
+          <p>NanoBanana 등 이미지 도구를 같은 흐름으로 씁니다. 배운 그대로 실무에 씁니다.</p>
+          <div class="step-img"><img src="/assets/img/ui-image.jpg" alt="NanoBanana 이미지 생성 홈 화면" loading="lazy"></div>
+        </li>
+        <li data-step>
+          <p class="kicker"><b>VIDEO</b>Grok · Seedance</p>
+          <h3 class="h3">영상은 생성 기록까지<br>한 화면에</h3>
+          <p>Grok Video · Seedance 등 영상 도구의 생성 기록과 이미지 레퍼런스 기능을 그대로 씁니다.</p>
+          <div class="step-img"><div class="pf-duo"><img class="a" src="/assets/img/ui-video.jpg" alt="Grok Video 생성 기록 화면" loading="lazy"><img class="b" src="/assets/img/ui-seedance.jpg" alt="Seedance 이미지 레퍼런스 영상 생성 화면" loading="lazy"></div></div>
+        </li>
+        <li data-step>
+          <p class="kicker"><b>REMOTE</b>ComfyUI</p>
+          <h3 class="h3">설치 없이,<br>브라우저에서 바로</h3>
+          <p>무거운 GPU 서버와 ComfyUI를 학생 PC에 설치하지 않습니다. 원격으로 바로 실행하고, PC 사양과 관계없이 같은 워크플로우를 씁니다.</p>
+          <ul class="list-lines">
+            <li>교육용 워크플로우 — 수업 목적에 맞춰 직접 만든 템플릿</li>
+            <li>모델 미리 세팅 — 모델 · 노드를 미리 구성해 오류 없이 실행</li>
+            <li>개인 월 구독 불필요 — 기관 크레딧에 포함</li>
+          </ul>
+          <div class="step-img"><img src="/assets/img/ui-comfy.jpg" alt="브라우저에서 실행하는 원격 ComfyUI 노드 화면" loading="lazy"></div>
+        </li>
+        <li data-step>
+          <p class="kicker"><b>ASSETS</b>갤러리</p>
+          <h3 class="h3">결과물은<br>갤러리 한곳에 모입니다</h3>
+          <p>모든 도구의 결과물이 갤러리에 자동으로 모입니다. 2x · 4x 업스케일로 화질도 높입니다.</p>
+          <div class="step-img"><img src="/assets/img/ui-gallery.jpg" alt="도구별 결과물을 모아 보는 통합 갤러리 화면" loading="lazy"></div>
+        </li>
+      </ol>
+      <div class="steps-media" aria-hidden="true">
+        <div data-step><img src="/assets/img/ui-gpt.jpg" alt=""><span class="pf-cap">GPT — 학교 계정으로 사용</span></div>
+        <div data-step><img src="/assets/img/ui-image.jpg" alt=""><span class="pf-cap">NanoBanana — 이미지 생성 홈</span></div>
+        <div data-step><div class="pf-duo"><img class="a" src="/assets/img/ui-video.jpg" alt=""><img class="b" src="/assets/img/ui-seedance.jpg" alt=""></div><span class="pf-cap">Grok Video 생성 기록 · Seedance 이미지 레퍼런스</span></div>
+        <div data-step><img src="/assets/img/ui-comfy.jpg" alt=""><span class="pf-cap">원격 ComfyUI — 브라우저에서 노드 실행</span></div>
+        <div data-step><img src="/assets/img/ui-gallery.jpg" alt=""><span class="pf-cap">통합 갤러리 · 업스케일 2x / 4x</span></div>
+        <span class="steps-count">01</span>
+      </div>
+    </div>
+
+    <!-- 학교별 맞춤 화면 -->
+    <div class="pf-brand">
+      <div>
+        <p class="kicker"><b>BRANDING</b>학교별 맞춤 화면</p>
+        <h3 class="h2 pf-brand-h" data-split>학교마다<br>다른 화면을 씁니다</h3>
+        <p class="lead" data-reveal>로고, 마스코트, 배경, 쓸 수 있는 도구까지 학교 단위로 맞춥니다.</p>
+      </div>
+      <div class="pf-brand-imgs">
+        <figure>
+          <div class="shot" data-reveal="clip"><img src="/assets/img/brand-h.jpg" alt="H대학교 맞춤 화면 — 학교 마스코트와 바로가기 도구가 보이는 학생 홈" loading="lazy" data-zoom></div>
+          <figcaption>H대학교</figcaption>
+        </figure>
+        <figure>
+          <div class="shot" data-reveal="clip"><img src="/assets/img/brand-s.jpg" alt="S대학교 맞춤 화면 — 다른 마스코트와 색으로 꾸민 학생 홈" loading="lazy" data-zoom></div>
+          <figcaption>S대학교</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- LABS 로 넘긴 내용 -->
+    <a class="pf-labs" href="https://www.aimzlabs.com/" target="_blank" rel="noopener" data-reveal>
+      <img src="/assets/logo/labs_white.png" alt="AIMZ LABS" width="97" height="24">
+      <p>역할별 권한, 운영 콘솔, 새 모델 통합, 학내 LMS 연동 같은 기관 운영 기능은 AIMZ LABS에서 소개합니다.</p>
+      <span class="link-ar">aimzlabs.com <span class="ar">↗</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ 4. AS-IS → TO-BE (카드 8개가 1개로 모인다) ============ -->
+<section class="sec soft pf-merge" aria-labelledby="pf-merge-h">
+  <div class="pf-merge-stage">
+    <div class="wrap">
+      <div class="sec-head split">
+        <div>
+          <p class="eyebrow">AS-IS → TO-BE</p>
+          <h2 class="h2" id="pf-merge-h" data-split style="margin-top:18px">해외 결제 8건이,<br>국내 계약 1건이 됩니다</h2>
+        </div>
+        <p class="lead" data-reveal>해외 카드 등록, 환율 변동, 정산 증빙 없이 세금계산서 한 장으로 정산합니다. 학생 개인 결제는 0원입니다.</p>
+      </div>
+
+      <div class="pf-vs">
+        <div class="pf-asis">
+          <p class="kicker"><b>AS-IS</b>도구 8개 · 따로 결제 8건</p>
+          <div class="pf-bills-box">
+            <ul class="pf-bills" data-stagger>
+              <li style="--c:0;--r:0;--i:0" data-reveal><img src="/assets/img/ai/openai.svg" alt="" width="22" height="22"><b>GPT</b><small>$ 개별 청구</small></li>
+              <li style="--c:1;--r:0;--i:1" data-reveal><img src="/assets/img/ai/claude-color.svg" alt="" width="22" height="22"><b>Claude</b><small>$ 개별 청구</small></li>
+              <li style="--c:2;--r:0;--i:2" data-reveal><img src="/assets/img/ai/gemini-color.svg" alt="" width="22" height="22"><b>Gemini</b><small>$ 개별 청구</small></li>
+              <li style="--c:3;--r:0;--i:3" data-reveal><img src="/assets/img/ai/grok.svg" alt="" width="22" height="22"><b>Grok</b><small>$ 개별 청구</small></li>
+              <li style="--c:0;--r:1;--i:4" data-reveal><img src="/assets/img/ai/bytedance-color.svg" alt="" width="22" height="22"><b>Seedance</b><small>$ 개별 청구</small></li>
+              <li style="--c:1;--r:1;--i:5" data-reveal><img src="/assets/img/ai/kling-color.svg" alt="" width="22" height="22"><b>Kling</b><small>$ 개별 청구</small></li>
+              <li style="--c:2;--r:1;--i:6" data-reveal><img src="/assets/img/ai/elevenlabs.svg" alt="" width="22" height="22"><b>ElevenLabs</b><small>$ 개별 청구</small></li>
+              <li style="--c:3;--r:1;--i:7" data-reveal><img src="/assets/img/ai/suno.svg" alt="" width="22" height="22"><b>Suno</b><small>$ 개별 청구</small></li>
+            </ul>
+            <p class="pf-ghost" aria-hidden="true"><s>해외 결제 8건</s></p>
+          </div>
+          <p class="small">해외 카드 등록 · 환율 · 수수료 변동 · 정산 증빙 · 개인 결제 정보 노출</p>
+        </div>
+        <div class="pf-arrow" aria-hidden="true"><i data-draw></i><span>→</span></div>
+        <div class="pf-tobe" data-reveal>
+          <p class="kicker"><b>TO-BE</b>연 1회 계약 · 행정 처리 1회</p>
+          <p class="pf-one"><span class="pf-num"><i class="pf-was" aria-hidden="true">8</i><span>1</span></span>건</p>
+          <h3 class="h4">기관 대 기관 계약 한 건,<br>세금계산서 한 장</h3>
+          <p>크레딧을 미리 사서 예산 단위로 집행합니다. 학생 개인 결제는 0원입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. 도입 배경 · 비교 ============ -->
+<section class="sec pf-why-sec">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <p class="eyebrow">도입 배경</p>
+        <h2 class="h2" data-split style="margin-top:18px">예산은 이미 있고,<br>학생은 이미 쓰고 있습니다</h2>
+      </div>
+      <p class="lead" data-reveal>대학 담당자가 도입을 결정할 때 확인하는 두 가지, 예산과 수요입니다.</p>
+    </div>
+
+    <div class="pf-why" data-stagger>
+      <article class="card" data-reveal>
+        <p class="kicker"><b>01</b>예산</p>
+        <p class="pf-big">2조 <span data-count="1403">1,403</span><small>억</small></p>
+        <h3 class="h4">2026년 RISE 예산 편성 완료</h3>
+        <p>대학 AI 전환이 핵심 과제로 명시된 예산입니다. 새 예산을 따로 마련하지 않고 매칭할 수 있습니다.</p>
+        <ul class="list-lines">
+          <li>240억 — AID 전문대학 사업에 “생성형 AI 계정 보급” 명시</li>
+          <li>지자체 · 진흥원 AI 인력양성 — 교육 위탁 예산 활용</li>
         </ul>
-        <div class="btns" style="margin-top:24px"><a class="btn btn-accent" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS 바로가기 ↗</a></div>
+      </article>
+      <article class="card" data-reveal>
+        <p class="kicker"><b>02</b>수요</p>
+        <p class="pf-big"><span data-count="88">88</span><small>%</small></p>
+        <h3 class="h4">국내 대학생 생성형 AI 활용률</h3>
+        <p>학생들은 이미 과제와 작품에 생성형 AI를 씁니다. 없는 것은 관리 체계입니다.</p>
+        <ul class="list-lines">
+          <li>80% — AI 규정 제도화에 착수한 대학</li>
+          <li>0원 — AIMZ EDU 도입 시 학생 개인 결제</li>
+        </ul>
+      </article>
+    </div>
+    <p class="small pf-src">출처: 교육부(2026) · 한국콘텐츠학회(2024) · 대교협(2026)</p>
+
+    <div class="pf-cmp">
+      <div class="pf-cmp-head" data-reveal>
+        <h3 class="h3">대안과 비교해 보세요</h3>
+        <p class="muted">교육기관 도입에 꼭 필요한 조건만 골랐습니다.</p>
       </div>
-    </div>
-
-    <h3 class="sub-h rv">AIMZ EDU가 해결하는 여덟 가지</h3>
-    <div class="grid-4">
-      <div class="card rv"><span class="n">01</span><h3>통합 인터페이스</h3><p>여러 개의 AI를 단일 계정으로</p></div>
-      <div class="card rv"><span class="n">02</span><h3>학교별 독립 공간</h3><p>멀티 테넌트 — 자료가 섞이지 않음</p></div>
-      <div class="card rv"><span class="n">03</span><h3>크레딧 기반 관리</h3><p>학생별 사용량 사전 통제</p></div>
-      <div class="card rv"><span class="n">04</span><h3>콘텐츠 자동 검열</h3><p>제공사 안전 정책 자동 적용</p></div>
-      <div class="card rv"><span class="n">05</span><h3>결과물 통합 갤러리</h3><p>같은 학교 안에서 공유 · 점검</p></div>
-      <div class="card rv"><span class="n">06</span><h3>LMS 기능 내장</h3><p>수강 · 과제 · 평가 · 포트폴리오 관리</p></div>
-      <div class="card rv"><span class="n">07</span><h3>기관 시스템 통합</h3><p>Blackboard 등 학내 LMS 연동 개발</p></div>
-      <div class="card rv"><span class="n">08</span><h3>1주 내 모델 통합</h3><p>신규 · 오픈소스 모델 출시 즉시 제공</p></div>
-    </div>
-
-    <h3 class="sub-h rv">일관되게 유지되는 생성 경험 <small>수업에서 배운 실력이 현장에서 그대로 이어집니다</small></h3>
-    <div class="tabs rv" role="tablist" aria-label="생성 경험">
-      <button class="tab" role="tab" aria-selected="true" data-panel="ux-text"><i>TEXT</i>GPT</button>
-      <button class="tab" role="tab" aria-selected="false" data-panel="ux-image"><i>IMAGE</i>NanoBanana</button>
-      <button class="tab" role="tab" aria-selected="false" data-panel="ux-video"><i>VIDEO</i>Grok · Seedance</button>
-      <button class="tab" role="tab" aria-selected="false" data-panel="ux-comfy"><i>COMFY</i>Remote ComfyUI</button>
-      <button class="tab" role="tab" aria-selected="false" data-panel="ux-assets"><i>ASSETS</i>Gallery · Upscale</button>
-    </div>
-    <div class="tabpanel on" id="ux-text" role="tabpanel"><div class="demo">
-      <div><span class="pill">TEXT</span><h3>학생에게 익숙한 GPT 생성 경험이 끊김 없이 유지됩니다.</h3><p>개인 구독 없이 학교 계정으로 같은 대화 경험을 그대로 사용합니다.</p></div>
-      <figure><div class="shot main"><img src="/assets/img/ui-gpt.jpg" alt="AIMZ EDU 안의 GPT 대화 화면" loading="lazy"></div><figcaption>OpenAI GPT — 학교 계정으로 사용</figcaption></figure>
-    </div></div>
-    <div class="tabpanel" id="ux-image" role="tabpanel"><div class="demo">
-      <div><span class="pill">IMAGE</span><h3>이미지 도구도 생성 경험이 일관되게 유지됩니다 — 배운 그대로 실무에 씁니다.</h3><p>NanoBanana 등 이미지 도구를 같은 흐름으로 사용합니다.</p></div>
-      <figure><div class="shot main"><img src="/assets/img/ui-image.jpg" alt="NanoBanana — AIMZ EDU 이미지 생성 홈 화면" loading="lazy"></div><figcaption>NanoBanana — AIMZ EDU 홈 화면</figcaption></figure>
-    </div></div>
-    <div class="tabpanel" id="ux-video" role="tabpanel"><div class="demo">
-      <div><span class="pill">VIDEO</span><h3>영상 생성은 생성 기록까지 일관된 경험으로 이어집니다.</h3><p>Grok Video · Seedance 등 영상 도구의 생성 기록과 이미지 레퍼런스 기능을 그대로 씁니다.</p></div>
-      <figure>
-        <div class="shot main"><img src="/assets/img/ui-video.jpg" alt="Grok Video — 생성 기록 화면" loading="lazy"></div>
-        <figcaption>Grok Video — 생성 기록 화면</figcaption>
-        <div class="thumbs">
-          <button class="on" data-src="/assets/img/ui-video.jpg" data-caption="Grok Video — 생성 기록 화면"><img src="/assets/img/ui-video.jpg" alt="" loading="lazy"></button>
-          <button data-src="/assets/img/ui-seedance.jpg" data-caption="Seedance — 이미지 레퍼런스 영상 생성"><img src="/assets/img/ui-seedance.jpg" alt="" loading="lazy"></button>
-        </div>
-      </figure>
-    </div></div>
-    <div class="tabpanel" id="ux-comfy" role="tabpanel"><div class="demo">
-      <div><span class="pill">REMOTE COMFYUI</span><h3>설치 없이, 브라우저에서 바로.</h3><p>무거운 GPU 서버와 ComfyUI 환경을 로컬에 설치할 필요가 없습니다. 원격으로 즉시 실행하고, 학생 PC 사양과 무관하게 동일한 워크플로우를 사용합니다.</p>
-        <ul class="checks"><li>교육용 전용 워크플로우 — 수업 목적에 맞게 직접 제작한 템플릿</li><li>모델 사전 세팅 — 모델 · 노드를 미리 구성해 오류 없이 실행</li><li>개인 월 구독 불필요 — 기관 크레딧에 포함, 학생 결제 0원</li></ul></div>
-      <figure><div class="shot main"><img src="/assets/img/ui-comfy.jpg" alt="원격 ComfyUI 화면" loading="lazy"></div><figcaption>Remote ComfyUI — 브라우저에서 노드 실행</figcaption></figure>
-    </div></div>
-    <div class="tabpanel" id="ux-assets" role="tabpanel"><div class="demo">
-      <div><span class="pill">ASSETS</span><h3>모든 도구의 결과물이 갤러리 한곳에 자동으로 모입니다.</h3><p>도구별 결과물을 모아보고, 2x / 4x 업스케일로 화질을 개선합니다.</p></div>
-      <figure><div class="shot main"><img src="/assets/img/ui-gallery.jpg" alt="통합 갤러리 — 도구별 결과물 모아보기" loading="lazy"></div><figcaption>통합 갤러리 — 도구별 결과물 모아보기 · Upscale 2x / 4x</figcaption></figure>
-    </div></div>
-
-    <div class="split rv" style="margin-top:64px">
-      <div>
-        <span class="pill">BRANDING</span>
-        <h3 class="h2" style="font-size:clamp(24px,2.8vw,34px)">학교마다<br>완전히 다른 화면을 제공합니다</h3>
-        <p class="lead" style="font-size:16px">로고, 마스코트, 배경, 활성화 도구까지 — 기관 단위로 전부 커스터마이징됩니다.</p>
+      <div class="table-wrap" data-reveal>
+        <table class="t">
+          <thead>
+            <tr><th scope="col">비교 항목</th><th scope="col" class="c">개별 도구 구독</th><th scope="col" class="c">B2C 통합 플랫폼</th><th scope="col" class="c hl">AIMZ EDU</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">여러 AI를 계정 하나로</th><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c yes"><span aria-hidden="true">✓</span><span class="sr">가능</span></td><td class="c hl yes"><span aria-hidden="true">✓</span><span class="sr">가능</span></td></tr>
+            <tr><th scope="row">학생 개인 결제 0원</th><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c hl yes"><span aria-hidden="true">✓</span><span class="sr">가능</span></td></tr>
+            <tr><th scope="row">기관 대 기관 계약 · 세금계산서 발행</th><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c hl yes"><span aria-hidden="true">✓</span><span class="sr">가능</span></td></tr>
+            <tr><th scope="row">크레딧 기반 사용량 통제</th><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c hl yes"><span aria-hidden="true">✓</span><span class="sr">가능</span></td></tr>
+            <tr><th scope="row">콘텐츠 검열 · 활동 로그 관리</th><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c hl yes"><span aria-hidden="true">✓</span><span class="sr">가능</span></td></tr>
+            <tr><th scope="row">원격 ComfyUI 실습 환경</th><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c no"><span aria-hidden="true">✕</span><span class="sr">불가</span></td><td class="c hl yes"><span aria-hidden="true">✓</span><span class="sr">가능</span></td></tr>
+          </tbody>
+        </table>
       </div>
-      <div class="grid-2" style="gap:12px">
-        <figure style="margin:0"><div class="shot" style="aspect-ratio:16/10"><img src="/assets/img/brand-h.jpg" alt="H대학교 맞춤 화면" loading="lazy"></div><figcaption class="note">H대학교</figcaption></figure>
-        <figure style="margin:0"><div class="shot" style="aspect-ratio:16/10"><img src="/assets/img/brand-s.jpg" alt="S대학교 맞춤 화면" loading="lazy"></div><figcaption class="note">S대학교</figcaption></figure>
-      </div>
-    </div>
-
-    <h3 class="sub-h rv">네 가지 역할로 권한이 분리됩니다</h3>
-    <div class="grid-4">
-      <div class="card rv"><span class="n">STUDENT</span><h3>학생</h3><p>AI 도구 사용 · 결과물 관리 · 갤러리 열람 · 1:1 문의</p></div>
-      <div class="card rv"><span class="n">TEACHER</span><h3>교수자</h3><p>크레딧 차감 없음 · 학생 갤러리 열람 · 문의 응답 · 시간 제한 우회</p></div>
-      <div class="card rv"><span class="n">VIEWER</span><h3>참관자</h3><p>갤러리 · 로그 조회만 · 생성 불가 · 외부 참관용</p></div>
-      <div class="card ink rv"><span class="n">ADMIN</span><h3>관리자</h3><p>사용자 · 시스템 관리 · 사용량 조회 · 점검 공지 · 전체 권한</p></div>
-    </div>
-    <div class="demo rv" style="margin-top:24px">
-      <div><span class="pill">CONSOLE</span><h3>사용량 · 계정 · 접근을 한 콘솔에서 통제합니다.</h3><p>크레딧 실시간 확인과 API 키 자동 전환, 계정 관리와 수업 시간표 기반 접근 제어까지.</p><p class="note">플랫폼 자체 구축 · 온프레미스는 <a href="/labs" style="text-decoration:underline">AIMZ LABS</a>에서 담당합니다.</p></div>
-      <figure>
-        <div class="shot main"><img src="/assets/img/console-credits.jpg" alt="크레딧 사용 현황 — 학교·학생별 실시간 집계" loading="lazy" style="object-fit:contain;background:#fff"></div>
-        <figcaption>크레딧 사용 현황 — 학교 · 학생별 실시간 집계</figcaption>
-        <div class="thumbs">
-          <button class="on" data-src="/assets/img/console-credits.jpg" data-caption="크레딧 사용 현황 — 학교 · 학생별 실시간 집계"><img src="/assets/img/console-credits.jpg" alt="" loading="lazy"></button>
-          <button data-src="/assets/img/console-keys.jpg" data-caption="API 키 풀 — 장애 시 자동 전환"><img src="/assets/img/console-keys.jpg" alt="" loading="lazy"></button>
-          <button data-src="/assets/img/console-users.jpg" data-caption="사용자 관리 — 역할 지정 · 계정 추가 · 비활성화"><img src="/assets/img/console-users.jpg" alt="" loading="lazy"></button>
-          <button data-src="/assets/img/console-schedule.jpg" data-caption="수업 시간표 기반 접근 제어"><img src="/assets/img/console-schedule.jpg" alt="" loading="lazy"></button>
-        </div>
-      </figure>
     </div>
   </div>
 </section>
 
-<!-- ================= WHY NOW ================= -->
-<section id="why">
+<!-- ============ 6. 안전 (옛 /safety) ============ -->
+<section class="sec dark pf-safety" id="safety">
   <div class="wrap">
-    <div class="sec-head rv">
-      <div><span class="eyebrow">도입 배경</span><h2 class="h2">왜 지금 도입해야 하는가</h2></div>
-      <p class="lead">시장 · 예산 · 수요 — 도입 조건이 이미 갖춰졌습니다.</p>
+    <div class="sec-head split">
+      <div>
+        <p class="eyebrow">안전 · 안정성</p>
+        <h2 class="h2" data-split style="margin-top:18px">검열 · 로그 · 암호화까지,<br>일곱 겹의 안전장치</h2>
+      </div>
+      <p class="lead" data-reveal>유해 콘텐츠는 자동으로 막고, 모든 생성 기록을 남기며, AI기본법 표시 의무까지 미리 대응합니다.</p>
     </div>
-    <div class="grid-3">
-      <div class="card rv"><span class="n">01 · 시장</span><span class="big a">$410억</span><h3>2030 글로벌 교육 AI 시장</h3><p>2025년 69억 달러에서 연 42.8% 성장 — 교육 AI는 실험이 아니라 인프라 투자 단계로 전환했습니다.</p><ul><li>69.6% — 통합 솔루션 매출 비중</li><li>42.8% — 연평균 성장률</li></ul></div>
-      <div class="card rv"><span class="n">02 · 예산</span><span class="big a">2조 1,403억</span><h3>2026년 RISE 예산 편성 완료</h3><p>대학 AI 전환이 핵심 과제로 명시된 예산 — 신규 예산 확보 없이 매칭 가능합니다.</p><ul><li>240억 — AID 전문대학 사업 “생성형 AI 계정 보급” 명시</li><li>지자체 · 진흥원 AI 인력양성 — 교육 위탁 예산 활용</li></ul></div>
-      <div class="card rv"><span class="n">03 · 수요</span><span class="big a">88%</span><h3>국내 대학생 생성형 AI 활용률</h3><p>학생들은 이미 과제 · 작품 제작에 생성형 AI를 쓰고 있습니다 — 관리 체계만 없는 상태입니다.</p><ul><li>80% — AI 규정 제도화에 착수한 대학</li><li>0원 — AIMZ EDU 도입 시 학생 개인 결제</li></ul></div>
-    </div>
-    <p class="note">출처: Mordor Intelligence(2025) · 교육부(2026) · 한국콘텐츠학회(2024) · 대교협(2026)</p>
 
-    <h3 class="sub-h rv">대안과 비교해 보십시오 <small>교육기관 도입에 필요한 열두 가지 조건</small></h3>
-    <div class="tbl rv">
-      <table class="table stack">
-        <thead><tr><th>비교 항목</th><th class="c">개별 도구 구독<br><small>도구별 개인 결제</small></th><th class="c">B2C 통합 플랫폼<br><small>개인 구독 서비스</small></th><th class="c hl">AIMZ EDU<br><small>교육기관 전용</small></th></tr></thead>
-        <tbody>
-          <tr><td data-l="비교 항목">여러 AI를 하나의 계정으로</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c yes" data-l="B2C 통합 플랫폼">✓</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">일관되게 유지되는 생성 경험</td><td class="c yes" data-l="개별 도구 구독">✓</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">기관 대 기관 계약 · 세금계산서 발행</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">학생 개인 결제 0원</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">크레딧 기반 사용량 통제</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">콘텐츠 검열 · 활동 로그 관리</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">학교별 독립 데이터 공간 (멀티 테넌트)</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">LMS 내장 · 기관 시스템 연동</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">원격 ComfyUI 실습 환경</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">기관 브랜딩 맞춤 구축</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">신규 모델 지속 통합</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c yes" data-l="B2C 통합 플랫폼">✓</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-          <tr><td data-l="비교 항목">전담 운영팀 · 교육 서비스 결합</td><td class="c no" data-l="개별 도구 구독">✕</td><td class="c no" data-l="B2C 통합 플랫폼">✕</td><td class="c hl yes" data-l="AIMZ EDU">✓</td></tr>
-        </tbody>
-      </table>
+    <ol class="pf-guard" data-stagger>
+      <li data-reveal><span class="n">01</span><h3 class="h4">자동 모더레이션</h3><p>성적 · 폭력 · 저작권 침해 콘텐츠를 자동으로 막습니다.</p></li>
+      <li data-reveal><span class="n">02</span><h3 class="h4">활동 기록</h3><p>모든 생성 요청을 시각 · 사용자 · 프롬프트까지 남깁니다.</p></li>
+      <li data-reveal><span class="n">03</span><h3 class="h4">끊기지 않는 수업</h3><p>사용 한도에 닿으면 자동으로 전환해 수업이 멈추지 않습니다.</p></li>
+      <li data-reveal><span class="n">04</span><h3 class="h4">비밀번호 보호</h3><p>비밀번호는 복원할 수 없는 방식으로 바꿔 보관합니다.</p></li>
+      <li data-reveal><span class="n">05</span><h3 class="h4">안정 인프라</h3><p>AWS 도쿄 리전 24시간 가동 · HTTPS 암호화</p></li>
+      <li data-reveal><span class="n">06</span><h3 class="h4">AI 워터마크</h3><p>생성물에 자동으로 넣어 AI기본법 표시 의무에 대응합니다.</p></li>
+      <li data-reveal><span class="n">07</span><h3 class="h4">온프레미스 옵션</h3><p>클라우드 없이 기관 서버와 로컬 모델만으로 구성할 수 있습니다.</p></li>
+      <li data-reveal class="pf-guard-go"><a href="#faq"><span class="n">FAQ</span><b class="h4">도입 전 우려와<br>준비된 대응 보기</b><span class="ar" aria-hidden="true">↓</span></a></li>
+    </ol>
+
+    <div class="pf-faq" id="faq">
+      <div class="pf-faq-head">
+        <p class="kicker"><b>FAQ</b>자주 묻는 질문</p>
+        <h3 class="h3" data-split>도입 전 우려하실 부분과,<br>준비된 대응입니다</h3>
+      </div>
+      <div class="pf-faq-list">
+        <details class="qa" open>
+          <summary><span class="q">Q1</span>제공사가 단가 · 정책을 바꾸면?</summary>
+          <div class="a">여러 제공사의 AI를 함께 쓰는 구조라 특정 제공사에 기대지 않습니다. 크레딧 단가는 학기 단위 조정 조항으로 계약에 적어 둡니다.</div>
+        </details>
+        <details class="qa">
+          <summary><span class="q">Q2</span>수업 중 API 한도가 넘으면?</summary>
+          <div class="a">API 키 여러 개를 묶은 키 풀(pool)이 한도에 닿으면 자동으로 다음 키로 전환합니다. 상태도 계속 지켜보므로 수업 중에 서비스가 멈추지 않습니다.</div>
+        </details>
+        <details class="qa">
+          <summary><span class="q">Q3</span>학생이 유해 콘텐츠를 만들면?</summary>
+          <div class="a">제공사 안전 정책과 자체 모더레이션으로 두 번 막습니다. 모든 생성 기록을 로그로 보존해 나중에 추적할 수 있습니다.</div>
+        </details>
+        <details class="qa">
+          <summary><span class="q">Q4</span>개인정보가 새지 않을까요?</summary>
+          <div class="a">필요한 정보만 받습니다. 비밀번호는 PBKDF2-SHA256으로 60만 회 반복 해싱해 보관하고, 모든 통신은 HTTPS로 암호화합니다. 학교마다 데이터 공간(테넌트)이 나뉘어 자료가 섞이지 않습니다.</div>
+        </details>
+        <details class="qa">
+          <summary><span class="q">Q5</span>내년 예산이 줄어들면?</summary>
+          <div class="a">RISE · AID 등 여러 재정지원사업과 연계해 재원을 나눕니다. 크레딧 규모는 예산에 맞춰 조정합니다.</div>
+        </details>
+        <details class="qa">
+          <summary><span class="q">Q6</span>도입까지 얼마나 걸리나요?</summary>
+          <div class="a">클라우드 구축은 1주면 됩니다. 학기 시작 4주 전에 계약하면 그 학기에 바로 씁니다. 보안 요건에 따라 기관 서버에 설치하는 온프레미스 구축도 고를 수 있습니다.</div>
+        </details>
+      </div>
     </div>
   </div>
 </section>
-<section class="pager-sec"><div class="wrap"><nav class="pager" aria-label="페이지 이동"><a href="/courses"><small>← 이전</small><b>교육과정</b></a><a class="next" href="/safety"><small>다음 →</small><b>안전</b></a></nav><div class="cta-band"><div><h3>교육 일정을 잡아볼까요?</h3><p>1일 과정부터 한 학기 운영까지, 기관 사정에 맞춰 편성합니다.</p></div><a class="btn" href="/contact">교육 문의하기 →</a></div></div></section>
+
+<!-- ============ 7. 마무리 ============ -->
+<section class="cta">
+  <div class="wrap">
+    <p class="eyebrow" style="justify-content:center">교육 문의</p>
+    <h2 class="display" data-split style="margin-top:22px">교육 일정을<br>잡아볼까요?</h2>
+    <p class="lead" data-reveal>1일 과정부터 한 학기 운영까지 기관 사정에 맞춰 편성합니다. 연중 상시 진행하며, 세부 일정은 협의해 정합니다.</p>
+    <div class="btns" data-reveal>
+      <a class="btn btn-lg btn-ink" href="/contact">교육 문의하기 <span class="ar">→</span></a>
+      <a class="btn btn-lg btn-line" href="/assets/docs/aimz-edu-brochure.pdf" download>사업소개서 PDF ↓</a>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<footer>
+<footer class="ftr">
   <div class="wrap">
-    <div class="ft">
-      <div><img src="/assets/logo/edu_navy.png" alt="AIMZ EDU"><p>주식회사 에임즈미디어 · 콘텐츠엔지니어링센터<br>대전 본사 · 서울 지사 · studio.aimzedu.com<br>AIMZ lifts your AIM</p></div>
-      <div><h4>AIMZ EDU</h4><ul><li><a href="/courses">교육과정</a></li><li><a href="/cases">운영 사례</a></li><li><a href="#platform">실습 플랫폼</a></li><li><a href="/contact">교육 문의</a></li></ul></div>
-      <div><h4>CONTACT</h4><ul><li><a href="mailto:edu@aimz.media">edu@aimz.media</a></li><li><a href="https://studio.aimzedu.com" target="_blank" rel="noopener">studio.aimzedu.com ↗</a></li></ul></div>
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <img src="/assets/logo/edu_white.png" alt="AIMZ EDU" width="93" height="28">
+        <p>실전 제작 경험을 가진 팀이 직접 가르치는 생성형 AI 교육. 주식회사 에임즈미디어 콘텐츠엔지니어링센터가 운영합니다.</p>
+      </div>
+      <div><h4>교육</h4><ul><li><a href="/courses">교육과정</a></li><li><a href="/platform">실습 환경</a></li><li><a href="/cases">운영 사례</a></li><li><a href="/instructors">강사진</a></li></ul></div>
+      <div><h4>문의</h4><ul><li><a href="/contact">문의 · 지원</a></li><li><a href="mailto:edu@aimz.media">edu@aimz.media</a></li><li><a href="/assets/docs/aimz-edu-brochure.pdf" download>사업소개서 (PDF)</a></li></ul></div>
+      <div><h4>바로가기</h4><ul><li><a href="https://studio.aimzedu.com" target="_blank" rel="noopener">AIMZ EDU 스튜디오 ↗</a></li><li><a href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a></li></ul></div>
     </div>
-    <div class="fb"><span>© 2026 AIMZ MEDIA Inc. All rights reserved.</span><span>AIMZ EDU 교육과정 · 도입 제안 2026</span></div>
+    <div class="ftr-biz">
+      <address>상호: 주식회사 에임즈미디어 · 대표: 소휘수 · 사업자등록번호: 553-81-03801<br>주소: 대전광역시 유성구 대덕대로512번길 47, 206호(도룡동) · 교육 문의: edu@aimz.media<br>© 2026 AIMZ MEDIA Inc. All rights reserved.</address>
+      <div class="ftr-family" aria-label="AIMZ 패밀리">
+        <img src="/assets/logo/edu_white.png" alt="AIMZ EDU" width="60" height="18">
+        <a href="https://www.aimzlabs.com/" target="_blank" rel="noopener"><img src="/assets/logo/labs_white.png" alt="AIMZ LABS" width="74" height="18"></a>
+      </div>
+    </div>
   </div>
 </footer>
-<script src="/assets/js/site_5.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="/assets/js/edu.js"></script>
 </body>
 </html>

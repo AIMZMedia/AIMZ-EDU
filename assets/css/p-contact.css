@@ -1,0 +1,90 @@
+/* AIMZ EDU — 문의 · 지원 전용 */
+
+/* 1. 첫 머리 */
+.ct-hero{padding-bottom:clamp(40px,5vw,72px)}
+
+/* 2. 연락처 · 문의 양식 */
+.ct-contact{padding-bottom:clamp(88px,12vw,160px)}
+.ct-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(32px,5vw,80px);align-items:start}
+.ct-side>.kicker,.ct-form-box>.kicker{margin-bottom:18px}
+
+.ct-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.ct-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;row-gap:4px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+.ct-list small{grid-column:1;font-size:13px;font-weight:600;color:var(--faint)}
+.ct-list b{grid-column:1;font-size:clamp(20px,2vw,26px);font-weight:750;letter-spacing:-.025em;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.ct-list .ct-main{padding-block:28px}
+.ct-list .ct-main b{font-size:clamp(28px,3.4vw,44px);letter-spacing:-.04em}
+.ct-list .ar{grid-column:2;grid-row:1/3;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:16px;
+  transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .4s var(--ease)}
+.ct-list a:hover .ar{background:var(--ink);border-color:var(--ink);color:#fff}
+.ct-list .ct-main .ar{background:var(--accent);border-color:var(--accent);color:#fff}
+.ct-list .ct-main:hover .ar{transform:translateX(4px)}
+
+.ct-form-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-xl);padding:clamp(24px,3.2vw,44px);box-shadow:var(--shadow)}
+.ct-form-box .h3{margin-bottom:clamp(24px,3vw,32px)}
+.ct-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 16px}
+.ct-form .full{grid-column:1/-1}
+.ct-field label{display:block;margin-bottom:8px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.ct-field input,.ct-field select,.ct-field textarea{display:block;width:100%;height:52px;padding:0 16px;border:1px solid var(--line-2);border-radius:12px;
+  background:var(--bg);color:var(--ink);font:inherit;font-size:16px;letter-spacing:-.01em;transition:border-color .2s,background .2s}
+.ct-field textarea{height:auto;min-height:148px;padding:14px 16px;line-height:1.6;resize:vertical}
+.ct-field select{appearance:none;-webkit-appearance:none;padding-right:44px;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231b1b19' stroke-width='1.6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 18px center}
+.ct-field ::placeholder{color:var(--faint);opacity:1}
+.ct-field input:hover,.ct-field select:hover,.ct-field textarea:hover{border-color:var(--faint)}
+.ct-field input:focus,.ct-field select:focus,.ct-field textarea:focus{border-color:var(--ink);background:var(--surface);outline:none;box-shadow:0 0 0 3px rgba(233,64,59,.16)}
+.ct-submit{display:grid;gap:12px;margin-top:6px}
+.ct-submit .btn{width:100%}
+.ct-submit .small{margin:0}
+
+/* 3. 운영 지원 */
+.ct-ops-wrap{position:relative}
+.ct-ops-line{position:absolute;left:0;right:0;top:0;height:1px;background:var(--d-ink)}
+.ct-ops{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+.ct-ops li{position:relative;padding-top:30px}
+.ct-ops li::before{content:"";position:absolute;left:0;top:-5px;width:11px;height:11px;border-radius:50%;background:var(--d-bg);border:2px solid var(--d-ink);z-index:1}
+.ct-ops li:first-child::before{background:var(--accent);border-color:var(--accent)}
+.ct-ops .h4{margin-top:10px;font-size:clamp(20px,1.8vw,24px)}
+.ct-ops li p:not(.kicker){margin:10px 0 0;color:var(--d-muted);font-size:15px;max-width:340px}
+
+.ct-rt-head{margin-top:clamp(80px,10vw,128px);margin-bottom:28px}
+.ct-rt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;border-top:1px solid var(--d-line)}
+.ct-rt>div{padding:28px 24px 8px 0}
+.ct-rt>div+div{padding-left:24px;border-left:1px solid var(--d-line)}
+.ct-rt dt{font-size:14px;font-weight:700;color:var(--d-muted)}
+.ct-rt dd{margin:16px 0 0}
+.ct-rt b{display:block;font-size:clamp(40px,5vw,72px);line-height:1;font-weight:800;letter-spacing:-.05em;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ct-rt b sup{font-size:.36em;color:var(--d-muted);margin-left:3px;vertical-align:top;position:relative;top:.22em;letter-spacing:-.02em}
+.ct-rt dd>span{display:block;margin-top:14px;font-size:14px;color:var(--d-faint)}
+.ct-rt .hot b,.ct-rt .hot b sup{color:var(--accent)}
+.ct-rt .hot dt::after{content:"최우선";display:inline-flex;align-items:center;height:22px;margin-left:8px;padding:0 8px;border-radius:999px;
+  font-size:11px;letter-spacing:.04em;background:rgba(233,64,59,.16);color:#ff8a85;vertical-align:1px}
+.ct-channel{display:flex;gap:16px 28px;align-items:baseline;flex-wrap:wrap;margin-top:40px;padding:24px 28px;border:1px solid var(--d-line);border-radius:var(--radius-lg);background:var(--d-surface)}
+.ct-channel .kicker b{letter-spacing:.14em;font-size:12px}
+.ct-channel p:not(.kicker){margin:0;color:var(--d-ink);font-weight:600}
+
+/* 4. 교육 후 소통 */
+.ct-after-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
+.ct-after-txt .lead{margin-top:24px}
+.ct-after-txt .list-lines{margin-top:28px;max-width:520px}
+.ct-after-txt .list-lines li{font-weight:600}
+.ct-after-txt .link-ar{margin-top:28px}
+.ct-after-img{margin:0;border-radius:var(--radius-xl);overflow:hidden;background:#eef0f6;border:1px solid var(--line)}
+.ct-after-img img{width:100%;height:auto}
+
+@media (max-width:900px){
+  .ct-grid{grid-template-columns:1fr}
+  .ct-ops{grid-template-columns:1fr;gap:0}
+  .ct-ops-line{display:none}
+  .ct-ops li{padding:24px 0 24px 28px;border-left:1px solid var(--d-line-2)}
+  .ct-ops li::before{left:-6px;top:30px}
+  .ct-after-in{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .ct-form{grid-template-columns:1fr}
+  .ct-rt{grid-template-columns:1fr}
+  .ct-rt>div,.ct-rt>div+div{padding:22px 0;border-left:0}
+  .ct-rt>div+div{border-top:1px solid var(--d-line)}
+  .ct-channel{padding:20px}
+}

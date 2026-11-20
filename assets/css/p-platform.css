@@ -1,0 +1,202 @@
+/* AIMZ EDU — 실습 환경 전용 (/platform) */
+
+/* 1. 첫 머리 — 어두운 바탕에 실제 화면 */
+.pf-hero{position:relative;overflow:hidden;padding-bottom:clamp(80px,10vw,140px)}
+.pf-hero::before{content:"";position:absolute;right:-12vw;top:-18vw;width:min(78vw,1100px);aspect-ratio:1;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(233,64,59,.16),rgba(233,64,59,0))}
+.pf-hero .wrap{position:relative}
+.pf-hero-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:32px 56px;align-items:end}
+.pf-hero-side .lead{margin-top:0}
+.pf-hero-side .btns{margin-top:28px}
+.pf-hero .crumb span[aria-hidden]{opacity:.5}
+
+.pf-browser{margin:clamp(48px,6vw,88px) 0 0;border-radius:var(--radius-xl);background:#0a0a0c;
+  box-shadow:0 0 0 1px var(--d-line-2),0 50px 120px -30px rgba(0,0,0,.8)}
+.pf-bar{display:flex;align-items:center;gap:7px;height:42px;padding:0 18px;border-bottom:1px solid var(--d-line);background:var(--d-surface)}
+.pf-bar i{width:10px;height:10px;border-radius:50%;background:var(--d-line-2)}
+.pf-bar span{margin:0 auto;padding:0 18px;height:26px;display:flex;align-items:center;border-radius:8px;background:var(--d-surface-2);
+  font-size:12.5px;color:var(--d-faint);letter-spacing:.02em;transform:translateX(-24px)}
+.pf-browser-img{overflow:hidden}
+.pf-browser .pf-browser-img img{width:100%;height:auto;object-fit:initial;transform-origin:50% 0}
+
+.pf-home-notes{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:32px 56px;margin-top:clamp(40px,5vw,64px);align-items:start}
+.pf-home-notes .h3{margin-top:14px}
+.pf-notes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;border-top:1px solid var(--d-line)}
+.pf-notes li{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;padding:18px 0;border-bottom:1px solid var(--d-line)}
+.pf-notes .n{grid-row:span 2;font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);padding-top:3px;font-variant-numeric:tabular-nums}
+.pf-notes b{font-size:16px}
+.pf-notes li>span:last-child{font-size:14.5px;color:var(--d-muted)}
+
+/* 2. 숫자 · 핵심 네 가지 */
+.pf-stats{grid-template-columns:repeat(3,minmax(0,1fr));margin-bottom:clamp(48px,6vw,80px)}
+.pf-cards .card{display:flex;flex-direction:column;min-height:250px;transition:border-color .3s var(--ease)}
+.pf-cards .card:hover{border-color:var(--line-2)}
+.pf-cards .kicker{margin-bottom:auto;padding-bottom:40px}
+.pf-cards .kicker b{color:var(--accent)}
+
+/* 3. 도구별 화면 — 오른쪽 화면은 잘리지 않게 담는다 */
+.pf-tools .steps-media{background:#050506;box-shadow:0 0 0 1px var(--d-line);
+  height:min(36vw,470px);top:calc(50vh - min(36vw,470px)/2)}
+.pf-tools .steps-media>[data-step]{padding:clamp(14px,2vw,28px) clamp(14px,2vw,28px) 44px}
+.pf-tools .steps-media>[data-step]>img{width:100%;height:100%;object-fit:contain}
+.pf-cap{position:absolute;right:20px;bottom:15px;font-size:12.5px;color:var(--d-faint);letter-spacing:.01em}
+.pf-tools .steps-list .kicker b{color:var(--accent)}
+.pf-tools .step-img{background:#050506}
+.pf-tools .step-img>img{object-fit:contain}
+/* 영상 단계: 두 화면을 겹쳐 놓는다 */
+.pf-duo{position:relative;width:100%;height:100%}
+.pf-tools .pf-duo img{position:absolute;width:70%;height:auto;object-fit:contain;border-radius:12px}
+.pf-tools .pf-duo .a{left:0;top:0}
+.pf-tools .pf-duo .b{right:0;bottom:0;box-shadow:0 30px 60px rgba(0,0,0,.65),0 0 0 1px var(--d-line)}
+.pf-tools .step-img .pf-duo{padding:10px}
+.pf-tools .step-img .pf-duo .a{left:10px;top:10px}
+.pf-tools .step-img .pf-duo .b{right:10px;bottom:10px}
+
+/* 학교별 맞춤 화면 */
+.pf-brand{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.5fr);gap:40px clamp(32px,5vw,72px);align-items:center;
+  margin-top:clamp(64px,8vw,120px);padding-top:clamp(56px,7vw,96px);border-top:1px solid var(--d-line)}
+.pf-brand-h{margin-top:16px;font-size:clamp(30px,3.4vw,46px)}
+.pf-brand .lead{margin-top:20px}
+.pf-brand-imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.pf-brand-imgs figure{margin:0}
+.pf-brand-imgs figure:last-child{margin-top:56px}
+.pf-brand-imgs .shot{aspect-ratio:629/403;background:#050506}
+.pf-brand-imgs figcaption{margin-top:12px;font-size:13px;font-weight:600;color:var(--d-faint)}
+
+/* LABS 로 넘긴 기능 한 줄 */
+.pf-labs{display:flex;align-items:center;gap:16px 32px;flex-wrap:wrap;margin-top:clamp(64px,8vw,104px);padding:22px 28px;
+  border:1px solid var(--d-line);border-radius:var(--radius-lg);transition:border-color .3s var(--ease),background .3s var(--ease)}
+.pf-labs:hover{border-color:var(--d-line-2);background:var(--d-surface)}
+.pf-labs img{height:20px;width:auto;flex:none}
+.pf-labs p{margin:0;flex:1 1 320px;color:var(--d-muted);font-size:15px}
+.pf-labs .link-ar{flex:none}
+
+/* 4. AS-IS → TO-BE */
+.pf-vs{display:grid;grid-template-columns:46fr 8fr 46fr;align-items:center;container-type:inline-size}
+.pf-asis .kicker{margin-bottom:16px}
+.pf-asis .small{margin:16px 0 0}
+.pf-bills-box{position:relative}
+.pf-bills{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pf-bills li{display:flex;flex-direction:column;gap:6px;padding:16px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow)}
+.pf-bills img{width:22px;height:22px}
+.pf-bills b{font-size:14.5px;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pf-bills small{font-size:12px;color:var(--faint)}
+.pf-ghost{display:none}
+.pf-arrow{position:relative;display:grid;place-items:center;height:100%;min-height:60px;color:var(--faint);font-size:22px}
+.pf-arrow i{position:absolute;left:12%;right:12%;top:50%;height:1px;background:var(--line-2)}
+.pf-arrow span{position:relative;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line-2);color:var(--ink)}
+.pf-tobe{position:relative;padding:clamp(24px,3vw,40px);border-radius:var(--radius-xl);background:var(--d-bg);color:var(--d-ink);
+  box-shadow:0 30px 80px -30px rgba(12,12,15,.55)}
+.pf-tobe .kicker{color:var(--d-muted)} .pf-tobe .kicker b{color:#ff8a85}
+.pf-one{margin:18px 0 6px;font-size:clamp(64px,7vw,104px);line-height:.9;font-weight:800;letter-spacing:-.06em}
+.pf-num{position:relative;display:inline-block;color:var(--accent)}
+.pf-num>span{display:inline-block}
+.pf-was{display:none}
+.pf-tobe .h4{font-size:clamp(19px,1.7vw,23px)}
+.pf-tobe>p:last-child{margin:10px 0 0;color:var(--d-muted);font-size:15px}
+
+/* 넓은 화면 + 스크롤 연동 애니메이션을 아는 브라우저: 구획을 붙잡고 카드 8개를 1개로 모은다 (JS 없이 CSS 만) */
+@media (min-width:901px) and (prefers-reduced-motion:no-preference){
+  @supports (animation-timeline:view()) {
+    html:not(.reduce) .pf-merge{height:240vh;padding-block:0;view-timeline:--pfmerge block}
+    html:not(.reduce) .pf-merge-stage{position:sticky;top:0;height:100vh;display:flex;align-items:center;padding-top:calc(var(--hdr-h) - 8px)}
+    html:not(.reduce) .pf-merge-stage>.wrap{width:100%}
+    html:not(.reduce) .pf-bills li{animation:pfFly linear both;animation-timeline:--pfmerge;
+      animation-range:contain calc(8% + var(--i) * 3%) contain calc(46% + var(--i) * 3%)}
+    html:not(.reduce) .pf-ghost{display:grid;place-items:center;position:absolute;inset:0;margin:0;pointer-events:none;
+      font-size:clamp(28px,3vw,44px);font-weight:800;letter-spacing:-.04em;color:var(--faint);
+      animation:pfGhost linear both;animation-timeline:--pfmerge;animation-range:contain 62% contain 78%}
+    html:not(.reduce) .pf-ghost s{text-decoration-color:var(--accent);text-decoration-thickness:3px}
+    html:not(.reduce) .pf-tobe{animation:pfLand linear both;animation-timeline:--pfmerge;animation-range:contain 30% contain 72%}
+    html:not(.reduce) .pf-was{display:block;position:absolute;inset:0;font-style:normal;color:var(--d-muted);
+      animation:pfOut linear both;animation-timeline:--pfmerge;animation-range:contain 48% contain 62%}
+    html:not(.reduce) .pf-num>span{animation:pfPop linear both;animation-timeline:--pfmerge;animation-range:contain 56% contain 72%}
+  }
+}
+@keyframes pfFly{
+  0%{translate:0 0;scale:1;opacity:1}
+  80%{opacity:.9}
+  100%{translate:calc((71.5 - 11.5 * var(--c)) * 1cqw) calc((.5 - var(--r)) * (100% + 10px));scale:.28;opacity:0}
+}
+@keyframes pfGhost{from{opacity:0;scale:.96}to{opacity:1;scale:1}}
+@keyframes pfLand{
+  from{scale:.92;opacity:.72;box-shadow:0 0 0 0 rgba(233,64,59,0),0 30px 80px -30px rgba(12,12,15,.2)}
+  to{scale:1;opacity:1;box-shadow:0 0 0 2px rgba(233,64,59,.9),0 40px 90px -30px rgba(12,12,15,.6)}
+}
+@keyframes pfPop{from{translate:0 35%;opacity:0}to{translate:0 0;opacity:1}}
+@keyframes pfOut{from{translate:0 0;opacity:1}to{translate:0 -35%;opacity:0}}
+
+/* 5. 도입 배경 · 비교 */
+.pf-why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pf-why .card{padding:clamp(28px,3.4vw,44px)}
+.pf-why .kicker b{color:var(--accent)}
+.pf-big{margin:8px 0 22px!important;font-size:clamp(48px,5.6vw,84px)!important;line-height:1;font-weight:800;letter-spacing:-.05em;color:var(--ink)!important;font-variant-numeric:tabular-nums}
+.pf-big small{font-size:.42em;color:var(--accent);margin-left:4px;letter-spacing:-.02em}
+.pf-why .list-lines{margin-top:24px}
+.pf-why .list-lines li{font-size:14.5px;color:var(--muted)}
+.pf-src{margin:16px 0 0}
+
+.pf-cmp{margin-top:clamp(72px,9vw,120px)}
+.pf-cmp-head{display:flex;justify-content:space-between;align-items:end;gap:8px 24px;flex-wrap:wrap;margin-bottom:24px}
+.pf-cmp-head p{margin:0;font-size:15px}
+.pf-cmp table.t tbody th{font-weight:600;text-align:left}
+.pf-cmp table.t .c{text-align:center;width:19%}
+.pf-cmp table.t td{font-size:18px;font-weight:800;line-height:1.2}
+.pf-cmp table.t .no{color:var(--line-2)}
+.pf-cmp table.t .yes{color:var(--ink)}
+.pf-cmp table.t .hl{background:rgba(233,64,59,.05)}
+.pf-cmp table.t thead th.hl{color:var(--accent-ink);background:rgba(233,64,59,.08)}
+.pf-cmp table.t td.hl.yes{color:var(--accent)}
+
+/* 6. 안전 */
+.pf-guard{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;
+  background:var(--d-line);border:1px solid var(--d-line);border-radius:var(--radius-lg);overflow:hidden}
+.pf-guard>li{background:var(--d-bg);padding:26px 24px 30px;min-height:190px}
+.pf-guard .n{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--d-faint);font-variant-numeric:tabular-nums}
+.pf-guard .h4{margin-top:28px;font-size:18px}
+.pf-guard p{margin:8px 0 0;font-size:14.5px;color:var(--d-muted)}
+.pf-guard-go{padding:0!important}
+.pf-guard-go a{display:flex;flex-direction:column;height:100%;padding:26px 24px 30px;background:rgba(233,64,59,.1);transition:background .3s var(--ease)}
+.pf-guard-go a:hover{background:rgba(233,64,59,.2)}
+.pf-guard-go .n{color:#ff8a85}
+.pf-guard-go b{display:block;margin-top:28px}
+.pf-guard-go .ar{margin-top:auto;padding-top:14px;font-size:20px}
+
+.pf-faq{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.5fr);gap:32px clamp(32px,5vw,80px);margin-top:clamp(72px,9vw,120px);align-items:start}
+.pf-faq-head{position:sticky;top:calc(var(--hdr-h) + 32px)}
+.pf-faq-head .h3{margin-top:14px}
+.pf-faq-list{border-top:1px solid var(--d-line)}
+
+/* ---------------- 반응형 ---------------- */
+@media (max-width:1080px){
+  .pf-guard{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pf-bills{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .pf-hero-top,.pf-home-notes,.pf-brand,.pf-faq{grid-template-columns:1fr}
+  .pf-bar span{transform:none}
+  .pf-why{grid-template-columns:1fr}
+  .pf-vs{grid-template-columns:1fr;gap:16px}
+  .pf-arrow{min-height:64px}
+  .pf-arrow i{left:50%;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .pf-arrow span{transform:rotate(90deg)}
+  .pf-bills{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .pf-faq-head{position:static}
+  .pf-stats>div:nth-child(3){grid-column:1/-1}
+}
+@media (max-width:640px){
+  .pf-notes{grid-template-columns:1fr}
+  .pf-bills{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pf-guard{grid-template-columns:1fr}
+  .pf-guard>li{min-height:0}
+  .pf-guard .h4,.pf-guard-go b{margin-top:14px}
+  .pf-brand-imgs{grid-template-columns:1fr}
+  .pf-brand-imgs figure:last-child{margin-top:0}
+  .pf-cards .card{min-height:0}
+  .pf-cards .kicker{padding-bottom:20px}
+  .pf-cap{display:none}
+  .pf-cmp table.t{min-width:0;font-size:14px}
+  .pf-cmp table.t th,.pf-cmp table.t td{padding:12px 8px}
+  .pf-cmp table.t thead th{font-size:11px;letter-spacing:.02em}
+  .pf-cmp table.t tbody th{padding-left:14px}
+}

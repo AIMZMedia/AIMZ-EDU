@@ -1,63 +1,73 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AIMZ EDU · 문의</title>
-<meta name="description" content="실전 제작 경험 기반의 생성형 AI 교육 서비스와, 여러 AI를 계정 하나로 쓰는 통합 실습 플랫폼. AIMZ EDU — 주식회사 에임즈미디어">
-<meta name="theme-color" content="#fafaf7">
+<title>AIMZ EDU · 문의 · 지원</title>
+<meta name="description" content="1일 과정부터 한 학기 운영까지 교육 일정과 도입을 문의하세요.">
+<meta name="theme-color" content="#fafaf8">
 <link rel="icon" href="/assets/logo/mark_navy.png">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="/assets/css/site_20.css">
+<link rel="stylesheet" href="/assets/css/edu.css">
+<link rel="stylesheet" href="/assets/css/p-contact.css" data-page-css>
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body class="sub t-light">
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
 
-<header class="hdr" id="top">
-  <div class="wrap hdr-in">
-    <a class="brand" href="/" aria-label="AIMZ EDU 홈"><img src="/assets/logo/edu_navy.png" alt="AIMZ EDU"></a>
-    <button class="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
-    <nav class="nav" id="nav" aria-label="주요 메뉴">
+<header class="hdr">
+  <div class="hdr-in wrap">
+    <a class="logo" href="/" aria-label="AIMZ EDU 홈"><img class="on-l" src="/assets/logo/edu_navy.png" alt="AIMZ EDU" width="87" height="26"><img class="on-d" src="/assets/logo/edu_white.png" alt="" width="87" height="26"></a>
+    <nav id="nav" class="nav" aria-label="주 메뉴">
       <a href="/courses">교육과정</a>
-      <a href="/platform">실습 플랫폼</a>
-      <a href="/safety">안전</a>
+      <a href="/platform">실습 환경</a>
       <a href="/cases">운영 사례</a>
-      <a href="/instructors">강사 소개</a>
-      <a href="/support">지원</a>
-      <a href="/labs">LABS 소개</a>
-      <a class="m-only" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a>
-      <a class="on m-only" href="/contact" aria-current="page">교육 문의</a>
+      <a href="/instructors">강사진</a>
+      <a href="/contact">문의 · 지원</a>
     </nav>
     <div class="hdr-act">
-      <a class="btn btn-accent btn-sm btn-labs" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a>
-      <a class="btn btn-navy btn-sm" href="#contact">교육 문의</a>
+      <a class="btn btn-sm btn-ghost" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a>
+      <a class="btn btn-sm btn-ink" href="/contact">교육 문의</a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기"><span></span><span></span></button>
     </div>
   </div>
 </header>
 
-<main>
-<div class="crumbbar"><div class="wrap"><a href="/">홈</a><span>/</span><b>문의</b></div></div>
-<!-- ================= CONTACT ================= -->
-<section id="contact">
+<main id="main">
+
+<!-- ============ 1. 첫 머리 ============ -->
+<section class="page-hero ct-hero">
   <div class="wrap">
-    <div class="contact band-dark rv">
-      <div>
-        <span class="eyebrow">도입 문의</span>
-        <h2>1일 과정부터<br>한 학기 운영까지</h2>
-        <p>기관 · 기업은 <b>하루 단위 과정</b>으로, 대학 · 교육기관은 <b>한 학기 편성</b>으로 시작할 수 있습니다. 교육은 <b>2026년 11월</b>부터 진행할 수 있으며, 세부 일정은 협의하여 정합니다.</p>
-        <div class="cards">
-          <a href="mailto:edu@aimz.media"><span><small>교육 · 도입 문의 — 콘텐츠엔지니어링센터</small><b>edu@aimz.media</b></span><span>→</span></a>
-          <a href="tel:01026072592"><span><small>이진형 · 콘텐츠엔지니어링센터장</small><b>010-2607-2592</b></span><span>→</span></a>
-          <a href="tel:01073661953"><span><small>민세훈 · 콘텐츠엔지니어링 연구원</small><b>010-7366-1953</b></span><span>→</span></a>
-          <a href="/assets/docs/aimz-edu-brochure.pdf" download="AIMZ LABS · EDU 사업소개서.pdf"><span><small>사업소개서 — AIMZ LABS · EDU</small><b>PDF 내려받기</b></span><span>↓</span></a>
-          <a href="https://studio.aimzedu.com" target="_blank" rel="noopener"><span><small>AIMZ EDU 스튜디오</small><b>studio.aimzedu.com</b></span><span>↗</span></a>
-        </div>
-      </div>
-      <form class="form" data-mailto="edu@aimz.media" data-brand="AIMZ EDU">
-        <div><label for="f-org">기관 · 학교명</label><input id="f-org" name="org" required placeholder="예) 에임즈대학교"></div>
-        <div><label for="f-name">담당자</label><input id="f-name" name="name" required placeholder="성함 / 직함"></div>
-        <div><label for="f-tel">연락처</label><input id="f-tel" name="tel" placeholder="010-0000-0000"></div>
-        <div><label for="f-size">예상 인원</label><input id="f-size" name="size" placeholder="예) 20명 / 학생 100명"></div>
-        <div class="full"><label for="f-type">관심 분야</label>
+    <p class="eyebrow" data-load>문의 · 지원</p>
+    <h1 class="h1" data-split="load">1일 과정부터<br>한 학기 운영까지</h1>
+    <p class="lead" data-load>기관 · 기업은 하루 단위 과정으로, 대학 · 교육기관은 한 학기 편성으로 시작할 수 있습니다. 연중 상시 진행합니다. 세부 일정은 기관과 협의해 정합니다.</p>
+  </div>
+</section>
+
+<!-- ============ 2. 연락처 · 문의 양식 ============ -->
+<section class="ct-contact" id="contact" aria-label="도입 문의">
+  <div class="wrap ct-grid">
+    <div class="ct-side">
+      <p class="kicker"><b>01</b>바로 연락하기</p>
+      <ul class="ct-list" data-stagger>
+        <li data-reveal><a class="ct-main" href="mailto:edu@aimz.media"><small>교육 · 도입 문의 — 콘텐츠엔지니어링센터</small><b>edu@aimz.media</b><span class="ar" aria-hidden="true">→</span></a></li>
+        <li data-reveal><a href="tel:01026072592"><small>이진형 · 콘텐츠엔지니어링센터장</small><b>010-2607-2592</b><span class="ar" aria-hidden="true">→</span></a></li>
+        <li data-reveal><a href="tel:01073661953"><small>민세훈 · 콘텐츠엔지니어링 연구원</small><b>010-7366-1953</b><span class="ar" aria-hidden="true">→</span></a></li>
+        <li data-reveal><a href="/assets/docs/aimz-edu-brochure.pdf" download="AIMZ LABS · EDU 사업소개서.pdf"><small>사업소개서 — AIMZ LABS · EDU</small><b>PDF 내려받기</b><span class="ar" aria-hidden="true">↓</span></a></li>
+        <li data-reveal><a href="https://studio.aimzedu.com" target="_blank" rel="noopener"><small>AIMZ EDU 스튜디오</small><b>studio.aimzedu.com</b><span class="ar" aria-hidden="true">↗</span></a></li>
+      </ul>
+    </div>
+
+    <div class="ct-form-box" data-reveal>
+      <p class="kicker"><b>02</b>문의 양식</p>
+      <h2 class="h3">희망 과정과 일정을<br>알려 주세요</h2>
+      <form class="ct-form" data-mailto="edu@aimz.media" data-brand="AIMZ EDU">
+        <div class="ct-field"><label for="f-org">기관 · 학교명</label><input id="f-org" name="org" required autocomplete="organization" placeholder="예) 에임즈대학교"></div>
+        <div class="ct-field"><label for="f-name">담당자</label><input id="f-name" name="name" required autocomplete="name" placeholder="성함 / 직함"></div>
+        <div class="ct-field"><label for="f-tel">연락처</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="010-0000-0000"></div>
+        <div class="ct-field"><label for="f-size">예상 인원</label><input id="f-size" name="size" placeholder="예) 20명 / 학생 100명"></div>
+        <div class="ct-field full"><label for="f-type">관심 분야</label>
           <select id="f-type" name="type">
             <option value="CORP">기관 · 기업 임직원 교육 (기초 · 심화 · 전문)</option>
             <option value="CAMPUS">대학 · 교육기관 학기 운영</option>
@@ -66,26 +76,96 @@
             <option value="ETC">기타</option>
           </select>
         </div>
-        <div class="full"><label for="f-msg">문의 내용</label><textarea id="f-msg" name="msg" placeholder="희망 과정, 일정, 대상, 예산 등을 적어주세요."></textarea></div>
-        <div class="full"><button class="btn btn-accent" type="submit">문의 메일 작성하기 →</button></div>
-        <p class="fine full">버튼을 누르면 입력하신 내용으로 메일 앱이 열립니다 (edu@aimz.media).</p>
+        <div class="ct-field full"><label for="f-msg">문의 내용</label><textarea id="f-msg" name="msg" rows="5" placeholder="희망 과정, 일정, 대상, 예산 등을 적어주세요."></textarea></div>
+        <div class="full ct-submit">
+          <button class="btn btn-lg btn-ink" type="submit">문의 메일 작성하기 <span class="ar">→</span></button>
+          <p class="small">버튼을 누르면 입력하신 내용으로 메일 앱이 열립니다 (edu@aimz.media).</p>
+        </div>
       </form>
     </div>
   </div>
 </section>
-<section class="pager-sec"><div class="wrap"><nav class="pager" aria-label="페이지 이동"><a href="/labs"><small>← 이전</small><b>LABS 소개</b></a><a class="next" href="/"><small>다음 →</small><b>홈</b></a></nav></div></section>
+
+<!-- ============ 3. 운영 지원 ============ -->
+<section class="sec dark ct-support" id="support">
+  <div class="wrap">
+    <div class="sec-head split">
+      <div>
+        <p class="eyebrow">운영 지원</p>
+        <h2 class="h2" data-split style="margin-top:18px">도입 후 운영은<br>AIMZ 팀이 맡습니다</h2>
+      </div>
+      <p class="lead" data-reveal>계정 · 크레딧 · 문의 응대 · 교육 이후 피드백까지 맡습니다. 담당자가 할 일은 요청을 전달하는 것뿐입니다.</p>
+    </div>
+
+    <div class="ct-ops-wrap">
+    <i class="ct-ops-line" data-draw aria-hidden="true"></i>
+    <ol class="ct-ops" data-stagger>
+      <li data-reveal><p class="kicker"><b>01</b>ACCOUNT · CREDIT</p><h3 class="h4">계정 · 크레딧 관리</h3><p>학생 · 교직원 계정 추가 · 삭제 · 비밀번호 초기화, 학기 중 크레딧 추가 지급과 소진 현황 확인을 맡습니다.</p></li>
+      <li data-reveal><p class="kicker"><b>02</b>STUDENT</p><h3 class="h4">학생 문의 직접 응대</h3><p>학생 1:1 문의에 AIMZ 팀이 먼저 답합니다. 담당자를 거치지 않습니다.</p></li>
+      <li data-reveal><p class="kicker"><b>03</b>REPORT</p><h3 class="h4">학기말 리포트</h3><p>사용량 통계와 문의 요약, 다음 학기 개선 제안을 정리해 드립니다.</p></li>
+    </ol>
+    </div>
+
+    <div class="ct-rt-head">
+      <p class="eyebrow">RESPONSE TIME</p>
+      <h3 class="h3" data-split style="margin-top:14px">응답 시간 기준</h3>
+    </div>
+    <dl class="ct-rt" data-stagger>
+      <div data-reveal><dt>일반 문의</dt><dd><b><span data-count="24">24</span><sup>시간</sup></b><span>영업일 이내</span></dd></div>
+      <div data-reveal class="hot"><dt>긴급 문의 (수업 중)</dt><dd><b><span data-count="30">30</span><sup>분</sup> – 1<sup>시간</sup></b><span>수업 중 문제는 최우선으로 처리</span></dd></div>
+      <div data-reveal><dt>시스템 장애</dt><dd><b>즉시</b><span>발견 즉시 공지</span></dd></div>
+    </dl>
+    <div class="ct-channel" data-reveal>
+      <p class="kicker"><b>SUPPORT CHANNEL</b></p>
+      <p>전용 서포트 채널을 상시 운영합니다. 수업 중 생긴 문제는 최우선으로 처리합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. 교육 후 소통 ============ -->
+<section class="sec ct-after">
+  <div class="wrap ct-after-in">
+    <div class="ct-after-txt">
+      <p class="eyebrow">AFTER CLASS</p>
+      <h2 class="h2" data-split style="margin-top:18px">교육이 끝난 뒤에도,<br>질문과 피드백으로<br>소통합니다</h2>
+      <p class="lead" data-reveal>AIMZ EDU 교육은 강의 수강으로 끝나지 않습니다. 전용 서포트 채널에서 수강 중 생긴 질문에 답하고, 실무 기준의 피드백을 드립니다.</p>
+      <ul class="list-lines" data-stagger>
+        <li data-reveal>수강 후 생긴 질문에 답합니다</li>
+        <li data-reveal>실무 결과물에 피드백을 드립니다</li>
+        <li data-reveal>업무에 적용할 방향을 함께 제안합니다</li>
+      </ul>
+      <a class="link-ar" href="#contact" data-reveal>교육 문의하기 <span class="ar">↑</span></a>
+    </div>
+    <figure class="ct-after-img" data-reveal="clip"><img src="/assets/img/support.jpg" alt="AIMZ EDU 서포트 채팅 화면 — 수강생 질문에 강사가 영상 생성 도구 사용법을 답하는 대화" loading="lazy"></figure>
+  </div>
+</section>
+
 </main>
 
-<footer>
+<footer class="ftr">
   <div class="wrap">
-    <div class="ft">
-      <div><img src="/assets/logo/edu_navy.png" alt="AIMZ EDU"><p>주식회사 에임즈미디어 · 콘텐츠엔지니어링센터<br>대전 본사 · 서울 지사 · studio.aimzedu.com<br>AIMZ lifts your AIM</p></div>
-      <div><h4>AIMZ EDU</h4><ul><li><a href="/courses">교육과정</a></li><li><a href="/platform">실습 플랫폼</a></li><li><a href="/cases">최신 작업</a></li><li><a href="/assets/docs/aimz-edu-brochure.pdf" download="AIMZ LABS · EDU 사업소개서.pdf">사업소개서 (PDF)</a></li><li><a href="/contact">교육 문의</a></li></ul></div>
-      <div><h4>CONTACT</h4><ul><li><a href="mailto:edu@aimz.media">edu@aimz.media</a></li><li><a href="https://studio.aimzedu.com" target="_blank" rel="noopener">studio.aimzedu.com ↗</a></li></ul></div>
+    <div class="ftr-top">
+      <div class="ftr-brand">
+        <img src="/assets/logo/edu_white.png" alt="AIMZ EDU" width="93" height="28">
+        <p>실전 제작 경험을 가진 팀이 직접 가르치는 생성형 AI 교육. 주식회사 에임즈미디어 콘텐츠엔지니어링센터가 운영합니다.</p>
+      </div>
+      <div><h4>교육</h4><ul><li><a href="/courses">교육과정</a></li><li><a href="/platform">실습 환경</a></li><li><a href="/cases">운영 사례</a></li><li><a href="/instructors">강사진</a></li></ul></div>
+      <div><h4>문의</h4><ul><li><a href="/contact">문의 · 지원</a></li><li><a href="mailto:edu@aimz.media">edu@aimz.media</a></li><li><a href="/assets/docs/aimz-edu-brochure.pdf" download>사업소개서 (PDF)</a></li></ul></div>
+      <div><h4>바로가기</h4><ul><li><a href="https://studio.aimzedu.com" target="_blank" rel="noopener">AIMZ EDU 스튜디오 ↗</a></li><li><a href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a></li></ul></div>
     </div>
-    <div class="fb"><span>© 2026 AIMZ MEDIA Inc. All rights reserved.</span><span>AIMZ EDU 교육과정 · 도입 제안 2026</span></div>
+    <div class="ftr-biz">
+      <address>상호: 주식회사 에임즈미디어 · 대표: 소휘수 · 사업자등록번호: 553-81-03801<br>주소: 대전광역시 유성구 대덕대로512번길 47, 206호(도룡동) · 교육 문의: edu@aimz.media<br>© 2026 AIMZ MEDIA Inc. All rights reserved.</address>
+      <div class="ftr-family" aria-label="AIMZ 패밀리">
+        <img src="/assets/logo/edu_white.png" alt="AIMZ EDU" width="60" height="18">
+        <a href="https://www.aimzlabs.com/" target="_blank" rel="noopener"><img src="/assets/logo/labs_white.png" alt="AIMZ LABS" width="74" height="18"></a>
+      </div>
+    </div>
   </div>
 </footer>
-<script src="/assets/js/site_5.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="/assets/js/edu.js"></script>
 </body>
 </html>

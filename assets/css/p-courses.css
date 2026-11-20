@@ -1,0 +1,129 @@
+/* AIMZ EDU — 교육과정 전용 */
+
+/* 공통: 체크 목록 */
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.checks li{position:relative;padding-left:28px;font-size:15px;line-height:1.6}
+.checks li::before{content:"";position:absolute;left:3px;top:.55em;width:12px;height:6px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);opacity:.55}
+
+/* 1. 머리 */
+.c-hero{padding-bottom:clamp(40px,5vw,72px)}
+.c-hero-top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px 48px;flex-wrap:wrap}
+.c-hero-top .lead{max-width:560px}
+.c-jump{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.c-jump a{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);font-size:14.5px;font-weight:700;transition:border-color .25s var(--ease)}
+.c-jump a b{font-size:12px;color:var(--faint);font-variant-numeric:tabular-nums}
+.c-jump a:hover{border-color:var(--ink)}
+.c-photo{margin:clamp(48px,6vw,80px) 0 0;aspect-ratio:21/9;border-radius:var(--radius-xl)}
+.c-photo img{object-position:50% 40%}
+
+/* 2. 세 과정 한눈에 (겹쳐 쌓이는 카드) */
+.cc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);min-height:min(540px,calc(100vh - var(--hdr-h) - 96px));
+  border-radius:var(--radius-xl);overflow:hidden;background:var(--d-surface);border:1px solid var(--d-line)}
+.cc:nth-child(2){top:calc(var(--hdr-h) + 40px)}
+.cc:nth-child(3){top:calc(var(--hdr-h) + 56px)}
+.cc-txt{padding:clamp(28px,3.4vw,48px);display:flex;flex-direction:column;align-items:flex-start}
+.cc-txt .h3{margin-top:16px;font-size:clamp(26px,2.6vw,36px)}
+.cc-txt>p:not(.kicker){margin:14px 0 0;color:var(--d-muted);max-width:440px}
+.cc-dl{margin:auto 0 0;padding-top:28px;width:100%;display:grid}
+.cc-dl div{display:grid;grid-template-columns:84px minmax(0,1fr);gap:16px;padding:12px 0;border-top:1px solid var(--d-line);font-size:14.5px}
+.cc-dl dt{color:var(--d-faint);font-weight:600}
+.cc-dl dd{margin:0;color:var(--d-ink);font-weight:600}
+.cc .link-ar{margin-top:24px}
+.cc-img{position:relative;overflow:hidden;background:var(--d-surface-2)}
+.cc-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cc-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,15,0) 55%,rgba(12,12,15,.55))}
+.cc-num{position:absolute;right:clamp(20px,2.4vw,32px);bottom:clamp(8px,1.4vw,16px);z-index:1;font-size:clamp(72px,9vw,140px);line-height:1;font-weight:800;letter-spacing:-.06em;color:#fff;opacity:.92}
+.cc-num i{font-style:normal;color:var(--accent)}
+
+/* 3. 과정별 수업 구성 */
+.c-facts{margin:0 0 clamp(40px,5vw,56px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--ink)}
+.c-facts div{padding:18px 24px 18px 0}
+.c-facts div+div{padding-left:24px;border-left:1px solid var(--line)}
+.c-facts dt{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.c-facts dd{margin:8px 0 0;font-size:16px;font-weight:700;letter-spacing:-.015em}
+.c-facts dd small{display:block;margin-top:4px;font-size:13.5px;font-weight:500;color:var(--muted)}
+.c-tabs{position:relative}
+
+.cp{padding-top:clamp(40px,5vw,64px)}
+.cp-head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:end;padding-bottom:clamp(36px,4vw,56px);border-bottom:1px solid var(--ink)}
+.cp-head .h3{margin-top:16px;font-size:clamp(28px,3vw,40px)}
+.cp-head .lead{margin-top:16px}
+.cp-meta{margin:0;display:grid;border-top:1px solid var(--line)}
+.cp-meta div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.cp-meta dt{font-size:13.5px;color:var(--faint);font-weight:600}
+.cp-meta dd{margin:0;font-weight:700;font-size:15px}
+.cp-block{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:clamp(20px,4vw,64px);padding-block:clamp(36px,4vw,56px);border-bottom:1px solid var(--line)}
+.cp-block:last-child{border-bottom:0;padding-bottom:0}
+.cp-label p{margin:8px 0 0;font-size:14px;color:var(--faint);max-width:240px}
+
+.mods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(20px,3vw,40px);border-top:1px solid var(--line)}
+.mods li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:2px 10px;padding:18px 0;border-bottom:1px solid var(--line)}
+.mods .n{grid-row:span 2;padding-top:3px;font-size:13px;font-weight:700;color:var(--faint);font-variant-numeric:tabular-nums}
+.mods b{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.mods .d{font-size:14.5px;color:var(--muted)}
+
+.pick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pick-card{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;background:var(--surface)}
+.pick-img{aspect-ratio:16/10;overflow:hidden;background:var(--surface-3)}
+.pick-img img{width:100%;height:100%;object-fit:cover}
+.pick-body{padding:20px 22px 24px}
+.pick-body .h4{margin-top:10px}
+.pick-body p{margin:6px 0 0;font-size:14.5px;color:var(--muted)}
+.pick-text .pick-body{padding:24px 22px 26px}
+
+.c-case{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px;align-items:stretch}
+.c-case .shot{aspect-ratio:16/10;margin:0}
+.c-case .shot img{object-position:0 0}
+.c-note{border-radius:var(--radius-lg);background:var(--d-bg);color:var(--d-ink);padding:clamp(24px,3vw,36px);display:flex;flex-direction:column}
+.c-note .kicker{color:var(--d-muted)} .c-note .kicker b{color:var(--d-ink)}
+.c-note .h4{margin-top:12px;font-size:21px}
+.c-note>p:not(.kicker){margin:10px 0 0;color:var(--d-muted);font-size:15px}
+.c-note .checks{margin-top:auto;padding-top:24px}
+.c-note .checks li{font-size:14.5px;color:var(--d-ink)}
+
+.c-gain{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+
+/* 4. 어떤 과정이 맞을까요 (선이 그어지며 이어진다) */
+.diag{position:relative;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,48px)}
+.diag::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--d-line-2)}
+.diag-line{position:absolute;left:0;right:0;top:0;height:1px;background:var(--d-ink)}
+.diag>li{position:relative;padding-top:40px;display:flex;flex-direction:column;align-items:flex-start}
+.diag>li::before{content:"";position:absolute;left:0;top:-6px;width:13px;height:13px;border-radius:50%;background:var(--d-bg);border:2px solid var(--d-ink);z-index:1}
+.diag>li:first-child::before{background:var(--accent);border-color:var(--accent)}
+.diag .h3{margin-top:10px}
+.diag .checks{margin-top:22px;width:100%;padding-top:18px;border-top:1px solid var(--d-line)}
+.diag .checks li{color:var(--d-ink)}
+.diag .link-ar{margin-top:28px}
+.diag-note{margin:clamp(40px,5vw,64px) 0 0;color:var(--d-faint)}
+
+/* 5. 일정 · 사전 준비 */
+.prep .card .h4{margin-top:4px}
+.labs-line{display:flex;justify-content:space-between;align-items:center;gap:16px 32px;flex-wrap:wrap;margin-top:clamp(40px,5vw,56px);padding-top:24px;border-top:1px solid var(--line-2)}
+.labs-line p{margin:0;color:var(--muted);font-size:15px}
+.labs-line p b{color:var(--ink)}
+
+@media (max-width:900px){
+  .c-photo{aspect-ratio:16/10}
+  .cc{grid-template-columns:1fr;min-height:0}
+  .cc-img{aspect-ratio:16/9;order:-1}
+  .c-facts{grid-template-columns:1fr}
+  .c-facts div,.c-facts div+div{padding:16px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .cp-head{grid-template-columns:1fr;align-items:start}
+  .cp-block{grid-template-columns:1fr}
+  .cp-label p{max-width:none}
+  .mods{grid-template-columns:1fr}
+  .c-case{grid-template-columns:1fr}
+  .diag{grid-template-columns:1fr;gap:0}
+  .diag::before,.diag-line{display:none}
+  .diag>li{padding:28px 0 36px 32px;border-left:1px solid var(--d-line-2)}
+  .diag>li:last-child{padding-bottom:0}
+  .diag>li::before{left:-7px;top:32px}
+}
+@media (max-width:640px){
+  .pick{grid-template-columns:1fr}
+  .c-gain{grid-template-columns:1fr}
+  .c-jump{width:100%}
+  .c-jump li{flex:1 1 0}
+  .c-jump a{width:100%;justify-content:center;padding:0 10px;gap:6px;font-size:14px}
+  .cp-meta div,.cc-dl div{grid-template-columns:76px minmax(0,1fr);gap:12px}
+}
