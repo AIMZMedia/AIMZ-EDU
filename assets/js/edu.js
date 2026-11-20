@@ -378,12 +378,34 @@
     });
   }
 
+  /* 회사 작업 쇼릴: 차례로 바뀌고, 탭을 누르면 그 작업으로. 화면에 보일 때만 재생 */
+  function initReel(scope) {
+    $$('[data-reel]', scope).forEach(r => {
+      const ss = $$('.rl-s', r), ts = $$('.rl-t', r), DUR = 6000;
+      r.style.setProperty('--rl-dur', DUR + 'ms');
+      let i = 0, timer = 0, visible = false;
+      const show = n => {
+        i = (n + ss.length) % ss.length;
+        ss.forEach((s, k) => { s.classList.toggle('on', k === i); const v = $('video', s); if (v) { if (k === i && visible) { v.currentTime = 0; const p = v.play(); p && p.catch(() => {}); } else v.pause(); } });
+        ts.forEach((t, k) => { t.classList.remove('on'); void t.offsetWidth; t.classList.toggle('on', k === i); t.setAttribute('aria-selected', k === i); });
+        clearTimeout(timer); if (visible && !reduce) timer = setTimeout(() => show(i + 1), DUR);
+      };
+      ts.forEach((t, k) => t.addEventListener('click', () => show(k)));
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        visible = e.isIntersecting; r.classList.toggle('paused', !visible);
+        if (visible) show(i); else { clearTimeout(timer); $$('video', r).forEach(v => v.pause()); }
+      }), { threshold: .35 });
+      io.observe(r);
+      cleanups.push(() => { io.disconnect(); clearTimeout(timer); });
+    });
+  }
+
   /* ---------------- 페이지 시작 · 정리 ---------------- */
   let pendingSearch = '';
   function initPage() {
     const scope = $('main');
     if (hasGsap) ctx = gsap.context(() => initMotion(scope), scope);
-    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope);
+    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope);
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {

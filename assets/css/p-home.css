@@ -344,3 +344,41 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .crew-stack .c4-one{font-size:13px}
 .crew-more{display:inline-flex}
 .ab-bridge .crew-more{margin-top:20px}
+
+/* 회사 작업 쇼릴 — 가로 박스 하나, 차례로 바뀐다 */
+.ab-top{grid-template-columns:minmax(0,.9fr) minmax(0,1.25fr)}
+.reel{border-radius:var(--radius-xl);overflow:hidden;background:#0E0F18;box-shadow:0 30px 70px rgba(24,24,37,.18)}
+.rl-stage{position:relative;aspect-ratio:16/9;overflow:hidden}
+.rl-s{position:absolute;inset:0;margin:0;opacity:0;transform:scale(1.04);transition:opacity .8s var(--ease),transform 1.4s var(--ease)}
+.rl-s.on{opacity:1;transform:none}
+.rl-s video,.rl-s img{width:100%;height:100%;object-fit:cover;display:block}
+.rl-s figcaption{position:absolute;left:20px;bottom:18px;display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:999px;background:rgba(14,15,24,.62);backdrop-filter:blur(8px);color:rgba(255,255,255,.8);font-size:13.5px}
+.rl-s figcaption b{color:#fff;font-weight:700}
+.rl-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid rgba(255,255,255,.08)}
+.rl-t{position:relative;height:54px;border:0;background:transparent;color:rgba(255,255,255,.5);font-size:14px;font-weight:700;transition:color .3s}
+.rl-t+.rl-t{border-left:1px solid rgba(255,255,255,.08)}
+.rl-t:hover,.rl-t.on{color:#fff}
+.rl-t i{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--cta);transform:scaleX(0);transform-origin:0 50%}
+.rl-t.on i{animation:rlBar var(--rl-dur,6s) linear forwards}
+.reel.paused .rl-t.on i{animation-play-state:paused}
+@keyframes rlBar{to{transform:scaleX(1)}}
+@media (max-width:640px){.rl-t{height:46px;font-size:12px}.rl-s figcaption{left:12px;bottom:12px;font-size:12px}}
+
+/* AI 기술력 인증 — 키워드 카드 */
+.creds2{margin-top:clamp(88px,10vw,140px)}
+.cr-head{text-align:center;margin-bottom:clamp(32px,4vw,52px)}
+.cr-head .h2{font-size:clamp(30px,3.2vw,48px)}
+.cr-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;grid-template-rows:auto auto;gap:14px}
+.kw{position:relative;display:flex;flex-direction:column;padding:24px 24px 26px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);
+  transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease)}
+.kw:hover{border-color:var(--cta);transform:translateY(-3px);box-shadow:0 16px 36px rgba(58,107,255,.12)}
+.kw-k{display:inline-flex;align-items:center;gap:7px;margin:0;font-size:13px;font-weight:700;color:var(--cta)}
+.kw h4{margin:12px 0 0;font-family:var(--font-head);font-size:clamp(18px,1.4vw,21px);font-weight:800;letter-spacing:-.03em;line-height:1.35}
+.kw p:not(.kw-k){margin:8px 0 0;font-size:14px;line-height:1.65;color:var(--muted)}
+.kw.tips{grid-row:1/3;justify-content:flex-end;padding:32px;background:linear-gradient(160deg,#fff 0%,#EEF2FF 100%);border-color:#DCE3FF}
+.kw.tips img{width:min(220px,70%);height:auto;margin-bottom:auto}
+.kw.tips .kw-k{margin-top:32px;font-family:var(--font-head);font-size:15px;letter-spacing:.06em}
+.kw.tips h4{font-size:clamp(34px,3vw,48px);margin-top:6px}
+.kw.tips p:not(.kw-k){font-size:15px;max-width:340px}
+@media (max-width:1080px){.cr-grid{grid-template-columns:1fr 1fr}.kw.tips{grid-row:auto;grid-column:1/-1}}
+@media (max-width:560px){.cr-grid{grid-template-columns:1fr}}
