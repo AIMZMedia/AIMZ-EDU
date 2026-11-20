@@ -1070,3 +1070,27 @@ html.reduce .wl-list li{opacity:1;transform:none}
   .crew-x.cp-pop .cp-tags{padding-top:10px}
 }
 .crew-x.cp-pop .cp.tbd{background:#fff}
+
+/* LABS 버튼: 목록 폭에 맞춘 두 버튼 */
+.labs-x .lx-cta{display:grid!important;grid-template-columns:1.15fr 1fr;gap:10px;max-width:none}
+.lx-btn{display:flex;align-items:center;justify-content:center;gap:10px;height:58px;padding:0 20px;border-radius:14px;font-size:16px;font-weight:800;letter-spacing:-.01em;transition:transform .3s var(--ease),box-shadow .3s,background .3s,border-color .3s}
+.lx-btn svg{transition:transform .3s var(--ease)}
+.lx-btn-main{background:linear-gradient(135deg,#3A6BFF,#5B7DFF 55%,#7C6BFF);color:#fff;box-shadow:0 12px 34px rgba(58,107,255,.45),inset 0 1px 0 rgba(255,255,255,.25)}
+.lx-btn-main:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(58,107,255,.6),inset 0 1px 0 rgba(255,255,255,.3)}
+.lx-btn-main:hover svg{transform:translateX(4px)}
+.lx-btn-sub{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.lx-btn-sub img{border-radius:6px}
+.lx-btn-sub:hover{background:rgba(255,255,255,.12);border-color:rgba(160,185,255,.6);transform:translateY(-2px)}
+.lx-btn-sub:hover svg{transform:translate(3px,-3px)}
+@media (min-width:1600px) and (min-height:820px){
+  .lx-btn{height:calc(2.9*var(--s));font-size:calc(.85*var(--s));border-radius:calc(.75*var(--s))}
+}
+@media (max-width:560px){.labs-x .lx-cta{grid-template-columns:1fr}}
+/* 화면: 제목 윗선 ~ 목록 아랫선에 맞춤 (JS가 위치·높이 계산) */
+.labs-x .lx-shot.lx-fit{align-self:start;display:flex;flex-direction:column}
+.labs-x .lx-shot.lx-fit .lx-screens{flex:1;aspect-ratio:auto!important;min-height:0}
+.labs-x .lx-shot.lx-fit .lx-screens img{object-fit:cover;object-position:left top}
+.labs-x .lx-cta{width:100%}
+.lx-btn-sub img{border-radius:0;opacity:.95}
+.lx-btn{white-space:nowrap}
+@media (min-width:1001px) and (max-width:1599px){.labs-x .lx-card{grid-template-columns:minmax(0,1fr) minmax(0,1.22fr)!important}}

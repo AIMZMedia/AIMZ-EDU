@@ -446,6 +446,19 @@
     root.querySelector('.lx-list').addEventListener('mouseleave', () => { hover = false; root.classList.remove('lx-paused'); set(cur); tick(); });
     new IntersectionObserver((es) => { inView = es[0].isIntersecting; if (inView) { set(cur); tick(); } }, { threshold: 0.35 }).observe(root);
     const shot = root.querySelector('[data-lx-shot]');
+    /* 오른쪽 화면을 왼쪽 제목 윗선 ~ 목록 아랫선에 맞춘다 */
+    const fit = () => {
+      const card = root.querySelector('.lx-card'), t = root.querySelector('.lx-title'), l = root.querySelector('.lx-list');
+      if (!shot || !card || !t || !l) return;
+      if (innerWidth < 1001) { shot.classList.remove('lx-fit'); shot.style.marginTop = shot.style.height = ''; return; }
+      shot.classList.add('lx-fit');
+      const cr = card.getBoundingClientRect(), tr = t.getBoundingClientRect(), lr = l.getBoundingClientRect();
+      const pad = parseFloat(getComputedStyle(card).paddingTop) || 0;
+      shot.style.marginTop = Math.max(0, tr.top - cr.top - pad) + 'px';
+      shot.style.height = Math.round(lr.bottom - tr.top) + 'px';
+    };
+    fit(); addEventListener('resize', fit); if (document.fonts) document.fonts.ready.then(fit); setTimeout(fit, 600);
+
     if (shot && !reduce && matchMedia('(hover:hover)').matches) {
       shot.addEventListener('mousemove', (e) => {
         const r = shot.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
