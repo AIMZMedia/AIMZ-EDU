@@ -958,3 +958,9 @@ html.reduce .wl-list li{opacity:1;transform:none}
 /* 키워드만 */
 .kw4 h3{margin-top:24px}
 .kw4-k{margin-top:18px;padding-top:18px}
+
+/* 미니멀 아이콘(투명 배경·은은한 빛) */
+.kw4-ic{width:104px;height:104px;margin:-10px 0 0 -10px;border-radius:0;overflow:visible;box-shadow:none}
+.kw4-ic img{object-fit:contain}
+.kw4 h3{margin-top:14px}
+@media (max-width:560px){.kw4-ic{width:88px;height:88px}}
