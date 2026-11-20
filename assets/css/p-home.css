@@ -481,3 +481,37 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .ds:hover .ds-go .ar{transform:translateX(4px)}
 @media (max-width:1000px){.ds-grid{grid-template-columns:1fr}}
 @media (max-width:560px){.ds{grid-template-columns:1fr}.ds-img{aspect-ratio:16/9}.ds-b{min-height:0}}
+
+/* 교육과정 — 상품 카드 3장 */
+.pd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch}
+.pd{display:flex;flex-direction:column;border-radius:var(--radius-xl);background:#fff;border:1px solid var(--line);overflow:hidden;
+  transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease)}
+.pd:hover{border-color:var(--cta);transform:translateY(-6px);box-shadow:0 26px 60px rgba(58,107,255,.16)}
+.pd-img{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--surface-3)}
+.pd-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.pd:hover .pd-img img{transform:scale(1.05)}
+.pd-lv{position:absolute;left:16px;top:16px;height:30px;display:inline-flex;align-items:center;padding:0 14px;border-radius:999px;background:#fff;color:var(--cta);font-size:13px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.pd-b{display:flex;flex-direction:column;flex:1;padding:24px 24px 24px}
+.pd h3{margin:0;font-family:var(--font-head);font-size:clamp(22px,1.8vw,27px);font-weight:800;letter-spacing:-.035em}
+.pd-one{margin:8px 0 0;font-size:15px;line-height:1.6;color:var(--muted);min-height:3.2em}
+.pd-spec{margin:18px 0 0;border-top:1px solid var(--line)}
+.pd-spec>div{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;align-items:baseline}
+.pd-spec dt{color:var(--faint);font-weight:700;font-size:13px}
+.pd-spec dd{margin:0;line-height:1.5}
+.pd-spec dd b{color:var(--cta)}
+.pd-mods{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.pd-mods li{height:26px;display:inline-flex;align-items:center;padding:0 10px;border-radius:999px;background:#EEF2FF;color:#2F5DF0;font-size:12.5px;font-weight:700}
+.pd-cta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto;padding-top:22px}
+.pd-cta .btn{height:44px;padding:0 18px;font-size:14.5px}
+.pd-custom{display:flex;align-items:center;justify-content:space-between;gap:16px 24px;flex-wrap:wrap;margin-top:18px;padding:22px 28px;border-radius:var(--radius-lg);background:#fff;border:1px dashed #C9D4FF}
+.pd-custom b{display:block;font-size:17px}
+.pd-custom span{display:block;margin-top:4px;font-size:14.5px;color:var(--muted)}
+@media (max-width:1080px){.pd-grid{grid-template-columns:1fr;max-width:620px;margin-inline:auto}.pd-one{min-height:0}}
+
+.pd-cta{gap:10px}
+.pd-more{flex:1;height:46px;justify-content:space-between;padding:0 18px;font-size:15px}
+.pd:hover .pd-more{border-color:var(--cta);color:var(--cta)}
+.pd-more .ar{transition:transform .3s var(--ease)}
+.pd:hover .pd-more .ar{transform:translateX(4px)}
+.pd-ask{flex:none;height:46px;display:inline-flex;align-items:center;padding:0 16px;border-radius:12px;background:var(--cta);color:#fff;font-size:14.5px;font-weight:700}
+.pd-ask:hover{background:var(--cta-hover)}
