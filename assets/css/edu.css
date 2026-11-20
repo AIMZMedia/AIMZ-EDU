@@ -154,10 +154,11 @@ button{font:inherit;color:inherit;cursor:pointer}
 .labs-glow:active{transform:scale(.98);box-shadow:0 0 0 1px rgba(58,107,255,.6),0 0 40px rgba(58,107,255,.6)}
 
 /* 포인트 밑줄 — 제목의 핵심어 아래로 옅은 파란 띠가 스크롤에 맞춰 그어진다 */
-.hl{background:linear-gradient(var(--cta),var(--cta)) no-repeat 0 100%/0% 3px;padding-bottom:3px;
+/* 제목 강조 — 연한 파스텔 파랑 형광펜이 스크롤에 맞춰 그어진다 (사용자 선택) */
+.hl{background:linear-gradient(transparent 58%,rgba(58,107,255,.18) 58%,rgba(58,107,255,.18) 94%,transparent 94%) no-repeat 0 0/0% 100%;
   transition:background-size 1.1s var(--ease-out) .25s;-webkit-box-decoration-break:clone;box-decoration-break:clone}
-.hl.on,html.reduce .hl{background-size:100% 3px}
-.dark .hl{background-image:linear-gradient(#8FA2FF,#8FA2FF)}
+.hl.on,html.reduce .hl{background-size:100% 100%}
+.dark .hl{background-image:linear-gradient(transparent 58%,rgba(120,150,255,.34) 58%,rgba(120,150,255,.34) 94%,transparent 94%)}
 .hdr-act{display:flex;gap:8px;align-items:center}
 .hdr-act .btn-sm{min-width:104px}
 .burger{display:none;width:42px;height:42px;border:0;border-radius:10px;background:transparent;position:relative}

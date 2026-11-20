@@ -289,8 +289,17 @@
         });
         walk(el); el.dataset.fillDone = '1';
       }
-      gsap.fromTo($$('.fw', el), { opacity: .14 }, { opacity: 1, ease: 'none', stagger: .12,
-        scrollTrigger: { trigger: el, start: 'top 82%', end: 'top 38%', scrub: true } });
+      const words = $$('.fw', el);
+      if (el.hasAttribute('data-fill-pin') && matchMedia('(min-width: 901px)').matches) {
+        /* 화면 가운데에 멈춘 채, 내리는 만큼 낱말이 차례로 또렷해지고 살짝 떠오른다 */
+        const box = el.closest('.ab-bridge') || el.parentElement;
+        gsap.timeline({ scrollTrigger: { trigger: el, start: 'center 52%', end: '+=85%', pin: box.querySelector('.ab-say-pin') || el, scrub: .6, anticipatePin: 1 } })
+          .fromTo(words, { opacity: .12, y: 18, filter: 'blur(6px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', ease: 'power2.out', stagger: .14, duration: .6 })
+          .to({}, { duration: .3, onStart: () => $$('.hl', el).forEach(h => h.classList.add('on')), onReverseComplete: () => $$('.hl', el).forEach(h => h.classList.remove('on')) });
+      } else {
+        gsap.fromTo(words, { opacity: .12 }, { opacity: 1, ease: 'none', stagger: .12,
+          scrollTrigger: { trigger: el, start: 'top 82%', end: 'top 40%', scrub: true } });
+      }
     });
     /* data-drift="1" : 사진마다 다른 속도로 떠오른다 (겹친 층이 움직이는 느낌) */
     $$('[data-drift]', scope).forEach(el => {
@@ -299,7 +308,7 @@
         scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } });
     });
     /* 포인트 밑줄 */
-    $$('.hl', scope).forEach(el => ScrollTrigger.create({ trigger: el, start: 'top 82%', once: true, onEnter: () => el.classList.add('on') }));
+    $$('.hl', scope).filter(el => !el.closest('[data-fill-pin]')).forEach(el => ScrollTrigger.create({ trigger: el, start: 'top 82%', once: true, onEnter: () => el.classList.add('on') }));
     /* data-parallax="0.2" : 스크롤보다 느리게/빠르게 */
     $$('[data-parallax]', scope).forEach(el => {
       const s = parseFloat(el.dataset.parallax) || .15;
