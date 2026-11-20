@@ -56,7 +56,7 @@
   /* 떠 있는 상담 카드 — 첫 화면을 지나면 나타난다. 닫으면 이번 방문 동안 다시 안 뜬다 */
   const fl = document.createElement('aside');
   fl.className = 'fl'; fl.setAttribute('aria-label', '교육 상담');
-  fl.innerHTML = '<button class="fl-x" type="button" aria-label="상담 카드 닫기">×</button><a href="/contact"><div class="fl-ph"><img src="/assets/img/instructor-lee_v3.jpg" alt=""></div><p>우리 기관 AI 교육,<br>고민하고 계신가요?</p><span>교육 문의 →</span></a>';
+  fl.innerHTML = '<a href="/contact"><span class="fl-ph"><img src="/assets/img/instructor-lee_v3.jpg" alt=""></span><p>교육 문의<small>담당자가 직접 답합니다</small></p></a><button class="fl-x" type="button" aria-label="상담 버튼 닫기">×</button>';
   let flOff = false; try { flOff = sessionStorage.getItem('edu-fl-off') === '1'; } catch (e) {}
   if (!flOff) document.body.appendChild(fl);
   $('.fl-x', fl).addEventListener('click', () => { fl.remove(); flOff = true; try { sessionStorage.setItem('edu-fl-off', '1'); } catch (e) {} });

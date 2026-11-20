@@ -5,7 +5,7 @@
   overflow:hidden;display:grid;place-items:center;text-align:center;background:var(--black);color:#fff}
 .vh-media{position:absolute;inset:0;transform-origin:50% 45%}
 .vh-video{width:100%;height:100%;object-fit:cover}
-.vh-shade{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(24,24,37,.35) 0%,rgba(24,24,37,.62) 70%),linear-gradient(180deg,rgba(24,24,37,.25),rgba(24,24,37,.55))}
+.vh-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,37,.34) 0%,rgba(24,24,37,.46) 50%,rgba(24,24,37,.66) 100%)}
 .vh-copy{position:relative;z-index:1;display:grid;justify-items:center;gap:0}
 .vh-copy .eyebrow{color:rgba(255,255,255,.78)}
 .vh-copy .h1{margin-top:22px;color:#fff;font-size:clamp(38px,5vw,72px);text-shadow:0 2px 36px rgba(0,0,0,.25)}
@@ -30,60 +30,69 @@
 .vhero~.pin-spacer>section{background:var(--bg)}
 .logos{border-radius:0;box-shadow:0 -24px 48px rgba(24,24,37,.18)}
 
-/* 3. 교육 현장 */
-.field .pmq{margin-top:clamp(8px,2vw,24px)}
-.field .stats{margin-top:clamp(56px,7vw,88px)}
+/* 2. 기관 띠 두 줄 */
+.logos{display:grid;gap:10px}
 
-/* 4·5. 과정 · 실습 환경 (data-switch) */
-.sw{min-height:100vh;display:flex;align-items:center;padding-block:clamp(72px,9vh,110px)}
-.sw>.wrap{width:100%}
-.sw-foot{margin-top:clamp(32px,4vw,48px);text-align:center}
+/* 3. 회사 소개 + 사진 띠 */
+.about .pmq{margin-top:clamp(8px,2vw,20px)}
+.pmq .feat{position:relative}
+.pmq .feat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,37,0) 40%,rgba(24,24,37,.78) 100%)}
+.pmq .feat figcaption{position:absolute;left:20px;right:20px;bottom:18px;z-index:1;color:#fff}
+.pmq .feat .tags{display:flex;flex-wrap:wrap;gap:6px}
+.pmq .feat .tag{background:rgba(255,255,255,.18);color:#fff;backdrop-filter:blur(6px)}
+.pmq .feat b{display:block;margin-top:10px;font-family:var(--font-head);font-size:clamp(17px,1.6vw,22px);letter-spacing:-.025em;line-height:1.35}
 
-/* 6. 강사진 */
-.t-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:20px}
-.t-card{position:relative;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border:1px solid var(--line);border-radius:var(--radius-xl);background:var(--surface);overflow:hidden;
-  transition:border-color .3s var(--ease),box-shadow .3s var(--ease)}
-.t-card:hover{border-color:var(--ink);box-shadow:var(--shadow)}
-.t-card:not(.t-main){grid-template-columns:1fr;grid-template-rows:auto 1fr}
-.t-photo{background:#fff;overflow:hidden}
-.t-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;transition:transform 1s var(--ease)}
-.t-card:not(.t-main) .t-photo{aspect-ratio:16/10}
-.t-card:hover .t-photo img{transform:scale(1.04)}
-.t-body{padding:clamp(24px,3vw,36px);display:flex;flex-direction:column}
-.t-body .h3{margin-top:12px;font-size:clamp(26px,2.6vw,34px)}
-.t-body>p:not(.kicker){margin:10px 0 0;color:var(--muted);font-size:15px}
-.t-body .list-lines{margin-top:18px}
-.t-stats{display:grid;grid-template-columns:1fr 1fr;margin:24px 0;border-top:1px solid var(--line)}
-.t-stats div{padding:16px 0;border-bottom:1px solid var(--line)}
-.t-stats div:nth-child(odd){padding-right:16px;border-right:1px solid var(--line)}
-.t-stats div:nth-child(even){padding-left:16px}
-.t-stats dt{font-size:13px;color:var(--faint)}
-.t-stats dd{margin:4px 0 0;font-family:var(--font-head);font-size:28px;font-weight:800;letter-spacing:-.04em}
-.t-body .link-ar{margin-top:auto;align-self:flex-start}
+/* 4. 교육 서비스 — 좌우 번갈아 */
+.svc-row{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:center}
+.svc-row+.svc-row{margin-top:clamp(72px,9vw,120px)}
+.svc-row.rev .svc-img{order:2}
+.svc-img{border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:var(--surface-3);box-shadow:var(--shadow)}
+.svc-img img{width:100%;height:100%;object-fit:cover}
+.step{display:flex;gap:10px;align-items:center;margin:0;font-size:13px;font-weight:700;color:var(--faint)}
+.step b{font-family:var(--font-head);letter-spacing:.12em;color:var(--ink);padding:4px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.svc-txt .h3{margin-top:16px;font-size:clamp(26px,2.6vw,36px)}
+.svc-one{margin:12px 0 0;font-size:clamp(16px,1.3vw,18px);color:var(--muted)}
+.svc-dl{margin:26px 0 0;border-top:1px solid var(--line)}
+.svc-dl>div{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.svc-dl dt{color:var(--faint);font-weight:700}
+.svc-dl dd{margin:0}
+.chips{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{height:30px;display:inline-flex;align-items:center;padding:0 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--muted)}
+.svc-txt .link-ar{margin-top:26px}
 
-/* 7. 사례 */
-.cases-tilt{overflow:hidden;padding-block:clamp(48px,6vw,80px)}
+/* 5. 숫자 띠 */
+.nums .stats{border-top:0}
+.nums .stats>div{padding-top:8px}
 
-/* 8. 고르는 카드 */
-.pick .lead{max-width:560px}
+/* 6. 교육 대상 */
+.aud{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.aud-card{position:relative;display:flex;flex-direction:column;min-height:440px;border-radius:var(--radius-xl);overflow:hidden;background:var(--black);color:#fff}
+.aud-img{position:absolute;inset:0}
+.aud-img img{width:100%;height:100%;object-fit:cover;opacity:.6;transition:transform 1s var(--ease),opacity .4s}
+.aud-card:hover .aud-img img{transform:scale(1.04);opacity:.48}
+.aud-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,37,0) 30%,rgba(24,24,37,.9) 100%)}
+.aud-body{position:relative;z-index:1;margin-top:auto;padding:clamp(24px,3vw,40px)}
+.aud-body .kicker{color:rgba(255,255,255,.7)} .aud-body .kicker b{color:#fff}
+.aud-body .h3{margin-top:12px}
+.aud-body p:not(.kicker){margin:10px 0 0;color:rgba(255,255,255,.8);max-width:440px}
+.aud-card::before{content:"→";position:absolute;right:24px;top:24px;z-index:2;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,255,255,.14);backdrop-filter:blur(8px);font-size:18px;transition:background .3s,transform .4s var(--ease)}
+.aud-card:hover::before{background:#fff;color:var(--navy);transform:rotate(-45deg)}
 
-/* 9. LABS 한 줄 */
-.labs-strip{border-top:1px solid var(--line);padding-block:28px}
-.labs-in{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.labs-in img{height:22px;width:auto}
-.labs-in p{margin:0;flex:1;min-width:260px;color:var(--muted);font-size:15px}
-.labs-in p b{color:var(--ink)}
+/* 7. LABS */
+.labs-in{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+.labs-in img{height:24px;width:auto}
+.labs-in .h3{margin-top:18px}
+.labs-in p{margin:10px 0 0;color:var(--d-muted);max-width:620px}
 
-@media (max-width:1080px){
-  .t-grid{grid-template-columns:1fr}
-}
 @media (max-width:900px){
-  .sw{min-height:0;display:block}
-  .vh-copy .lead br{display:none}
+  .svc-row{grid-template-columns:1fr}
+  .svc-row.rev .svc-img{order:0}
+  .aud{grid-template-columns:1fr}
+  .aud-card{min-height:380px}
 }
 @media (max-width:640px){
-  .t-card.t-main{grid-template-columns:1fr}
-  .t-card.t-main .t-photo{aspect-ratio:4/3}
   .vh-copy .btns .btn{width:100%}
+  .svc-dl>div{grid-template-columns:60px 1fr}
 }
 @media (prefers-reduced-motion:reduce){.vh-hint i::after{animation:none}}
