@@ -4,7 +4,7 @@
 .cs-hero{overflow:hidden;padding-bottom:clamp(64px,8vw,104px)}
 .cs-hero-head{margin-bottom:0}
 .cs-hero-head .h1{text-wrap:balance}
-.cs-hero-head .lead{max-width:680px}
+.cs-hero-head .lead{max-width:720px;text-wrap:pretty}
 .cs-hero-media{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(12px,1.6vw,20px);margin-top:clamp(48px,6vw,80px)}
 .cs-hm{margin:0;height:clamp(260px,34vw,520px)}
 .cs-hm-2{margin-top:clamp(32px,5vw,72px);height:clamp(228px,29vw,448px)}

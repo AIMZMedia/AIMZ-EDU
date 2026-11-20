@@ -4,7 +4,7 @@
 .pf-hero{padding-bottom:clamp(72px,9vw,128px)}
 .pf-hero-head{margin-bottom:clamp(40px,5vw,64px)}
 .pf-hero-head .h1{text-wrap:balance}
-.pf-hero-head .lead{max-width:640px}
+.pf-hero-head .lead{max-width:640px;text-wrap:pretty}
 
 .pf-browser{margin:0 auto;max-width:1200px;border-radius:18px;overflow:hidden;background:#fff;border:1px solid var(--line);
   box-shadow:0 40px 90px rgba(27,34,65,.14)}

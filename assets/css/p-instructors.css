@@ -89,9 +89,10 @@
 
 /* 넓은 화면(1600px 이상) — 본문 16px 이상, 작은 글도 15px 이상 */
 @media (min-width:1600px){
+  .tm-grid{max-width:1380px}
   .tm-aff,.tm-list li,.lc-list p,.pj-d{font-size:16.5px}
   .tm-facts{font-size:16px}
-  .tm-role,.lc-list .tag,.pj-n{font-size:15px}
+  .tm-role,.lc-list .tag,.pj-n,#areas .steps-count{font-size:15px}
   .tm-tags span{font-size:14px;height:28px}
   .tm-name{font-size:24px}
   .lc-list b{font-size:18px}

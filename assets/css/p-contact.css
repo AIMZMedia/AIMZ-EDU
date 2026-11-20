@@ -4,7 +4,7 @@
 .ct-hero{padding-bottom:clamp(48px,6vw,80px)}
 .ct-hero-head{margin-bottom:0}
 .ct-hero-head .h1{text-wrap:balance}
-.ct-hero-head .lead{max-width:680px}
+.ct-hero-head .lead{max-width:680px;text-wrap:pretty}
 
 /* 2. 연락처 · 문의 양식 */
 .ct-contact{padding-bottom:clamp(88px,12vw,160px)}

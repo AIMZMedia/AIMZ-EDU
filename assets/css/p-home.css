@@ -462,3 +462,22 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 .crew-stack .crew-photo{aspect-ratio:3/1}
 .crew-stack .c4-ph{aspect-ratio:4/3}
 .crew-stack .c4-ph img{width:56%}
+
+/* AIMZ EDU 차별화된 서비스 — 사진 카드 2×2 */
+.ds-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1120px;margin-inline:auto}
+.ds{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);border-radius:var(--radius-lg);background:var(--bg);border:1px solid var(--line);overflow:hidden;
+  transition:border-color .3s,transform .4s var(--ease),box-shadow .4s var(--ease),background .3s}
+.ds:hover{border-color:var(--cta);background:#fff;transform:translateY(-4px);box-shadow:0 18px 40px rgba(58,107,255,.12)}
+.ds-img{overflow:hidden;background:var(--surface-3)}
+.ds-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.ds:hover .ds-img img{transform:scale(1.05)}
+.ds-b{display:flex;flex-direction:column;padding:24px 24px 22px;min-height:230px}
+.ds-n{font-family:var(--font-head);font-size:14px;font-weight:800;color:var(--cta)}
+.ds h3{margin:10px 0 0;font-family:var(--font-head);font-size:clamp(20px,1.6vw,24px);font-weight:800;letter-spacing:-.03em}
+.ds p{margin:10px 0 0;font-size:14.5px;line-height:1.7;color:var(--muted)}
+.ds-go{margin-top:auto;padding-top:16px;font-size:14px;font-weight:700}
+.ds-go .ar{display:inline-block;transition:transform .3s var(--ease)}
+.ds:hover .ds-go{color:var(--cta)}
+.ds:hover .ds-go .ar{transform:translateX(4px)}
+@media (max-width:1000px){.ds-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.ds{grid-template-columns:1fr}.ds-img{aspect-ratio:16/9}.ds-b{min-height:0}}
