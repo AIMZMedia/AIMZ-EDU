@@ -1103,3 +1103,14 @@ html.reduce .wl-list li{opacity:1;transform:none}
 }
 
 .labs-x .lx-cta{grid-template-columns:1fr 1.15fr}
+
+/* AIMZ LABS 바로가기: 눌러보고 싶게 (흰 버튼 + 빛 지나감 + 테두리 빛) */
+.lx-btn-sub{position:relative;overflow:hidden;background:#fff!important;color:#11131C!important;border:0!important;
+  box-shadow:0 0 0 1px rgba(255,255,255,.6),0 10px 30px rgba(120,150,255,.35),0 0 0 4px rgba(120,150,255,.0);animation:lxRing 2.6s ease-in-out infinite}
+.lx-btn-sub img{border-radius:6px;filter:none}
+.lx-btn-sub::before{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(120,150,255,.35),transparent);transform:skewX(-20deg);animation:lxSheen 3.2s ease-in-out infinite}
+.lx-btn-sub:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 0 0 2px #9DB4FF,0 18px 44px rgba(120,150,255,.55)}
+.lx-btn-sub:hover svg{transform:translate(4px,-4px)}
+@keyframes lxSheen{0%,55%{left:-60%}100%{left:130%}}
+@keyframes lxRing{0%,100%{box-shadow:0 0 0 1px rgba(255,255,255,.6),0 10px 30px rgba(120,150,255,.35),0 0 0 0 rgba(120,150,255,.45)}50%{box-shadow:0 0 0 1px rgba(255,255,255,.6),0 10px 30px rgba(120,150,255,.35),0 0 0 7px rgba(120,150,255,0)}}
+@media (prefers-reduced-motion:reduce){.lx-btn-sub,.lx-btn-sub::before{animation:none}}
