@@ -1024,3 +1024,49 @@ html.reduce .wl-list li{opacity:1;transform:none}
 }
 .labs-x .lx-screens{aspect-ratio:16/9}
 .labs-x .lx-screens img{object-position:center}
+
+/* LABS: 큰 화면에서는 화면 크기에 맞춰 통째로 커지게 (가로·세로 중 작은 쪽 기준) */
+@media (min-width:1600px) and (min-height:820px){
+  .labs-x{--s:min(1vw,1.75vh)}
+  .labs-x .lx-card{padding:calc(var(--hdr-h) + 2.2*var(--s)) 6vw calc(2.4*var(--s))!important;grid-template-columns:minmax(0,.92fr) minmax(0,1.3fr)!important;gap:4vw}
+  .labs-x .lx-lock{margin-bottom:calc(1.1*var(--s));gap:calc(1*var(--s))}
+  .labs-x .lx-lock img{height:calc(2.3*var(--s))}
+  .labs-x .lx-lock i{font-size:calc(1.4*var(--s))}
+  .labs-x .lx-title{font-size:calc(2.7*var(--s))!important}
+  .labs-x .lx-lead{font-size:calc(.95*var(--s));max-width:none;margin-top:calc(.8*var(--s))}
+  .labs-x .lx-feat{max-width:calc(36*var(--s));gap:calc(.45*var(--s));margin-top:calc(1*var(--s))}
+  .labs-x .lx-feat span{padding:calc(.5*var(--s)) 4px calc(.45*var(--s));font-size:calc(.68*var(--s));border-radius:calc(.75*var(--s))}
+  .labs-x .lx-feat img{width:calc(1.75*var(--s));height:calc(1.75*var(--s))}
+  .labs-x .lx-list{margin-top:calc(1*var(--s));gap:calc(.42*var(--s))}
+  .labs-x .lx-list li{padding:calc(.5*var(--s)) calc(.8*var(--s))!important;grid-template-columns:calc(2.1*var(--s)) 1fr;gap:calc(.75*var(--s));border-radius:calc(.75*var(--s))}
+  .labs-x .lx-ic.ic3{width:calc(2.1*var(--s));height:calc(2.1*var(--s));border-radius:calc(.65*var(--s))}
+  .labs-x .lx-list b{font-size:calc(.85*var(--s))}
+  .labs-x .lx-list li p{font-size:calc(.74*var(--s))}
+  .labs-x .lx-cta{margin-top:calc(1.1*var(--s));gap:calc(.5*var(--s))}
+  .labs-x .lx-cta .btn{font-size:calc(.85*var(--s));height:calc(2.9*var(--s));padding:0 calc(1.3*var(--s))}
+  .labs-x .lx-bar{height:calc(1.9*var(--s))}
+  .labs-x .lx-bar span{font-size:calc(.62*var(--s))}
+}
+
+/* LABS 오른쪽 플랫폼 화면을 크게: 오른쪽 끝까지 붙여서(블리드) 넓게 */
+@media (min-width:1001px){
+  .labs-x .lx-card{grid-template-columns:minmax(0,.82fr) minmax(0,1.45fr)!important}
+  .labs-x .lx-shot{margin-right:calc(-1 * (max(0px,(100vw - var(--wrap)) / 2) + var(--gutter)));border-radius:18px 0 0 18px;border-right:0;
+    transform:none!important;box-shadow:0 40px 120px rgba(0,0,0,.55),0 0 140px rgba(58,107,255,.35)}
+}
+@media (min-width:1600px) and (min-height:820px){
+  .labs-x .lx-shot{margin-right:-6vw}
+}
+
+@media (min-width:1001px){.labs-x .lx-shot{border-radius:18px;border-right:1px solid rgba(255,255,255,.1)}}
+
+/* 강사 4명이 한 화면에 다 보이게: 카드 작게 */
+@media (min-width:1001px){
+  .crew-x.cp-pop .crew-field{height:clamp(300px,30vw,440px)}
+  .crew-x.cp-pop .crew-people{max-width:940px;margin:-150px auto 0;gap:14px;padding-inline:0}
+  .crew-x.cp-pop .cp-b{padding:14px 16px 16px}
+  .crew-x.cp-pop .cp-one{display:none}
+  .crew-x.cp-pop .cp h4{font-size:19px}
+  .crew-x.cp-pop .cp-tags{padding-top:10px}
+}
+.crew-x.cp-pop .cp.tbd{background:#fff}

@@ -494,10 +494,11 @@
     const cards = box.querySelectorAll('.crew-people .cp'), field = box.querySelector('.crew-field');
     if (matchMedia('(prefers-reduced-motion: reduce)').matches || innerWidth < 1001) return;
     box.classList.add('cp-pop');
-    const tl = gsap.timeline({ scrollTrigger: { trigger: box, start: 'top 14%', end: '+=90%', scrub: 0.6, pin: true, anticipatePin: 1 } });
-    tl.fromTo(field, { scale: 1, filter: 'brightness(1)' }, { scale: 0.94, filter: 'brightness(.55)', ease: 'none', duration: 1 }, 0)
-      .fromTo(cards, { y: 260, opacity: 0, scale: 0.86, rotate: (i) => [-4, 3, -2, 4][i % 4] },
-        { y: 0, opacity: 1, scale: 1, rotate: 0, ease: 'back.out(1.6)', stagger: 0.18, duration: 0.7 }, 0.1);
+    gsap.set(cards, { y: 140, opacity: 0, scale: 0.9 });
+    ScrollTrigger.create({ trigger: box, start: 'top 45%', once: true, onEnter: () => {
+      gsap.to(cards, { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.5)', stagger: 0.08 });
+      gsap.to(field, { filter: 'brightness(.8)', duration: 0.9 });
+    } });
   }
 
   function initPage() {
