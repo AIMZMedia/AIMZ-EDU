@@ -33,6 +33,42 @@
 .vhero~.pin-spacer>section{background:var(--bg)}
 .logos{border-radius:0;box-shadow:0 -24px 48px rgba(24,24,37,.18)}
 
+/* 첫 화면 주 버튼 — 어두운 영상 위에서도 보이게 얇은 흰 테두리 */
+.hero-cta{border-color:rgba(255,255,255,.35)}
+
+/* 4. AI 구독 문제 */
+.tool-chips{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:980px}
+.tool-chips li{display:grid;grid-template-columns:28px 1fr;grid-template-rows:auto auto;column-gap:12px;align-items:center;padding:16px 18px;border-radius:14px;
+  background:var(--d-surface);border:1px solid var(--d-line)}
+.tool-chips img{grid-row:1/3;width:28px;height:28px;object-fit:contain;filter:grayscale(1) brightness(1.6);opacity:.85}
+.tool-chips b{font-family:var(--font-head);font-size:16px;letter-spacing:-.01em}
+.tool-chips small{font-size:12px;color:var(--d-faint)}
+.pb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(40px,5vw,64px)}
+.pb-card{padding:26px 24px;border-top:1px solid var(--d-line-2)}
+.pb-n{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--d-faint);letter-spacing:.06em}
+.pb-card .h4{margin-top:14px}
+.pb-card p{margin:8px 0 0;font-size:14.5px;color:var(--d-muted)}
+
+/* 5. AIMZ LABS 해결 */
+.solve-in{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(36px,5vw,80px);align-items:center}
+.solve-shot{perspective:1400px;border-radius:16px}
+.lb-frame{position:relative;border-radius:14px;overflow:hidden;background:#fff;padding-top:26px;border:1px solid var(--line);
+  box-shadow:0 30px 70px rgba(27,34,65,.16);transform:rotateY(8deg) rotateX(3deg);transform-origin:100% 50%;transition:transform .9s var(--ease)}
+.solve-shot:hover .lb-frame{transform:none}
+.lb-frame i{position:absolute;top:9px;width:9px;height:9px;border-radius:50%;background:#E4E3E6}
+.lb-frame i:nth-child(1){left:12px} .lb-frame i:nth-child(2){left:27px} .lb-frame i:nth-child(3){left:42px}
+.lb-frame img{width:100%;height:auto;display:block}
+.solve-logo{height:24px;width:auto}
+.solve-txt .h2{margin-top:20px}
+.solve-txt .lead{margin-top:16px;font-size:16px}
+.solve-list{list-style:none;margin:28px 0 0;padding:0;border-top:1px solid var(--line)}
+.solve-list li{display:grid;grid-template-columns:36px 1fr;gap:10px;padding:16px 0;border-bottom:1px solid var(--line)}
+.sl-n{font-family:var(--font-head);font-size:13px;font-weight:800;color:var(--ink);padding-top:2px}
+.solve-list b{font-size:16.5px;letter-spacing:-.02em}
+.solve-list p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
+.solve-cta{display:flex;align-items:center;gap:14px;margin-top:30px}
+.solve-cta span{font-size:13px;color:var(--faint)}
+
 /* 2. 기관 띠 두 줄 */
 .logos{display:grid;gap:10px}
 
@@ -84,51 +120,22 @@
   background:rgba(255,255,255,.14);backdrop-filter:blur(8px);font-size:18px;transition:background .3s,transform .4s var(--ease)}
 .aud-card:hover::before{background:#fff;color:var(--navy);transform:rotate(-45deg)}
 
-/* 7. LABS — 파란 빛이 도는 입구 카드 */
-.labs-sec{padding-top:0}
-.lb-card{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,4vw,56px);align-items:center;
-  padding:clamp(32px,4.5vw,64px);border-radius:var(--radius-xl);overflow:hidden;color:#fff;background:#0E1124;border:1px solid rgba(58,107,255,.28);
-  --mx:70%;--my:40%;transition:border-color .4s,box-shadow .5s var(--ease)}
-.lb-card:hover{border-color:rgba(58,107,255,.6);box-shadow:0 30px 80px rgba(58,107,255,.22)}
-/* 천천히 흐르는 파란 빛 + 마우스 자리 빛 */
-.lb-aura{position:absolute;inset:-30%;z-index:-1;pointer-events:none;
-  background:radial-gradient(40% 50% at 78% 30%,rgba(58,107,255,.55),transparent 70%),radial-gradient(35% 45% at 20% 90%,rgba(27,34,65,.9),transparent 70%),radial-gradient(30% 40% at 60% 80%,rgba(120,150,255,.25),transparent 70%);
-  filter:blur(10px);animation:aura 14s ease-in-out infinite alternate}
-@keyframes aura{to{transform:translate3d(-6%,4%,0) rotate(8deg)}}
-.lb-card[data-glow]::after{background:radial-gradient(380px circle at var(--mx) var(--my),rgba(90,130,255,.28),transparent 60%)}
-.lb-txt{position:relative}
-.lb-txt img{height:26px;width:auto}
-.lb-txt .h2{margin-top:22px;color:#fff}
-.lb-txt .hl{background-image:linear-gradient(transparent 64%,rgba(58,107,255,.55) 64%,rgba(58,107,255,.55) 92%,transparent 92%)}
-.lb-txt>p{margin:16px 0 0;color:rgba(255,255,255,.72);font-size:16px}
-.lb-points{list-style:none;margin:24px 0 30px;padding:0;display:grid;gap:0;border-top:1px solid rgba(255,255,255,.12);max-width:440px}
-.lb-points li{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px;color:rgba(255,255,255,.7)}
-.lb-points b{color:#fff;font-weight:700}
-.lb-card .labs-glow{pointer-events:none}
-.lb-card:hover .labs-glow{color:var(--labs-blue)!important;box-shadow:0 0 0 1px rgba(58,107,255,.35),0 0 28px var(--labs-glow),0 0 70px rgba(58,107,255,.22)}
-/* LABS 실제 화면 — 비스듬히 떠 있다가 마우스를 올리면 바로 선다 */
-.lb-shot{perspective:1400px}
-.lb-frame{position:relative;border-radius:14px;overflow:hidden;background:#fff;padding-top:26px;
-  transform:rotateY(-14deg) rotateX(6deg) translateX(4%);transform-origin:0 50%;
-  box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.08),0 0 60px rgba(58,107,255,.35);transition:transform .9s var(--ease)}
-.lb-card:hover .lb-frame{transform:rotateY(-4deg) rotateX(2deg) translateX(0)}
-.lb-frame i{position:absolute;top:9px;width:9px;height:9px;border-radius:50%;background:#E4E3E6}
-.lb-frame i:nth-child(1){left:12px} .lb-frame i:nth-child(2){left:27px} .lb-frame i:nth-child(3){left:42px}
-.lb-frame img{width:100%;height:auto;display:block}
 @media (prefers-reduced-motion:reduce){.lb-aura{animation:none}}
 
 @media (max-width:900px){
   .svc-row{grid-template-columns:1fr}
   .svc-row.rev .svc-img{order:0}
   .aud{grid-template-columns:1fr}
-  .lb-card{grid-template-columns:1fr}
+  .solve-in{grid-template-columns:1fr}
   .lb-frame{transform:none}
-  .lb-txt>p br{display:none}
+  .tool-chips{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pb-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .subs .lead br,.solve-txt .lead br{display:none}
   .aud-card{min-height:380px}
 }
 @media (max-width:640px){
   .vh-copy .btns .btn{width:100%}
   .svc-dl>div{grid-template-columns:60px 1fr}
-  .lb-points li{grid-template-columns:1fr;gap:2px}
+  .pb-grid{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){.vh-hint i::after{animation:none}}

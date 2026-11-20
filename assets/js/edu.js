@@ -124,6 +124,10 @@
     $$('.marquee', scope).forEach(m => {
       const tr = $('.marquee-track', m);
       if (!tr || tr.dataset.dup) return;
+      const base = tr.innerHTML; let k = 0;
+      while (tr.scrollWidth < Math.max(m.offsetWidth, innerWidth) + 40 && k++ < 12) tr.innerHTML += base;
+      const dur = parseFloat(getComputedStyle(m).getPropertyValue('--mq-dur')) || 40;
+      m.style.setProperty('--mq-dur', dur * (k + 1) + 's'); /* 채운 만큼 시간도 늘려 속도를 같게 */
       tr.innerHTML += tr.innerHTML; tr.dataset.dup = '1';
       $$('[aria-hidden]', tr).length || [...tr.children].slice(tr.children.length / 2).forEach(c => c.setAttribute('aria-hidden', 'true'));
     });
