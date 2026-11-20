@@ -182,6 +182,7 @@
 .pj-n{position:absolute;right:24px;top:22px;font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--d-faint)}
 .pj .tag{align-self:flex-start}
 .pj .h4{margin-top:auto;padding-top:28px;font-size:19px;line-height:1.4}
+@media (max-width:640px){.pj{min-height:0}.pj .h4{margin-top:16px;padding-top:0}}
 .pj p{margin:8px 0 0;font-size:14.5px;color:var(--d-muted);line-height:1.65}
 
 /* 3. 교육 현장 */
@@ -281,29 +282,47 @@
 .vhero.vh-black .vh-shade{background:radial-gradient(ellipse 70% 60% at 50% 58%,rgba(27,34,65,.94) 0%,rgba(17,17,25,.98) 60%,#0B0B10 100%)}
 html.reduce .vhero.vh-black .vh-shade{opacity:.6}
 
-/* 사내 전문 인력 — 주 강사 2명은 가로 카드, 추가 강사는 아래 작은 줄 */
-.crew2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:clamp(40px,5vw,60px);text-align:left}
-.cm{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);border-radius:var(--radius-xl);background:var(--surface);border:1px solid var(--line);overflow:hidden;
+
+/* 사내 전문 인력 — 4명 한 줄, 작은 카드 */
+.crew4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(36px,4vw,52px);text-align:left}
+.c4{display:flex;flex-direction:column;padding:14px 14px 20px;border-radius:var(--radius-lg);background:var(--surface);border:1px solid var(--line);
   transition:border-color .3s,box-shadow .4s var(--ease),transform .4s var(--ease)}
-.cm:hover{border-color:var(--cta);box-shadow:0 22px 50px rgba(58,107,255,.14);transform:translateY(-4px)}
-.cm-ph{background:linear-gradient(180deg,#F2F4FB,#E3E8F6);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;min-height:340px}
-.cm-ph img{width:92%;height:auto;display:block;mix-blend-mode:multiply;transition:transform .8s var(--ease)}
-.cm:hover .cm-ph img{transform:scale(1.04)}
-.cm-b{padding:clamp(22px,2.4vw,34px);display:flex;flex-direction:column}
-.cm-r{margin:0;font-size:13.5px;font-weight:700;color:var(--cta)}
-.cm-b h4{margin:6px 0 0;font-family:var(--font-head);font-size:clamp(26px,2.2vw,32px);font-weight:800;letter-spacing:-.035em}
-.cm-one{margin:8px 0 0;font-size:14.5px;color:var(--muted);line-height:1.6}
-.cm-list{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line)}
-.cm-list li{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
-.cm-list li::before{content:"";width:5px;height:5px;margin-top:.6em;border-radius:50%;background:var(--cta);flex:none}
-.cm-tags{display:flex;flex-wrap:wrap;gap:6px;margin:auto 0 0;padding-top:18px}
-.cm-tags span{height:28px;display:inline-flex;align-items:center;padding:0 12px;border-radius:999px;background:#EEF2FF;color:#2F5DF0;font-size:12.5px;font-weight:700}
-.crew-sub{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px;text-align:left}
-.cs{display:flex;align-items:center;gap:12px;padding:10px 20px 10px 10px;border-radius:999px;border:1px dashed var(--line-2);color:var(--faint)}
-.cs-ph{width:44px;height:44px;border-radius:50%;background:var(--surface-3) center/18px no-repeat url("/assets/logo/favicon.png");opacity:.7;flex:none}
-.cs b{display:block;font-size:15px;color:var(--muted)}
-.cs span{display:block;font-size:12.5px}
-.crew-more{margin:0 0 0 auto!important}
+a.c4:hover{border-color:var(--cta);box-shadow:0 18px 40px rgba(58,107,255,.14);transform:translateY(-4px)}
+.c4-ph{aspect-ratio:4/3;border-radius:12px;background:linear-gradient(180deg,#F2F4FB,#E3E8F6);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.c4-ph img{width:58%;height:auto;display:block;mix-blend-mode:multiply;transition:transform .8s var(--ease)}
+a.c4:hover .c4-ph img{transform:scale(1.05)}
+.c4-r{margin:16px 6px 0;font-size:12.5px;font-weight:700;color:var(--cta)}
+.c4 h4{margin:4px 6px 0;font-family:var(--font-head);font-size:21px;font-weight:800;letter-spacing:-.03em}
+.c4-one{margin:6px 6px 0;font-size:13.5px;line-height:1.55;color:var(--muted)}
+.c4-tags{display:flex;flex-wrap:wrap;gap:5px;margin:auto 6px 0;padding-top:14px}
+.c4-tags span{height:24px;display:inline-flex;align-items:center;padding:0 10px;border-radius:999px;background:#EEF2FF;color:#2F5DF0;font-size:12px;font-weight:700}
+.c4.tbd{border-style:dashed;background:transparent}
+.c4.tbd .c4-ph{background:var(--surface-2);align-items:center}
+.c4.tbd .c4-ph span{width:30%;aspect-ratio:1;border-radius:50%;background:var(--surface-3) center/40% no-repeat url("/assets/logo/favicon.png");opacity:.6}
+.c4.tbd .c4-r,.c4.tbd h4,.c4.tbd .c4-one{color:var(--faint)}
+.c4.tbd .c4-tags span{background:var(--surface-3);color:var(--faint)}
+.crew-more{margin-top:24px}
 .about2{padding-bottom:clamp(56px,6vw,96px)}
-@media (max-width:1080px){.crew2{grid-template-columns:1fr}}
-@media (max-width:640px){.cm{grid-template-columns:1fr}.cm-ph{min-height:0;aspect-ratio:4/3}.crew-more{margin:8px 0 0!important}}
+@media (max-width:1080px){.crew4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.crew4{grid-template-columns:1fr}}
+
+/* 큰 교육 사진 + 강사 2×2 */
+.crew-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:20px;margin-top:clamp(36px,4vw,52px);align-items:stretch}
+.crew-photo{position:relative;margin:0;border-radius:var(--radius-xl);overflow:hidden;background:var(--surface-3);min-height:100%}
+.crew-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.crew-photo figcaption{position:absolute;left:16px;bottom:16px;padding:7px 14px;border-radius:999px;background:rgba(24,24,37,.7);color:#fff;font-size:13px;font-weight:600;backdrop-filter:blur(6px)}
+.crew-wrap .crew4{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:0;gap:14px}
+.crew-wrap .c4-ph{aspect-ratio:16/10}
+.crew-wrap .c4-ph img{width:50%}
+.crew-wrap .c4-one{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+@media (max-width:1080px){.crew-wrap{grid-template-columns:1fr}.crew-photo{aspect-ratio:16/9;min-height:0}}
+@media (max-width:520px){.crew-wrap .crew4{grid-template-columns:1fr 1fr;gap:10px}.crew-wrap .c4-one,.crew-wrap .c4-tags{display:none}.c4 h4{font-size:18px}}
+
+/* 첫 화면 손전등 — 어두운 막에 마우스 자리만 둥글게 뚫려 사진이 비친다 */
+.vhero.vh-black .vh-shade{--mx:50%;--my:55%;--r:0px;
+  -webkit-mask-image:radial-gradient(circle at var(--mx) var(--my),transparent 0,transparent var(--r),#000 calc(var(--r) + 220px));
+          mask-image:radial-gradient(circle at var(--mx) var(--my),transparent 0,transparent var(--r),#000 calc(var(--r) + 220px));
+  transition:--r .6s}
+.vh-hint-light{position:absolute;left:50%;bottom:clamp(64px,9vh,96px);translate:-50% 0;z-index:1;font-size:13px;color:rgba(255,255,255,.55);letter-spacing:.02em;pointer-events:none;transition:opacity .5s}
+.vhero.lit .vh-hint-light{opacity:0}
+@media (hover:none){.vh-hint-light{display:none}}

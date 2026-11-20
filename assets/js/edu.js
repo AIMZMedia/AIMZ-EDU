@@ -295,7 +295,7 @@
       if (el.hasAttribute('data-fill-pin') && matchMedia('(min-width: 901px)').matches) {
         /* 화면 가운데에 멈춘 채, 내리는 만큼 낱말이 차례로 또렷해지고 살짝 떠오른다 */
         const box = el.closest('.ab-bridge') || el.parentElement;
-        gsap.timeline({ scrollTrigger: { trigger: el.closest('.ab-say-pin') || el, start: 'center 50%', end: '+=30%', pin: el.closest('.ab-say-pin') || el, scrub: .5, anticipatePin: 1 } })
+        gsap.timeline({ scrollTrigger: { trigger: el.closest('.ab-say-pin') || el, start: 'center 50%', end: '+=45%', pin: el.closest('.ab-say-pin') || el, scrub: .5, anticipatePin: 1 } })
           .fromTo(words, { opacity: .12, y: 14, filter: 'blur(5px)' }, { opacity: 1, y: 0, filter: 'blur(0px)', ease: 'power2.out', stagger: .1, duration: .5 })
           .to({}, { duration: .3, onStart: () => $$('.hl', el).forEach(h => h.classList.add('on')), onReverseComplete: () => $$('.hl', el).forEach(h => h.classList.remove('on')) });
       } else {
@@ -376,12 +376,32 @@
     });
   }
 
+  /* 첫 화면 손전등: 마우스를 따라 어두운 막에 빛 구멍이 생긴다 (마우스 기기만) */
+  function initSpot(scope) {
+    if (!fine) return;
+    $$('.vhero.vh-black', scope).forEach(h => {
+      const sh = $('.vh-shade', h); if (!sh) return;
+      const st = { x: innerWidth / 2, y: innerHeight * .55, r: 0 }, to = { x: st.x, y: st.y, r: 0 };
+      let raf = 0;
+      const tick = () => {
+        st.x += (to.x - st.x) * .14; st.y += (to.y - st.y) * .14; st.r += (to.r - st.r) * .1;
+        sh.style.setProperty('--mx', st.x + 'px'); sh.style.setProperty('--my', st.y + 'px'); sh.style.setProperty('--r', st.r + 'px');
+        raf = (Math.abs(to.x - st.x) + Math.abs(to.y - st.y) + Math.abs(to.r - st.r) > .5) ? requestAnimationFrame(tick) : 0;
+      };
+      const go = () => { if (!raf) raf = requestAnimationFrame(tick); };
+      const mv = e => { const r = h.getBoundingClientRect(); to.x = e.clientX - r.left; to.y = e.clientY - r.top; to.r = 140; h.classList.add('lit'); go(); };
+      const lv = () => { to.r = 0; go(); };
+      h.addEventListener('pointermove', mv); h.addEventListener('pointerleave', lv);
+      cleanups.push(() => { h.removeEventListener('pointermove', mv); h.removeEventListener('pointerleave', lv); cancelAnimationFrame(raf); });
+    });
+  }
+
   /* ---------------- 페이지 시작 · 정리 ---------------- */
   let pendingSearch = '';
   function initPage() {
     const scope = $('main');
     if (hasGsap) ctx = gsap.context(() => initMotion(scope), scope);
-    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope);
+    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initSpot(scope);
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {
