@@ -508,9 +508,8 @@
     if (matchMedia('(prefers-reduced-motion: reduce)').matches || innerWidth < 1001) return;
     box.classList.add('cp-pop');
     gsap.set(cards, { y: 140, opacity: 0, scale: 0.9 });
-    ScrollTrigger.create({ trigger: box, start: 'top 45%', once: true, onEnter: () => {
+    ScrollTrigger.create({ trigger: box, start: 'top 35%', once: true, onEnter: () => {
       gsap.to(cards, { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.5)', stagger: 0.08 });
-      gsap.to(field, { filter: 'brightness(.8)', duration: 0.9 });
     } });
   }
 
