@@ -99,6 +99,17 @@ button{font:inherit;color:inherit;cursor:pointer}
 .dark .btn-ink:hover,.btn-light:hover{background:#fff}
 .dark .btn-line{background:transparent;color:var(--d-ink);border-color:var(--d-line-2)}
 .dark .btn-line:hover{border-color:var(--d-ink)}
+
+/* 교육 문의 — 사이트에서 가장 눈에 띄는 버튼. 메인 남색(#1B2241)을 같은 색 계열에서 밝고 선명하게 올린 단색. 광택·빛 번짐 없이 깔끔하게 */
+:root{--cta:#2743BE;--cta-hover:#3150D2;--cta-active:#1F379F}
+.btn-cta{background:var(--cta);color:#fff;border-color:var(--cta);font-weight:700;letter-spacing:-.015em}
+.btn-cta:hover{background:var(--cta-hover);border-color:var(--cta-hover);color:#fff}
+.btn-cta:active{background:var(--cta-active);border-color:var(--cta-active)}
+.btn-cta:focus-visible{outline-color:var(--cta-hover)}
+.btn-cta.btn-lg{padding:0 34px}
+.btn-cta .ic-send{flex:none;transition:transform .35s var(--ease)}
+.btn-cta:hover .ic-send{transform:translate(2px,-2px)}
+.btn-cta.btn-lg .ic-send{width:17px;height:17px}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 /* 나란히 놓인 두 버튼은 같은 크기 */
 .btns.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:max-content}
@@ -144,7 +155,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hl.on,html.reduce .hl{background-size:100% 100%}
 .dark .hl{background-image:linear-gradient(transparent 64%,rgba(58,107,255,.38) 64%,rgba(58,107,255,.38) 92%,transparent 92%)}
 .hdr-act{display:flex;gap:8px;align-items:center}
-.hdr-act .btn-sm{min-width:118px}
+.hdr-act .btn-sm{min-width:104px}
 .burger{display:none;width:42px;height:42px;border:0;border-radius:10px;background:transparent;position:relative}
 .burger span{position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:currentColor;transition:transform .35s var(--ease),top .35s var(--ease)}
 .burger span:nth-child(1){top:16px} .burger span:nth-child(2){top:24px}
@@ -388,8 +399,8 @@ html.reduce .ex-l,html.reduce .ex-r{display:none}
 .pick-card b{font-family:var(--font-head);font-size:clamp(20px,2vw,26px);letter-spacing:-.03em}
 
 /* 떠 있는 상담 버튼 */
-.fl{position:fixed;right:20px;bottom:78px;z-index:75;display:flex;align-items:center;gap:4px;padding:6px 6px 6px 6px;border-radius:999px;background:var(--navy);color:#fff;
-  box-shadow:0 14px 40px rgba(27,34,65,.25);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.fl{position:fixed;right:20px;bottom:78px;z-index:75;display:flex;align-items:center;gap:4px;padding:6px 6px 6px 6px;border-radius:999px;background:var(--cta);color:#fff;
+  box-shadow:0 10px 30px rgba(24,24,37,.18);opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .fl.on{opacity:1;transform:none;pointer-events:auto}
 .fl a{display:flex;align-items:center;gap:10px;padding-right:10px}
 .fl-ph{width:40px;height:40px;border-radius:50%;overflow:hidden;background:#fff;flex:none}
