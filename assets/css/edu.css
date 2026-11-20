@@ -488,6 +488,8 @@ html.reduce [data-reveal]{opacity:1!important;transform:none!important;clip-path
   .ftr-top{grid-template-columns:1fr}
   .btn-lg{height:52px;padding:0 22px}
   details.qa .a{padding-left:0}
+  .btns.pair{grid-template-columns:1fr;width:100%}
+  .btns.pair .btn{min-width:0;width:100%}
 }
 @media (prefers-reduced-motion:reduce){
   .marquee-track{animation:none}
@@ -500,7 +502,11 @@ html.reduce [data-reveal]{opacity:1!important;transform:none!important;clip-path
   body{font-size:17px}
   .lead{font-size:20px}
   .h2.md{font-size:46px}
-  .card p,.small{font-size:16px}
+  .card p,.small,.list-lines li,.tm-list li,.tm-aff,.sv-list p,.wq p,.pj p,.tc span,.proof span,.flow p,.pillar p:not(.pl-k),.pb-card p,.svc-dl>div,.steps-list p,.cap,.shot figcaption{font-size:16.5px}
+  table.t{font-size:16px}
+  .kicker,.tag,.chips li,.cr-k,.pl-k,.note{font-size:14px}
+  .h4{font-size:21px}
+  .nav a{font-size:15.5px}
 }
 @media (min-width:1920px){:root{--wrap:1560px} html{font-size:106%}}
 .ic{display:block}

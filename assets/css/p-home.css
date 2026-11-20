@@ -11,7 +11,7 @@
 .vh-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,37,.45) 0%,rgba(24,24,37,.55) 50%,rgba(24,24,37,.72) 100%)}
 .vh-copy{position:relative;z-index:1;display:grid;justify-items:center;gap:0}
 .vh-copy .eyebrow{color:rgba(255,255,255,.78)}
-.vh-copy .h1{margin-top:0;color:#fff;font-size:clamp(40px,5.4vw,80px);text-shadow:0 2px 40px rgba(0,0,0,.35)}
+.vh-copy .h1{text-wrap:balance;margin-top:0;color:#fff;font-size:clamp(40px,5.4vw,80px);text-shadow:0 2px 40px rgba(0,0,0,.35)}
 .vh-copy .lead{margin-top:22px;color:rgba(255,255,255,.86);max-width:640px}
 .vh-copy .btns{margin-top:34px;justify-content:center}
 .btn-glass{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.45);backdrop-filter:blur(8px)}
@@ -205,10 +205,9 @@
 .svc-row.rev .svc-img{order:2}
 .svc-img{border-radius:var(--radius-xl);overflow:hidden;aspect-ratio:4/3;background:var(--surface-3);box-shadow:var(--shadow)}
 .svc-img img{width:100%;height:100%;object-fit:cover}
-.step{display:flex;gap:10px;align-items:center;margin:0;font-size:13px;font-weight:700;color:var(--faint)}
-.step b{font-family:var(--font-head);letter-spacing:.12em;color:var(--ink);padding:4px 10px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
+.step{display:flex;gap:8px;align-items:baseline;margin:0;font-size:15px;font-weight:700;color:var(--muted)}
+.step b{font-family:var(--font-head);font-size:15px;letter-spacing:.02em;color:var(--cta)}
 .step b{display:inline-flex;align-items:center;gap:7px}
-.step b::before{content:"";width:10px;height:9px;background:var(--ink);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 21'%3E%3Cpath d='M12 0 24 21H0Z M12 21 6 10.5h12Z' fill='black' fill-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 21'%3E%3Cpath d='M12 0 24 21H0Z M12 21 6 10.5h12Z' fill='black' fill-rule='evenodd'/%3E%3C/svg%3E") center/contain no-repeat}
 .svc-txt .h3{margin-top:16px;font-size:clamp(26px,2.6vw,36px)}
 .svc-one{margin:12px 0 0;font-size:clamp(16px,1.3vw,18px);color:var(--muted)}
 .svc-dl{margin:26px 0 0;border-top:1px solid var(--line)}
