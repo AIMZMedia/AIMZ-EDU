@@ -451,3 +451,14 @@ a.c4:hover .c4-ph img{transform:scale(1.05)}
 /* 정렬: 회사 소개 글과 쇼릴 위 끝선 맞춤 */
 .ab-top{align-items:start}
 .ab-txt .h2{margin-top:-.12em}
+
+/* 사내 전문 인력: 교육 사진을 낮은 가로 띠(21:9)로 — 카드보다 튀지 않게 */
+.crew-stack .crew-photo{aspect-ratio:21/9}
+.crew-stack .crew-photo img{object-position:50% 58%}
+@media (max-width:640px){.crew-stack .crew-photo{aspect-ratio:16/9}}
+
+/* 한 번 더 줄이기: 전체 폭 1000px, 사진 3:1 띠, 강사 사진 칸 4:3 */
+.crew-stack{max-width:1000px}
+.crew-stack .crew-photo{aspect-ratio:3/1}
+.crew-stack .c4-ph{aspect-ratio:4/3}
+.crew-stack .c4-ph img{width:56%}
