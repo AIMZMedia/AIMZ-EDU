@@ -485,10 +485,25 @@
     addEventListener('scroll', upd, { passive: true }); upd();
   }
 
+
+  /* 사내 인력: 현장 사진 먼저 → 스크롤하면 강사 카드가 아래에서 튀어 올라옴 (화면 고정) */
+  function initCrewPop(scope) {
+    const box = scope.querySelector('[data-crewpop]');
+    if (!box || box.dataset.cpOn || !window.gsap || !window.ScrollTrigger) return;
+    box.dataset.cpOn = '1';
+    const cards = box.querySelectorAll('.crew-people .cp'), field = box.querySelector('.crew-field');
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || innerWidth < 1001) return;
+    box.classList.add('cp-pop');
+    const tl = gsap.timeline({ scrollTrigger: { trigger: box, start: 'top 14%', end: '+=90%', scrub: 0.6, pin: true, anticipatePin: 1 } });
+    tl.fromTo(field, { scale: 1, filter: 'brightness(1)' }, { scale: 0.94, filter: 'brightness(.55)', ease: 'none', duration: 1 }, 0)
+      .fromTo(cards, { y: 260, opacity: 0, scale: 0.86, rotate: (i) => [-4, 3, -2, 4][i % 4] },
+        { y: 0, opacity: 1, scale: 1, rotate: 0, ease: 'back.out(1.6)', stagger: 0.18, duration: 0.7 }, 0.1);
+  }
+
   function initPage() {
     const scope = $('main');
     if (hasGsap) ctx = gsap.context(() => initMotion(scope), scope);
-    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope); initLabs(scope); initAcc(scope); initWorry(scope);
+    initTabs(scope); initMarquee(scope); initForms(scope); initPointer(scope); initVideo(scope); initReel(scope); initLabs(scope); initAcc(scope); initWorry(scope); initCrewPop(scope);
     /* 현재 메뉴 표시 */
     const navPath = ALIAS[current] ? ALIAS[current].p : current;
     $$('#nav a').forEach(a => {

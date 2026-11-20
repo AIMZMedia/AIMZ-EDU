@@ -964,3 +964,11 @@ html.reduce .wl-list li{opacity:1;transform:none}
 .kw4-ic img{object-fit:contain}
 .kw4 h3{margin-top:14px}
 @media (max-width:560px){.kw4-ic{width:88px;height:88px}}
+
+/* 강사 카드가 현장 사진 위로 겹쳐 올라오는 배치 (데스크톱) */
+@media (min-width:1001px){
+  .crew-x.cp-pop{position:relative}
+  .crew-x.cp-pop .crew-field{transform-origin:50% 30%;will-change:transform,filter}
+  .crew-x.cp-pop .crew-people{position:relative;z-index:2;margin-top:-210px;padding-inline:clamp(16px,3vw,48px)}
+  .crew-x.cp-pop .cp{box-shadow:0 30px 60px rgba(14,17,33,.28)}
+}
