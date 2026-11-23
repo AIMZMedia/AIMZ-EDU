@@ -59,6 +59,33 @@
 .cp-block:last-child{border-bottom:0;padding-bottom:0}
 .cp-label p{margin:8px 0 0;font-size:14.5px;color:var(--faint);max-width:240px}
 
+.cp:has(.cp-visual) { padding-top: clamp(18px, 3vw, 38px); }
+.cp-visual { margin-bottom: clamp(24px, 4vw, 52px); }
+.cp-visual-head { margin-bottom: 12px; }
+.cp-visual-head p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
+.cp-flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cp-flow li {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.cp-flow img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--surface-3);
+}
+.cp-flow b { display: block; padding: 8px 10px; font-size: 15px; }
+
 .mods{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(20px,3vw,40px);border-top:1px solid var(--line)}
 .mods li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:2px 10px;padding:18px 0;border-bottom:1px solid var(--line)}
 .mods .n{grid-row:span 2;padding-top:3px;font-family:var(--font-head);font-size:13.5px;font-weight:800;color:var(--cta);font-variant-numeric:tabular-nums}
@@ -76,6 +103,15 @@
 .pick-body .h4{margin-top:10px}
 .pick-body p{margin:6px 0 0;font-size:15px;color:var(--muted)}
 .pick-text .pick-body{padding:24px 22px 26px}
+.pick.pick-examples { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pick-examples .pick-img { aspect-ratio: 16 / 9; }
+.pick-examples .pick-img img { object-position: top; }
+.pick-examples .pick-body .h4 { margin-top: 0; }
+
+@media (max-width: 640px) {
+  .cp-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  .pick.pick-examples { grid-template-columns: 1fr; }
+}
 
 .c-case{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px;align-items:stretch}
 .c-case .shot{aspect-ratio:16/10;margin:0}

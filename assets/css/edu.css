@@ -161,6 +161,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .dark .hl{background-image:linear-gradient(transparent 58%,rgba(120,150,255,.34) 58%,rgba(120,150,255,.34) 94%,transparent 94%)}
 .hdr-act{display:flex;gap:8px;align-items:center}
 .hdr-act .btn-sm{min-width:104px}
+.hdr-act .btn-cta{height:38px;min-width:0;background:var(--cta);border-color:var(--cta);box-shadow:none}
+/* The triangle rolls across the button and lands level at the right edge. */
+.hdr-act .btn-cta:has(.cta-triangle){position:relative;display:block;width:118px;padding:0;overflow:hidden;border-radius:11px;font-size:14px}
+.btn-cta:has(.cta-triangle) .cta-triangle{position:absolute;z-index:2;left:10px;top:50%;display:grid;place-items:center;width:22px;height:22px;background:transparent;transform:translateY(-50%);transition:left .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.btn-cta:has(.cta-triangle) .cta-triangle::before{content:"";display:block;width:17px;height:14.7px;background:#fff;clip-path:polygon(50% 0,100% 100%,0 100%)}
+.btn-cta:has(.cta-triangle) .cta-label{position:absolute;left:50%;top:50%;white-space:nowrap;transform:translate(calc(-50% + 12px),-50%);transition:transform .65s cubic-bezier(.22,1,.36,1)}
+.btn-cta:has(.cta-triangle):is(:hover,:focus-visible) .cta-triangle{left:calc(100% - 32px);transform:translateY(-50%) rotate(180deg)}
+.btn-cta:has(.cta-triangle):is(:hover,:focus-visible) .cta-label{transform:translate(calc(-50% - 14px),-50%)}
+@media (prefers-reduced-motion:reduce){.btn-cta:has(.cta-triangle) .cta-triangle,.btn-cta:has(.cta-triangle) .cta-label{transition:none}}
 .burger{display:none;width:42px;height:42px;border:0;border-radius:10px;background:transparent;position:relative}
 .burger span{position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:currentColor;transition:transform .35s var(--ease),top .35s var(--ease)}
 .burger span:nth-child(1){top:16px} .burger span:nth-child(2){top:24px}
@@ -200,6 +209,24 @@ a.card:hover{border-color:var(--ink)}
 .shot{position:relative;border-radius:var(--radius-lg);overflow:hidden;background:var(--surface-3)}
 .dark .shot{background:var(--d-surface-2);box-shadow:0 0 0 1px var(--d-line)}
 .shot img{width:100%;height:100%;object-fit:cover}
+.comfy-visual { position: relative; isolation: isolate; }
+.comfy-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(19 20 32 / 32%);
+  pointer-events: none;
+}
+.comfy-visual > .comfy-workflow { object-position: 67% center; }
+.comfy-visual > .comfy-wordmark {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  margin: auto;
+  width: 68%;
+  height: auto;
+  object-fit: contain;
+}
 .shot figcaption,.cap{font-size:13px;color:var(--faint);margin-top:12px}
 .dark .shot figcaption,.dark .cap{color:var(--d-faint)}
 
@@ -474,6 +501,7 @@ html.reduce [data-reveal]{opacity:1!important;transform:none!important;clip-path
   .nav a{padding:16px 4px;font-size:18px;border-bottom:1px solid var(--line);border-radius:0;opacity:1}
   .nav a[aria-current="page"]::after{left:auto;right:4px;top:50%;bottom:auto;width:6px;height:6px;border-radius:50%;transform:translateY(-50%)}
   .burger{display:block}
+  .hdr-act{margin-left:auto}
   .hdr-act .btn-ghost,.hdr-act .btn-line{display:none}
   .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sec-head.split{grid-template-columns:1fr}

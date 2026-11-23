@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AIMZ EDU · 문의·지원</title>
-<meta name="description" content="1일 과정부터 한 학기 운영까지 교육 일정과 도입을 문의하세요.">
+<meta name="description" content="원데이 클래스부터 한 학기 운영까지, AIMZ EDU에 교육을 문의하세요.">
 <meta name="theme-color" content="#F9F9F8">
 <link rel="apple-touch-icon" href="/assets/logo/favicon.png">
 <link rel="icon" href="/assets/logo/favicon.png">
@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap">
-<link rel="stylesheet" href="/assets/css/edu.css">
+<link rel="stylesheet" href="/assets/css/edu.css?v=20261123-4">
 <link rel="stylesheet" href="/assets/css/p-contact.css" data-page-css>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -33,7 +33,7 @@
       <a class="nav-ext" href="https://www.aimzlabs.com/" target="_blank" rel="noopener">AIMZ LABS ↗</a>
     </nav>
     <div class="hdr-act">
-      <a class="btn btn-sm btn-cta" href="/contact" aria-label="교육 문의 (Contact)"><svg class="ic-send" viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M21.4 2.6 2.9 9.5c-.9.3-.9 1.6 0 1.9l7 2.5 2.5 7c.3.9 1.6.9 1.9 0l6.9-18.5c.3-.8-.4-1.5-1.2-1.2ZM10.3 13.7l4.4-4.4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Contact</a>
+      <a class="btn btn-sm btn-cta" href="/contact" aria-label="교육 문의"><span class="cta-triangle" aria-hidden="true"></span><span class="cta-label">Contact</span></a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="메뉴 열기"><span></span><span></span></button>
     </div>
   </div>
@@ -41,79 +41,45 @@
 
 <main id="main">
 
-<!-- ============ 1. 첫 머리 ============ -->
-<section class="page-hero ct-hero">
-  <div class="wrap">
-    <div class="sec-head center ct-hero-head">
-      <h1 class="h1" data-split="load">1일 과정부터,<br><span class="hl">한 학기 운영</span>까지</h1>
-      <p class="lead" data-load>기관·기업은 하루 과정으로, 대학·교육기관은 한 학기 편성으로 시작할 수 있습니다. 연중 상시 진행하며, 세부 일정은 기관과 협의해 정합니다.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 2. 연락처 · 문의 양식 ============ -->
-<section class="ct-contact" id="contact" aria-label="도입 문의">
-  <div class="wrap ct-grid">
-    <div class="ct-side">
-      <p class="kicker"><b>01</b>바로 연락하기</p>
-      <ul class="ct-list" data-stagger>
-        <li data-reveal><a class="ct-main" href="mailto:edu@aimz.media"><small>교육·도입 문의, 콘텐츠엔지니어링센터</small><b>edu@aimz.media</b></a></li>
-        <li data-reveal><a href="tel:01026072592"><small>이진형 콘텐츠엔지니어링센터장</small><b>010-2607-2592</b></a></li>
-        <li data-reveal><a href="tel:01073661953"><small>민세훈 콘텐츠엔지니어링 연구원</small><b>010-7366-1953</b></a></li>
-        <li data-reveal><a href="/assets/docs/aimz-edu-brochure.pdf" download="AIMZ LABS · EDU 사업소개서.pdf"><small>사업소개서(AIMZ LABS·EDU)</small><b>PDF 내려받기</b><span class="ar" aria-hidden="true">↓</span></a></li>
-        <li data-reveal><a href="https://studio.aimzedu.com" target="_blank" rel="noopener"><small>AIMZ EDU 스튜디오</small><b>studio.aimzedu.com</b><span class="ar" aria-hidden="true">↗</span></a></li>
-      </ul>
-    </div>
-
-    <div class="ct-form-box" data-reveal>
-      <p class="kicker"><b>02</b>문의 양식</p>
-      <h2 class="h3">희망 과정과 일정을<br>알려 주세요</h2>
-      <form class="ct-form" data-mailto="edu@aimz.media" data-brand="AIMZ EDU">
-        <div class="ct-field"><label for="f-org">기관·학교명</label><input id="f-org" name="org" required autocomplete="organization" placeholder="예) 에임즈대학교"></div>
-        <div class="ct-field"><label for="f-name">담당자</label><input id="f-name" name="name" required autocomplete="name" placeholder="성함 / 직함"></div>
-        <div class="ct-field"><label for="f-tel">연락처</label><input id="f-tel" name="tel" type="tel" autocomplete="tel" placeholder="010-0000-0000"></div>
-        <div class="ct-field"><label for="f-size">예상 인원</label><input id="f-size" name="size" placeholder="예) 20명 / 학생 100명"></div>
-        <div class="ct-field full"><label for="f-type">관심 분야</label>
-          <select id="f-type" name="type">
-            <option value="CORP">기관·기업 임직원 교육(기초·심화·전문)</option>
-            <option value="CAMPUS">대학·교육기관 학기 운영</option>
-            <option value="PLATFORM">통합 실습 플랫폼 도입</option>
-            <option value="TRIAL">시범 운영 (1일 과정 또는 1개 학기)</option>
-            <option value="ETC">기타</option>
-          </select>
+<section class="ct-contact" id="contact" aria-labelledby="ct-title">
+  <div class="wrap ct-wrap">
+    <header class="ct-hero">
+      <h1 class="h1" id="ct-title">교육 문의</h1>
+      <p class="lead">원데이 클래스부터 한 학기 운영까지</p>
+      <p class="ct-intro">희망 과정이나 맞춤 교육에 대해 알려 주세요. 메일을 확인한 뒤 담당자가 연락드리겠습니다.</p>
+    </header>
+    <div class="ct-grid">
+      <div class="ct-form-box">
+        <h2 class="h3">문의 양식</h2>
+        <form class="ct-form" data-mailto="edu@aimz.media" data-brand="AIMZ EDU">
+          <div class="ct-field"><label for="f-org">기관·회사명</label><input id="f-org" name="org" required autocomplete="organization"></div>
+          <div class="ct-field"><label for="f-name">담당자 이름</label><input id="f-name" name="name" required autocomplete="name"></div>
+          <div class="ct-field full"><label for="f-type">희망 과정</label>
+            <select id="f-type" name="type">
+              <option value="">선택해 주세요</option>
+              <option value="CORP">원데이 클래스</option>
+              <option value="CAMPUS">한 학기 운영</option>
+              <option value="CUSTOM">맞춤 교육 상담</option>
+              <option value="PLATFORM">AIMZ LABS 도입</option>
+              <option value="TRIAL">시범 운영</option>
+              <option value="ETC">기타</option>
+            </select>
+          </div>
+          <div class="ct-field full"><label for="f-msg">문의 내용</label><textarea id="f-msg" name="msg" rows="4" placeholder="희망 과정, 일정, 인원 등 정해진 내용을 적어 주세요."></textarea></div>
+          <div class="full ct-submit">
+            <button class="btn btn-lg btn-cta" type="submit">문의 메일 작성하기</button>
+            <p class="small">메일 앱에서 내용을 확인한 뒤 보내 주세요.</p>
+          </div>
+        </form>
+      </div>
+      <aside class="ct-side" aria-labelledby="ct-email">
+        <h2 id="ct-email">이메일로 문의</h2>
+        <a class="ct-mail" href="mailto:edu@aimz.media">edu@aimz.media <span aria-hidden="true">↗</span></a>
+        <div class="ct-support" id="support">
+          <h3>교육 운영 지원</h3>
+          <p>계정과 크레딧 관리, 수강생 문의, 학기말 리포트를 지원합니다.</p>
         </div>
-        <div class="ct-field full"><label for="f-msg">문의 내용</label><textarea id="f-msg" name="msg" rows="5" placeholder="희망 과정, 일정, 대상, 예산 등을 적어주세요."></textarea></div>
-        <div class="full ct-submit">
-          <button class="btn btn-lg btn-cta" type="submit">문의 메일 작성하기</button>
-          <p class="small">버튼을 누르면 입력하신 내용으로 메일 앱이 열립니다 (edu@aimz.media).</p>
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3. 운영 지원 (밝은 바탕) ============ -->
-<section class="sec soft ct-support" id="support">
-  <div class="wrap">
-    <div class="sec-head center">
-      <h2 class="h2 md" data-split>도입 후 운영은,<br><span class="hl">AIMZ 팀이 맡습니다</span></h2>
-      <p class="lead" data-reveal>계정과 크레딧 관리, 문의 응대, 교육 이후 피드백까지 맡습니다. 담당자는 필요한 것을 요청만 하면 됩니다.</p>
-    </div>
-
-    <ol class="ct-ops" data-stagger>
-      <li data-reveal><span class="ct-n">01</span><h3>계정과 크레딧 관리</h3><p>학생·교직원 계정 추가와 삭제, 비밀번호 초기화, 학기 중 크레딧 추가 지급과 소진 현황 확인을 맡습니다.</p></li>
-      <li data-reveal><span class="ct-n">02</span><h3>학생 문의 직접 응대</h3><p>학생 1:1 문의에 AIMZ 팀이 먼저 답합니다. 담당자를 거치지 않습니다.</p></li>
-      <li data-reveal><span class="ct-n">03</span><h3>학기말 리포트</h3><p>사용량 통계와 문의 요약, 다음 학기 개선 제안을 정리해 드립니다.</p></li>
-    </ol>
-
-    <div class="ct-rt-box" data-reveal>
-      <h3 class="ct-rt-h">응답 시간 기준</h3>
-      <dl class="ct-rt">
-        <div><dt>일반 문의</dt><dd><b>24시간</b><span>영업일 이내</span></dd></div>
-        <div class="hot"><dt>긴급 문의 (수업 중)<span class="ct-chip">최우선</span></dt><dd><b>30분–1시간</b><span>수업 중 문제는 최우선으로 처리</span></dd></div>
-        <div><dt>시스템 장애</dt><dd><b>즉시</b><span>발견 즉시 공지</span></dd></div>
-      </dl>
-      <p class="ct-channel"><b>전용 서포트 채널</b><span>전용 서포트 채널을 상시 운영합니다. 수업 중 생긴 문제는 최우선으로 처리합니다.</span></p>
+      </aside>
     </div>
   </div>
 </section>
@@ -141,6 +107,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-<script src="/assets/js/edu.js"></script>
+<script src="/assets/js/edu.js?v=20261123-3"></script>
 </body>
 </html>

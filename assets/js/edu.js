@@ -53,20 +53,6 @@
   }
   addEventListener('scroll', onScroll, { passive: true });
 
-  /* 떠 있는 상담 카드 — 첫 화면을 지나면 나타난다. 닫으면 이번 방문 동안 다시 안 뜬다 */
-  const fl = document.createElement('aside');
-  fl.className = 'fl'; fl.setAttribute('aria-label', '교육 상담');
-  fl.innerHTML = '<a href="/contact"><span class="fl-ph fl-logo"><img src="/assets/logo/aimz-mark-white.png" alt="AIMZ"></span><p>Contact<small>교육 문의 · 담당자가 직접 답합니다</small></p></a><button class="fl-x" type="button" aria-label="상담 버튼 닫기">×</button>';
-  let flOff = false; try { flOff = sessionStorage.getItem('edu-fl-off') === '1'; } catch (e) {}
-  if (!flOff) document.body.appendChild(fl);
-  $('.fl-x', fl).addEventListener('click', () => { fl.remove(); flOff = true; try { sessionStorage.setItem('edu-fl-off', '1'); } catch (e) {} });
-  function syncFl() {
-    if (flOff) return;
-    fl.classList.toggle('on', scrollY > innerHeight * .7 && current !== '/contact');
-    const ft = $('.ftr'); fl.classList.toggle('hide-foot', !!ft && ft.getBoundingClientRect().top < innerHeight - 40);
-  }
-  addEventListener('scroll', () => syncFl(), { passive: true });
-
   /* 모바일 메뉴 */
   const burger = $('.burger'), nav = $('#nav');
   if (burger && nav) {
@@ -145,9 +131,15 @@
       form.addEventListener('submit', e => {
         e.preventDefault();
         const d = new FormData(form);
-        const type = sel ? sel.options[sel.selectedIndex].text : '';
-        const subject = `[${form.dataset.brand || 'AIMZ EDU'} 문의] ${d.get('org') || ''} · ${type}`;
-        const body = `기관·회사명: ${d.get('org') || ''}\n담당자: ${d.get('name') || ''}\n연락처: ${d.get('tel') || ''}\n예상 인원: ${d.get('size') || ''}\n관심 분야: ${type}\n\n${d.get('msg') || ''}`;
+        const type = sel?.value ? sel.options[sel.selectedIndex].text : '';
+        const subject = `[${form.dataset.brand || 'AIMZ EDU'} 문의] ${d.get('org') || ''}${type ? ' · ' + type : ''}`;
+        const body = [
+          `기관·회사명: ${d.get('org') || ''}`,
+          `담당자: ${d.get('name') || ''}`,
+          `희망 과정: ${type || '미정'}`,
+          '',
+          d.get('msg') || ''
+        ].join('\n');
         location.href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
     });
@@ -429,35 +421,99 @@
     if (!items.length || !imgs.length) return;
     const DUR = 4800; let cur = 0, timer = null, hover = false, inView = false;
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const compact = matchMedia('(max-width: 1000px)');
     root.style.setProperty('--lx-dur', DUR / 1000 + 's');
     const set = (n) => {
       cur = n;
-      items.forEach((li, k) => { li.classList.toggle('on', k === n); li.setAttribute('aria-pressed', k === n); });
+      items.forEach((li, k) => {
+        li.classList.toggle('on', k === n);
+        if (!compact.matches) li.setAttribute('aria-pressed', k === n);
+      });
       imgs.forEach((im, k) => im.classList.toggle('on', k === n));
       const p = items[n].querySelector('.lx-prog');
       if (p) { p.style.animation = 'none'; void p.offsetWidth; p.style.animation = ''; }
     };
-    const tick = () => { clearTimeout(timer); if (reduce) return; timer = setTimeout(() => { if (!hover && inView) set((cur + 1) % items.length); tick(); }, DUR); };
+    const tick = () => {
+      clearTimeout(timer);
+      if (reduce || compact.matches || !inView) return;
+      timer = setTimeout(() => {
+        if (!hover) set((cur + 1) % items.length);
+        tick();
+      }, DUR);
+    };
     items.forEach((li, k) => {
-      li.addEventListener('mouseenter', () => { hover = true; root.classList.add('lx-paused'); if (k !== cur) set(k); });
-      li.addEventListener('click', () => { set(k); tick(); });
-      li.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); set(k); tick(); } });
+      li.addEventListener('mouseenter', () => {
+        if (compact.matches) return;
+        hover = true;
+        root.classList.add('lx-paused');
+        if (k !== cur) set(k);
+      });
+      li.addEventListener('click', () => {
+        if (compact.matches) return;
+        set(k);
+        tick();
+      });
+      li.addEventListener('keydown', (e) => {
+        if (!compact.matches && (e.key === 'Enter' || e.key === ' ')) {
+          e.preventDefault();
+          set(k);
+          tick();
+        }
+      });
     });
-    root.querySelector('.lx-list').addEventListener('mouseleave', () => { hover = false; root.classList.remove('lx-paused'); set(cur); tick(); });
-    new IntersectionObserver((es) => { inView = es[0].isIntersecting; if (inView) { set(cur); tick(); } }, { threshold: 0.35 }).observe(root);
+    root.querySelector('.lx-list').addEventListener('mouseleave', () => {
+      hover = false;
+      root.classList.remove('lx-paused');
+      if (!compact.matches) set(cur);
+      tick();
+    });
+    const syncControls = () => {
+      items.forEach((li, k) => {
+        if (compact.matches) {
+          li.removeAttribute('role');
+          li.removeAttribute('tabindex');
+          li.removeAttribute('aria-pressed');
+        } else {
+          li.setAttribute('role', 'button');
+          li.tabIndex = 0;
+          li.setAttribute('aria-pressed', k === cur);
+        }
+      });
+      hover = false;
+      root.classList.remove('lx-paused');
+      tick();
+    };
+    syncControls();
+    const observer = new IntersectionObserver(([entry]) => {
+      inView = entry.isIntersecting;
+      if (inView && !compact.matches) set(cur);
+      tick();
+    }, { threshold: 0.35 });
+    observer.observe(root);
     const shot = root.querySelector('[data-lx-shot]');
     /* 오른쪽 화면을 왼쪽 제목 윗선 ~ 목록 아랫선에 맞춘다 */
     const fit = () => {
       const card = root.querySelector('.lx-card'), t = root.querySelector('.lx-title'), l = root.querySelector('.lx-list');
       if (!shot || !card || !t || !l) return;
-      if (innerWidth < 1001) { shot.classList.remove('lx-fit'); shot.style.marginTop = shot.style.height = ''; return; }
+      if (compact.matches) { shot.classList.remove('lx-fit'); shot.style.marginTop = shot.style.height = ''; return; }
       shot.classList.add('lx-fit');
       const cr = card.getBoundingClientRect(), tr = t.getBoundingClientRect(), lr = l.getBoundingClientRect();
       const pad = parseFloat(getComputedStyle(card).paddingTop) || 0;
       shot.style.marginTop = Math.max(0, tr.top - cr.top - pad) + 'px';
       shot.style.height = Math.round(lr.bottom - tr.top) + 'px';
     };
-    fit(); addEventListener('resize', fit); if (document.fonts) document.fonts.ready.then(fit); setTimeout(fit, 600);
+    fit();
+    addEventListener('resize', fit);
+    compact.addEventListener('change', syncControls);
+    if (document.fonts) document.fonts.ready.then(fit);
+    const fitTimer = setTimeout(fit, 600);
+    cleanups.push(() => {
+      observer.disconnect();
+      clearTimeout(timer);
+      clearTimeout(fitTimer);
+      removeEventListener('resize', fit);
+      compact.removeEventListener('change', syncControls);
+    });
 
     if (shot && !reduce && matchMedia('(hover:hover)').matches) {
       shot.addEventListener('mousemove', (e) => {
@@ -524,7 +580,7 @@
       if (u.origin === location.origin && clean(u.pathname) === navPath) a.setAttribute('aria-current', 'page');
       else a.removeAttribute('aria-current');
     });
-    onScroll(); syncFl();
+    onScroll();
     if (hasGsap) { requestAnimationFrame(() => ScrollTrigger.refresh()); (document.fonts && document.fonts.ready || Promise.resolve()).then(() => ScrollTrigger.refresh()); }
   }
   function teardown() {
