@@ -136,6 +136,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hdr::before{opacity:1;background:rgba(255,255,255,.88)}
 .hdr.hide{transform:translateY(-100%)}
 .hdr-in{position:relative;height:100%;display:flex;align-items:center;gap:28px}
+.hdr-in--simple{justify-content:space-between}
 .logo{display:block;height:28px;flex:none;position:relative}
 .logo img{height:100%;width:auto;transition:opacity .35s var(--ease)}
 .logo .on-d{display:none}
@@ -456,6 +457,7 @@ html.reduce .ex-l,html.reduce .ex-r{display:none}
 
 .ftr{background:var(--surface-2);color:var(--ink);padding-block:64px 36px;border-top:1px solid var(--line)}
 .ftr-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+@media (min-width:1001px){.ftr-top--simple{grid-template-columns:1.3fr 1fr 1fr}}
 .ftr-brand img{height:30px;width:auto}
 .ftr-brand p{margin:18px 0 0;color:var(--muted);font-size:14px;max-width:320px}
 .ftr h4{margin:0 0 14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:700}

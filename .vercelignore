@@ -1,3 +1,11 @@
 _자료/
 *.md
 vercel-deploy.log
+# Initial release includes only the home and contact pages.
+/courses.html
+/platform.html
+/cases.html
+/instructors.html
+/safety.html
+/support.html
+/labs.html

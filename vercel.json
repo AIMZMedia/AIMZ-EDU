@@ -3,9 +3,9 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/safety",
-      "destination": "/platform#safety",
-      "permanent": true
+      "source": "/:page(courses|platform|cases|instructors|safety)",
+      "destination": "/",
+      "permanent": false
     },
     {
       "source": "/support",
@@ -18,9 +18,9 @@
       "permanent": true
     },
     {
-      "source": "/safety.html",
-      "destination": "/platform#safety",
-      "permanent": true
+      "source": "/:page(courses|platform|cases|instructors|safety).html",
+      "destination": "/",
+      "permanent": false
     },
     {
       "source": "/support.html",

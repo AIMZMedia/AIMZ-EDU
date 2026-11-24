@@ -589,15 +589,17 @@
     if (hasGsap) ScrollTrigger.getAll().forEach(t => t.kill());
   }
 
-  /* ---------------- 주소를 바꾸지 않는 페이지 이동 ---------------- */
-  const PAGES = new Set(['/', '/courses', '/platform', '/cases', '/instructors', '/contact']);
+  /* ---------------- 1차 공개 페이지 이동 ---------------- */
+  const PAGES = new Set(['/', '/contact']);
   /* 옛 주소 → 새 자리 (예전 링크·검색 결과 대비) */
-  const ALIAS = { '/safety': { p: '/platform', h: '#safety' }, '/support': { p: '/contact', h: '#support' }, '/labs': { p: '/', h: '#labs' } };
+  const ALIAS = { '/support': { p: '/contact', h: '#support' }, '/labs': { p: '/', h: '#labs' } };
   const clean = p => (p.length > 1 && p.endsWith('/') ? p.slice(0, -1) : p).replace(/\.html$/, '').replace(/\/index$/, '/') || '/';
   let current = clean(location.pathname), busy = false;
-  const FIRST_HASH = location.hash; /* 주소창을 '/'로 바꾸기 전에 #부분과 ?부분을 기억해 둔다 */
+  const FIRST_HASH = location.hash;
   pendingSearch = location.search;
-  if (current !== '/' && (PAGES.has(current) || ALIAS[current])) history.replaceState({ p: current, s: location.search, h: location.hash }, '', '/');
+  if (PAGES.has(current) || ALIAS[current]) {
+    history.replaceState({ p: current, s: location.search, h: location.hash }, '');
+  }
 
   function syncHead(doc) {
     /* 페이지 전용 스타일(data-page-css)을 맞춰 끼운다 */
@@ -624,7 +626,7 @@
       syncHead(doc);
       curMain.replaceWith(newMain);
       pendingSearch = search || ''; current = path;
-      if (push) history.pushState({ p: path, s: search || '', h: hash || '' }, '', location.href);
+      if (push) history.pushState({ p: path, s: search || '', h: hash || '' }, '', path + (search || '') + (hash || ''));
       scrollToY(0, true);
       initPage();
       if (hasGsap) gsap.from(newMain, { opacity: 0, y: 16, duration: .5, ease: 'power2.out', clearProps: 'opacity,transform' });
