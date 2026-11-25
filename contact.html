@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&display=swap">
 <link rel="stylesheet" href="/assets/css/edu.css?v=20261125-nav2">
-<link rel="stylesheet" href="/assets/css/p-contact.css" data-page-css>
+<link rel="stylesheet" href="/assets/css/p-contact.css?v=20261125-brochure" data-page-css>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -46,11 +46,11 @@
     <header class="ct-hero">
       <h1 class="h1" id="ct-title">교육 문의</h1>
       <p class="lead">원데이 클래스부터 한 학기 운영까지</p>
-      <p class="ct-intro">희망 과정이나 맞춤 교육에 대해 알려 주세요. 메일을 확인한 뒤 담당자가 연락드리겠습니다.</p>
     </header>
     <div class="ct-grid">
       <div class="ct-form-box">
         <h2 class="h3">문의 양식</h2>
+        <p class="ct-intro">희망 과정이나 맞춤 교육을 알려 주세요. 확인 후 담당자가 연락드리겠습니다.</p>
         <form class="ct-form" data-mailto="edu@aimz.media" data-brand="AIMZ EDU">
           <div class="ct-field"><label for="f-org">기관·회사명</label><input id="f-org" name="org" required autocomplete="organization"></div>
           <div class="ct-field"><label for="f-name">담당자 이름</label><input id="f-name" name="name" required autocomplete="name"></div>
@@ -65,20 +65,25 @@
               <option value="ETC">기타</option>
             </select>
           </div>
-          <div class="ct-field full"><label for="f-msg">문의 내용</label><textarea id="f-msg" name="msg" rows="4" placeholder="희망 과정, 일정, 인원 등 정해진 내용을 적어 주세요."></textarea></div>
+          <div class="ct-field full"><label for="f-msg">문의 내용</label><textarea id="f-msg" name="msg" rows="3" placeholder="희망 과정, 일정, 인원 등 정해진 내용을 적어 주세요."></textarea></div>
           <div class="full ct-submit">
             <button class="btn btn-lg btn-cta" type="submit">문의 메일 작성하기</button>
             <p class="small">메일 앱에서 내용을 확인한 뒤 보내 주세요.</p>
           </div>
         </form>
       </div>
-      <aside class="ct-side" aria-labelledby="ct-email">
-        <h2 id="ct-email">이메일로 문의</h2>
-        <a class="ct-mail" href="mailto:edu@aimz.media">edu@aimz.media <span aria-hidden="true">↗</span></a>
-        <div class="ct-support" id="support">
-          <h3>교육 운영 지원</h3>
-          <p>계정과 크레딧 관리, 수강생 문의, 학기말 리포트를 지원합니다.</p>
+      <aside class="ct-side" aria-label="연락처 및 사업소개서">
+        <div>
+          <h2>이메일로 문의</h2>
+          <a class="ct-mail" href="mailto:edu@aimz.media">edu@aimz.media <span aria-hidden="true">↗</span></a>
+          <div class="ct-support" id="support">
+            <h3>교육 운영 지원</h3>
+            <p>계정·크레딧 관리, 수강생 문의, 학기말 리포트를 지원합니다.</p>
+          </div>
         </div>
+        <a class="ct-brochure" href="/assets/docs/aimz-edu-brochure.pdf" target="_blank" rel="noopener" aria-label="사업소개서 (PDF, 새 탭)">
+          사업소개서 <span aria-hidden="true">↗</span>
+        </a>
       </aside>
     </div>
   </div>
@@ -93,7 +98,7 @@
       <nav class="ftr-mini-links" aria-label="하단 링크">
         <a href="/contact">교육 문의</a>
         <a href="mailto:edu@aimz.media">edu@aimz.media</a>
-        <a href="/assets/docs/aimz-edu-brochure.pdf" download>사업소개서 PDF</a>
+        <a href="/assets/docs/aimz-edu-brochure.pdf" target="_blank" rel="noopener" aria-label="사업소개서 (PDF, 새 탭)">사업소개서 <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
     <div class="ftr-mini-bottom">
