@@ -73,6 +73,7 @@
       if (e.target.closest('a')) {
         nav.classList.remove('open');
         burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', '메뉴 열기');
       }
     });
   }
