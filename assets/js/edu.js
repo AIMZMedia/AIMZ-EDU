@@ -62,7 +62,19 @@
       burger.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
       hdr.classList.remove('hide');
     });
-    nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); } });
+    nav.addEventListener('click', e => {
+      const pending = e.target.closest('.nav-pending');
+      if (pending && !reduce) {
+        pending.animate([{ transform: 'scale(.96)' }, { transform: 'scale(1)' }], {
+          duration: 170,
+          easing: 'ease-out'
+        });
+      }
+      if (e.target.closest('a')) {
+        nav.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+    });
   }
 
   /* ---------------- 부품들 ---------------- */

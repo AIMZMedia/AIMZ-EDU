@@ -136,12 +136,33 @@ button{font:inherit;color:inherit;cursor:pointer}
 .hdr::before{opacity:1;background:rgba(255,255,255,.88)}
 .hdr.hide{transform:translateY(-100%)}
 .hdr-in{position:relative;height:100%;display:flex;align-items:center;gap:28px}
-.hdr-in--simple{justify-content:space-between}
 .logo{display:block;height:28px;flex:none;position:relative}
 .logo img{height:100%;width:auto;transition:opacity .35s var(--ease)}
 .logo .on-d{display:none}
 .nav{display:flex;gap:4px;margin-left:auto}
 .nav a{position:relative;padding:8px 12px;font-size:14.5px;font-weight:600;border-radius:9px;opacity:.78;transition:opacity .2s,background .2s}
+.nav-pending {
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+  opacity: .78;
+  cursor: pointer;
+  transition: opacity .2s, background-color .2s;
+}
+.nav-pending:focus-visible, .nav-pending:active {
+  opacity: 1;
+  background: var(--surface-3);
+}
+@media (hover: hover) {
+  .nav-pending:hover { opacity: 1; background: var(--surface-3); }
+}
 .nav a:hover,.nav a[aria-current="page"]{opacity:1}
 .nav a[aria-current="page"]{font-weight:700}
 /* AIMZ LABS 링크 — 올리거나 누르면 LABS 쪽 파란 빛이 돈다 */
@@ -457,7 +478,6 @@ html.reduce .ex-l,html.reduce .ex-r{display:none}
 
 .ftr{background:var(--surface-2);color:var(--ink);padding-block:64px 36px;border-top:1px solid var(--line)}
 .ftr-top{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;padding-bottom:40px;border-bottom:1px solid var(--line)}
-@media (min-width:1001px){.ftr-top--simple{grid-template-columns:1.3fr 1fr 1fr}}
 .ftr-brand img{height:30px;width:auto}
 .ftr-brand p{margin:18px 0 0;color:var(--muted);font-size:14px;max-width:320px}
 .ftr h4{margin:0 0 14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:700}
@@ -469,6 +489,31 @@ html.reduce .ex-l,html.reduce .ex-r{display:none}
 .ftr-family{display:flex;gap:18px;align-items:center}
 .ftr-family img{height:18px;width:auto;opacity:.75;transition:opacity .2s}
 .ftr-family a:hover img{opacity:1}
+
+.ftr--compact { padding-block: 28px 20px; }
+.ftr-mini-top, .ftr-mini-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+.ftr-mini-top { align-items: center; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.ftr-mini-top img { width: 92px; height: auto; }
+.ftr-mini-links { display: flex; flex-wrap: wrap; gap: 0 16px; }
+.ftr-mini-links a { display: inline-flex; align-items: center; min-height: 36px; font-size: 14px; color: var(--muted); }
+.ftr-mini-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ftr-mini-bottom { padding-top: 12px; font-size: 12.5px; color: var(--muted); }
+.ftr-mini-bottom summary { cursor: pointer; font-weight: 650; }
+.ftr-mini-bottom address { margin-top: 6px; font-style: normal; line-height: 1.65; }
+.ftr-mini-bottom small { font-size: inherit; }
+
+@media (max-width:640px) {
+  .ftr-mini-top { align-items: flex-start; flex-direction: column; gap: 7px; padding-bottom: 10px; }
+  .ftr-mini-links { column-gap: 12px; }
+  .ftr-mini-links a { font-size: 13px; }
+  .ftr-mini-bottom { padding-right: 50px; column-gap: 12px; }
+}
 
 .totop{position:fixed;right:20px;bottom:20px;z-index:70;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);
   box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s,transform .3s}
@@ -501,6 +546,7 @@ html.reduce [data-reveal]{opacity:1!important;transform:none!important;clip-path
     transform:translateY(-12px);opacity:0;visibility:hidden;transition:opacity .3s var(--ease),transform .3s var(--ease),visibility 0s .3s}
   .nav.open{opacity:1;transform:none;visibility:visible;transition:opacity .3s var(--ease),transform .3s var(--ease)}
   .nav a{padding:16px 4px;font-size:18px;border-bottom:1px solid var(--line);border-radius:0;opacity:1}
+  .nav-pending{padding:16px 4px;font-size:18px;border-bottom:1px solid var(--line);border-radius:0}
   .nav a[aria-current="page"]::after{left:auto;right:4px;top:50%;bottom:auto;width:6px;height:6px;border-radius:50%;transform:translateY(-50%)}
   .burger{display:block}
   .hdr-act{margin-left:auto}
