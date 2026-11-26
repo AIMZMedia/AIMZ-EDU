@@ -146,3 +146,4 @@ body:has(.ct-contact) .ftr-mini-bottom { padding-top: 4px; }
 @media (max-width: 360px) {
   .ct-form { grid-template-columns: 1fr; }
 }
+.ct-sub { margin: 10px 0 0; font-size: 12.5px; line-height: 1.7; color: #9AA1B2; }

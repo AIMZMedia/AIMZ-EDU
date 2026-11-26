@@ -1265,3 +1265,5 @@ a.kw4:hover .kw4-ic{transform:translateY(-4px) rotate(-6deg) scale(1.04)}
 @media (max-width:359px) {
   .labs-x .lx-cta { grid-template-columns: 1fr; }
 }
+.cp-mail{margin:6px 0 0;font-size:12.5px;line-height:1.4;color:var(--faint,#9AA1B2);letter-spacing:0}
+@media (max-width:640px){.cp-mail{display:none}}
