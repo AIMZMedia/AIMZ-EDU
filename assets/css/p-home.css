@@ -1067,7 +1067,7 @@ a.kw4:hover .kw4-ic{transform:translateY(-4px) rotate(-6deg) scale(1.04)}
   .crew-x.cp-pop .crew-field{height:clamp(300px,30vw,440px)}
   .crew-x.cp-pop .crew-people{max-width:940px;margin:-150px auto 0;gap:14px;padding-inline:0}
   .crew-x.cp-pop .cp-b{padding:14px 16px 16px}
-  .crew-x.cp-pop .cp-one{display:none}
+  .crew-x.cp-pop .cp-one{font-size:13.5px;line-height:1.55}
   .crew-x.cp-pop .cp h4{font-size:19px}
   .crew-x.cp-pop .cp-tags{padding-top:10px}
 }
