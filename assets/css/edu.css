@@ -551,6 +551,7 @@ html.reduce [data-reveal]{opacity:1!important;transform:none!important;clip-path
   .burger{display:block}
   .hdr-act{margin-left:auto}
   .hdr-act .btn-ghost,.hdr-act .btn-line{display:none}
+  .hdr-act .btn-cta,.hdr-act .btn-cta:has(.cta-triangle){display:none}
   .g3{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sec-head.split{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}

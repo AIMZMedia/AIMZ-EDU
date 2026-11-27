@@ -147,3 +147,6 @@ body:has(.ct-contact) .ftr-mini-bottom { padding-top: 4px; }
   .ct-form { grid-template-columns: 1fr; }
 }
 .ct-sub { margin: 10px 0 0; font-size: 12.5px; line-height: 1.7; color: #9AA1B2; }
+.ct-sub a { color: inherit; }
+.ct-sub a:hover { color: #3A6BFF; text-decoration: underline; }
+.ct-sub b { font-weight: 600; color: #7B8296; margin-right: 6px; }
